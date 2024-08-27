@@ -1,4 +1,17 @@
 /* General Heading Styles */
+.quote {
+    font-family: 'Roboto', serif; /* Elegant font for quotes */
+    font-size: 1.5em; /* Larger font size for emphasis */
+    font-style: italic; /* Italicize for a classic quote look */
+    color: whitesmoke; /* Dark grey color for readability */
+    text-align: center; /* Center the text */
+    margin: 20px auto; /* Add space around and center the paragraph */
+    padding: 10px; /* Add padding for spacing */
+    border-radius: 5px; /* Rounded corners */
+    max-width: 600px; /* Limit width to maintain readability */
+}
+
+
 h2, p {
     font-family: 'Roboto';
 }
