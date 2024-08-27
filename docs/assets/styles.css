@@ -1,10 +1,17 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
+    padding-bottom: 100px;
     background-color: #f4f4f4;
     color: #333;
 }
+
+
+h2 {
+    text-align: center;
+}
+
 
 header {
     background: linear-gradient(45deg, #007bff, #00bfff);
@@ -15,13 +22,14 @@ header {
 
 .container {
     width: 90%;
+    max-width: 1200px; /* Added max-width for larger screens */
     margin: 0 auto;
     overflow: hidden;
 }
 
 .home {
     text-align: center;
-    padding: 20px;
+    padding: 40px 20px; /* Increased padding for better spacing */
 }
 
 .home img {
@@ -32,7 +40,7 @@ header {
 }
 
 .home h1 {
-    font-size: 2em;
+    font-size: 2.5em; /* Increased font size */
     margin: 10px 0;
 }
 
@@ -40,15 +48,20 @@ header {
     font-size: 1.2em;
 }
 
+.button-group {
+    margin-top: 20px; /* Added margin-top for spacing */
+}
+
 .button {
     display: inline-block;
     margin: 10px 5px;
-    padding: 10px 20px;
+    padding: 12px 24px; /* Increased padding for a larger button */
     background: #007bff;
     color: white;
     text-decoration: none;
     border-radius: 5px;
     font-size: 1em;
+    transition: background 0.3s; /* Added transition for smooth hover effect */
 }
 
 .button:hover {
@@ -57,9 +70,10 @@ header {
 
 .section {
     background: white;
-    padding: 20px;
+    padding: 30px; /* Increased padding */
     margin: 20px 0;
     border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added box-shadow for depth */
 }
 
 .section h2 {
@@ -72,12 +86,12 @@ header {
     line-height: 1.6;
 }
 
-.experience ul, .social-media ul {
+.experience ul {
     list-style-type: none;
     padding: 0;
 }
 
-.experience li, .social-media li {
+.experience li {
     margin-bottom: 10px;
 }
 
@@ -91,51 +105,107 @@ li {
     margin-bottom: 10px; /* Space between list items */
 }
 
-.social-links {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
+/* Flex container for video gallery */
+.video-gallery {
+    display: flex; /* Flexbox layout for horizontal alignment */
+    gap: 20px; /* Space between videos */
+    flex-wrap: wrap; /* Allows videos to wrap to the next line on smaller screens */
+    justify-content: center; /* Center videos horizontally */
+    margin-top: 20px; /* Spacing above the gallery */
 }
 
-.social-links li {
-    display: flex;
-    align-items: center; /* Center-align text and images vertically */
+/* Video item styling */
+.video-item {
+    flex: 1 1 300px; /* Flex-grow: 1; Flex-shrink: 1; Flex-basis: 300px; */
+    max-width: 320px; /* Limit maximum width of each video */
+    position: relative;
+    padding-bottom: 16.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    background: #000; /* Background color for video containers */
+    border-radius: 8px; /* Optional: rounded corners */
 }
 
-.social-links img {
-    width: 24px; /* Adjust image size */
-    height: 24px; /* Maintain square shape */
-    margin-right: 8px; /* Space between image and text */
-    vertical-align: middle; /* Align the middle of the image with the text */
+/* Iframe styling for videos */
+.video-item iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none; /* Remove border from iframe */
 }
 
-.social-links a {
-    text-decoration: none; /* Remove underline from links */
-    color: #000; /* Text color */
-    font-size: 16px; /* Font size */
-    display: flex;
-    align-items: center;
-}
-
-.social-links a:hover {
-    color: #0073b1; /* Link hover color, can be customized */
-}
-
+/* Existing Footer Styles */
 .footer {
-    background: #007bff;
+    background: linear-gradient(45deg, #0056b3, #007bff); /* Subtle gradient */
     color: white;
     text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
+    padding: 20px 0; /* Increased padding for better spacing */
     width: 100%;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2); /* Adds a shadow for a lifted effect */
+    position: fixed; /* Fixes footer to the bottom */
+    bottom: 0; /* Aligns the footer to the bottom of the page */
+    left: 0; /* Aligns the footer to the left side of the page */
 }
+
+/* Container adjustments */
+.footer .container {
+    max-width: 1100px; /* Limit container width for better alignment */
+    margin: 0 auto; /* Center container */
+    padding: 0 20px; /* Add side padding */
+}
+
+/* Footer content styling */
+.footer-content {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center content vertically */
+}
+
+/* Contact Me styling */
+.contact-me {
+    font-size: 1.2em; /* Larger font size */
+    font-weight: bold; /* Make it bold */
+    margin-bottom: 10px; /* Space below the text */
+}
+
+/* Footer social media styling */
+.footer-social {
+    display: flex; /* Flexbox for horizontal layout */
+    gap: 15px; /* Space between social icons */
+    margin-top: 10px; /* Space above social icons */
+}
+
+/* Social icons styling */
+.footer-social a img {
+    width: 24px; /* Set width for icons */
+    height: 24px; /* Set height for icons */
+    transition: transform 0.3s; /* Smooth hover effect */
+}
+
+/* Social icons hover effect */
+.footer-social a:hover img {
+    transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+/* Centered footer quote styling */
+.footer-quote {
+    font-size: 1.2em; /* Larger font size */
+    font-style: italic; /* Italicize quote */
+    margin: 15px 0; /* Space around quote */
+    text-align: center; /* Center align the text */
+}
+
+/* Responsive adjustments */
 @media (min-width: 768px) {
-    .two-column {
-        display: flex;
-        justify-content: space-between;
+    .footer-content {
+        flex-direction: row; /* Align items horizontally on larger screens */
+        justify-content: center; /* Space items out */
+        align-items: center; /* Center items vertically */
     }
-    .two-column > div {
-        flex: 1;
-        margin: 0 10px;
+    .contact-me, .footer-social {
+        margin: 0 20px; /* Space between contact text and social icons */
     }
 }
