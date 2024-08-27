@@ -1,3 +1,13 @@
+/* Base and Global Styles */
+html {
+    font-size: 16px; /* Base font size */
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -7,12 +17,7 @@ body {
     color: #333;
 }
 
-
-h2 {
-    text-align: center;
-}
-
-
+/* Header */
 header {
     background: linear-gradient(45deg, #007bff, #00bfff);
     color: white;
@@ -20,16 +25,18 @@ header {
     text-align: center;
 }
 
+/* Container */
 .container {
     width: 90%;
-    max-width: 1200px; /* Added max-width for larger screens */
+    max-width: 1200px;
     margin: 0 auto;
     overflow: hidden;
 }
 
+/* Home Section */
 .home {
     text-align: center;
-    padding: 40px 20px; /* Increased padding for better spacing */
+    padding: 40px 20px;
 }
 
 .home img {
@@ -40,7 +47,7 @@ header {
 }
 
 .home h1 {
-    font-size: 2.5em; /* Increased font size */
+    font-size: 2.5em;
     margin: 10px 0;
 }
 
@@ -49,31 +56,32 @@ header {
 }
 
 .button-group {
-    margin-top: 20px; /* Added margin-top for spacing */
+    margin-top: 20px;
 }
 
 .button {
     display: inline-block;
     margin: 10px 5px;
-    padding: 12px 24px; /* Increased padding for a larger button */
+    padding: 12px 24px;
     background: #007bff;
     color: white;
     text-decoration: none;
     border-radius: 5px;
     font-size: 1em;
-    transition: background 0.3s; /* Added transition for smooth hover effect */
+    transition: background 0.3s;
 }
 
 .button:hover {
     background: #0056b3;
 }
 
+/* Section */
 .section {
     background: white;
-    padding: 30px; /* Increased padding */
+    padding: 30px;
     margin: 20px 0;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added box-shadow for depth */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .section h2 {
@@ -86,6 +94,7 @@ header {
     line-height: 1.6;
 }
 
+/* Experience */
 .experience ul {
     list-style-type: none;
     padding: 0;
@@ -95,6 +104,7 @@ header {
     margin-bottom: 10px;
 }
 
+/* Lists */
 ul {
     list-style: none;
     padding: 0;
@@ -102,110 +112,102 @@ ul {
 }
 
 li {
-    margin-bottom: 10px; /* Space between list items */
+    margin-bottom: 10px;
 }
 
-/* Flex container for video gallery */
+/* Video Gallery */
 .video-gallery {
-    display: flex; /* Flexbox layout for horizontal alignment */
-    gap: 20px; /* Space between videos */
-    flex-wrap: wrap; /* Allows videos to wrap to the next line on smaller screens */
-    justify-content: center; /* Center videos horizontally */
-    margin-top: 20px; /* Spacing above the gallery */
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
 }
 
-/* Video item styling */
 .video-item {
-    flex: 1 1 300px; /* Flex-grow: 1; Flex-shrink: 1; Flex-basis: 300px; */
-    max-width: 320px; /* Limit maximum width of each video */
+    flex: 1 1 300px;
+    max-width: 320px;
     position: relative;
-    padding-bottom: 16.25%; /* 16:9 aspect ratio */
+    padding-bottom: 16.25%;
     height: 0;
     overflow: hidden;
-    background: #000; /* Background color for video containers */
-    border-radius: 8px; /* Optional: rounded corners */
+    background: #000;
+    border-radius: 8px;
 }
 
-/* Iframe styling for videos */
 .video-item iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    border: none; /* Remove border from iframe */
+    border: none;
 }
 
-/* Existing Footer Styles */
+/* Footer */
 .footer {
-    background: linear-gradient(45deg, #0056b3, #007bff); /* Subtle gradient */
+    background: linear-gradient(45deg, #0056b3, #007bff);
     color: white;
     text-align: center;
-    padding: 20px 0; /* Increased padding for better spacing */
+    padding: 20px 0;
     width: 100%;
-    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2); /* Adds a shadow for a lifted effect */
-    position: fixed; /* Fixes footer to the bottom */
-    bottom: 0; /* Aligns the footer to the bottom of the page */
-    left: 0; /* Aligns the footer to the left side of the page */
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
 
-/* Container adjustments */
 .footer .container {
-    max-width: 1100px; /* Limit container width for better alignment */
-    margin: 0 auto; /* Center container */
-    padding: 0 20px; /* Add side padding */
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* Footer content styling */
 .footer-content {
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Stack items vertically on smaller screens */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center content vertically */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Contact Me styling */
 .contact-me {
-    font-size: 1.2em; /* Larger font size */
-    font-weight: bold; /* Make it bold */
-    margin-bottom: 10px; /* Space below the text */
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
-/* Footer social media styling */
 .footer-social {
-    display: flex; /* Flexbox for horizontal layout */
-    gap: 15px; /* Space between social icons */
-    margin-top: 10px; /* Space above social icons */
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
 }
 
-/* Social icons styling */
 .footer-social a img {
-    width: 24px; /* Set width for icons */
-    height: 24px; /* Set height for icons */
-    transition: transform 0.3s; /* Smooth hover effect */
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s;
 }
 
-/* Social icons hover effect */
 .footer-social a:hover img {
-    transform: scale(1.1); /* Slightly increase size on hover */
+    transform: scale(1.1);
 }
 
-/* Centered footer quote styling */
 .footer-quote {
-    font-size: 1.2em; /* Larger font size */
-    font-style: italic; /* Italicize quote */
-    margin: 15px 0; /* Space around quote */
-    text-align: center; /* Center align the text */
+    font-size: 1.2em;
+    font-style: italic;
+    margin: 15px 0;
+    text-align: center;
 }
 
-/* Responsive adjustments */
+/* Responsive Adjustments */
 @media (min-width: 768px) {
     .footer-content {
-        flex-direction: row; /* Align items horizontally on larger screens */
-        justify-content: center; /* Space items out */
-        align-items: center; /* Center items vertically */
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
+
     .contact-me, .footer-social {
-        margin: 0 20px; /* Space between contact text and social icons */
+        margin: 0 20px;
     }
 }
