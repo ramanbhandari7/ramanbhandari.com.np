@@ -1,10 +1,115 @@
+/* General Heading Styles */
+h2, p {
+    font-family: 'Roboto';
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+/* Specific Heading Styles for the Sections */
+#raman {
+    color: #4A90E2;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    /* text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); */
+    animation: bounceIn 1s ease-out, fadeIn 2s ease-in;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+h2 {
+    font-size: 2em; /* Size for section headings */
+    color: #0073e6; /* Accent color for section headings */
+    margin-bottom: 15px; /* Space below the heading */
+    border-bottom: 2px solid #0073e6; /* Bottom border for a visual divider */
+    padding-bottom: 10px; /* Padding below the heading */
+    display: inline-block; /* Inline-block to respect padding and border */
+}
+
+h3 {
+    font-size: 1.75em; /* Size for sub-sections or important sub-headings */
+    color: #333; /* Consistent color with h1 for important sub-headings */
+    margin-bottom: 10px; /* Space below the heading */
+}
+
+h4 {
+    font-size: 1.5em; /* Size for lower-level headings */
+    color: #666; /* Slightly lighter color for lower-level headings */
+    margin-bottom: 10px; /* Space below the heading */
+}
+
+h5 {
+    font-size: 1.25em; /* Size for even lower-level headings */
+    color: #999; /* Lighter color for less emphasis */
+    margin-bottom: 10px; /* Space below the heading */
+}
+
+h6 {
+    font-size: 1em; /* Size for the smallest headings */
+    color: #ccc; /* Very light color for the smallest headings */
+    margin-bottom: 10px; /* Space below the heading */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em; /* Smaller size for main headings on mobile */
+    }
+
+    h2 {
+        font-size: 1.75em; /* Adjust size for section headings on mobile */
+    }
+
+    h3 {
+        font-size: 1.5em; /* Adjust size for sub-sections on mobile */
+    }
+
+    h4 {
+        font-size: 1.25em; /* Adjust size for lower-level headings on mobile */
+    }
+
+    h5, h6 {
+        font-size: 1em; /* Keep size consistent for smaller headings on mobile */
+    }
+}
+
+
+
 /* Base and Global Styles */
 html {
-    font-size: 16px; /* Base font size */
+    font-size: 18px; /* Base font size */
     box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*, *::before, *::after {
     box-sizing: inherit;
 }
 
@@ -12,7 +117,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    padding-bottom: 100px;
+    padding-bottom: 100px; /* Adjust based on footer height */
     background-color: #f4f4f4;
     color: #333;
 }
@@ -44,6 +149,17 @@ header {
     border-radius: 50%;
     margin: 0 auto;
     display: block;
+    position: relative; /* Ensure the glowing effect is positioned relative to the image */
+    z-index: 1; /* Make sure the image is above the glowing effect */
+    background: linear-gradient(0deg, rgba(0, 204, 255, 0.3), rgba(0, 204, 255, 0) 70%);
+    box-shadow: 0 0 20px rgba(0, 204, 255, 0.8); /* Glowing shadow */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition for the glow effect */
+}
+
+/* Optional: Enhance the glow effect on hover */
+.home img:hover {
+    box-shadow: 0 0 30px rgba(0, 204, 255, 1); /* Increase the shadow intensity on hover */
+    transform: scale(1.05); /* Slightly scale up the image on hover */
 }
 
 .home h1 {
@@ -75,24 +191,83 @@ header {
     background: #0056b3;
 }
 
-/* Section */
+/* General Section Styling */
 .section {
     background: white;
     padding: 30px;
     margin: 20px 0;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center; /* Center-align text within the section */
+}
+
+.section:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .section h2 {
-    margin-top: 0;
-    font-size: 1.8em;
+    font-size: 2em; /* Adjust the font size of section headings */
+    margin-bottom: 20px; /* Add space below the heading */
 }
 
 .section p {
-    font-size: 1.1em;
-    line-height: 1.6;
+    font-size: 1.1em; /* Adjust the size of paragraph text */
+    line-height: 1.6; /* Increase line-height for readability */
+    margin: 10px 0; /* Add space between paragraphs */
+    max-width: 800px; /* Limit the width of paragraphs */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
 }
+
+.section ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+    margin: 20px auto; /* Center the list horizontally */
+    max-width: 800px; /* Limit the width of the list */
+}
+
+.section li {
+    margin-bottom: 10px; /* Add space between list items */
+    padding: 10px; /* Add padding inside list items */
+    border-radius: 5px; /* Round the corners of list items */
+    background-color: #f9f9f9; /* Light background color for list items */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+}
+
+.section li:hover {
+    background-color: #e0e0e0; /* Darker background on hover */
+    transform: scale(1.02); /* Slightly scale up on hover */
+}
+
+.section a {
+    color: #0073e6; /* Link color */
+    text-decoration: none; /* Remove underline from links */
+    font-weight: bold; /* Make link text bold */
+    transition: color 0.3s, text-decoration 0.3s; /* Smooth transition for hover effects */
+}
+
+.section a:hover {
+    color: #0056b3; /* Change text color on hover */
+    text-decoration: underline; /* Underline text on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .section {
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
+    .section h2 {
+        font-size: 1.5em; /* Adjust heading size for smaller screens */
+    }
+
+    .section p {
+        font-size: 1em; /* Adjust paragraph text size for smaller screens */
+    }
+}
+
 
 /* Experience */
 .experience ul {
@@ -115,33 +290,8 @@ li {
     margin-bottom: 10px;
 }
 
-/* Video Gallery */
-.video-gallery {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.video-item {
-    flex: 1 1 300px;
-    max-width: 320px;
-    position: relative;
-    padding-bottom: 16.25%;
-    height: 0;
-    overflow: hidden;
-    background: #000;
-    border-radius: 8px;
-}
-
-.video-item iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
+main {
+    padding-bottom: 120px; /* Adjust this value as needed */
 }
 
 /* Footer */
@@ -155,6 +305,7 @@ li {
     position: fixed;
     bottom: 0;
     left: 0;
+    z-index: 1000; /* Ensure footer stays above other content */
 }
 
 .footer .container {
@@ -199,6 +350,8 @@ li {
     text-align: center;
 }
 
+
+
 /* Responsive Adjustments */
 @media (min-width: 768px) {
     .footer-content {
@@ -210,4 +363,74 @@ li {
     .contact-me, .footer-social {
         margin: 0 20px;
     }
+}
+
+@media (max-width: 768px) {
+    .video-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+/* General Styles */
+.certificates-list {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.certificates-list li {
+    margin: 10px 0; /* Add space between list items */
+    padding: 10px; /* Add padding inside each list item */
+    border-radius: 5px; /* Round the corners */
+    background-color: #f9f9f9; /* Light background color */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+}
+
+.certificates-list li:hover {
+    background-color: #e0e0e0; /* Darker background on hover */
+    transform: scale(1.02); /* Slightly scale up on hover */
+}
+
+.certificates-list a {
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Dark text color */
+    font-weight: bold; /* Make link text bold */
+}
+
+.certificates-list a:hover {
+    color: #0073e6; /* Change text color on hover */
+    text-decoration: underline; /* Underline text on hover */
+}
+
+/* Video Gallery */
+.video-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust the minmax for smaller screens */
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.video-item {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    background: #000;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.video-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.video-item iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
