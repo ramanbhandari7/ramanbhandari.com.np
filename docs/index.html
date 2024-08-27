@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raman Bhandari - Personal Website</title>
-
-    <link rel = "stylesheet" href = "assets/styles.css">
-
+    <link rel="stylesheet" href="assets/styles.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
@@ -17,15 +16,17 @@
         </div>
     </header>
 
-    <div class="container">
+    <main class="container">
 
         <section class="home">
-            <img src="assets/profile.jpg" alt="Raman Bhandari">
+            <img src="assets/profile.jpg" alt="Portrait of Raman Bhandari">
             <h1>Hi, I’m Raman Bhandari</h1>
             <p>A skilled Data Entry and Inventory Clerk with a passion for freelancing and digital solutions.</p>
-            <a href="#portfolio" class="button">View My Work</a>
-            <a href="https://www.upwork.com" class="button">Hire Me on Upwork</a>
-            <a href="#contact" class="button">Contact Me</a>
+            <div class="button-group">
+                <a href="#portfolio" class="button">Watch my Recent Vlogs</a>
+                <a href="https://www.upwork.com/freelancers/~01f8e14f35ddc40da1" class="button" target="_blank" rel="noopener">Hire Me on Upwork</a>
+                <a href="#contact" class="button">Contact Me</a>
+            </div>
         </section>
 
         <div class="two-column">
@@ -70,53 +71,57 @@
         </section>
 
         <section class="section portfolio" id="portfolio">
-            <h2>Portfolio</h2>
-            <p>Showcase of Upwork projects and case studies...</p>
+            <h2>Vadaz Vlogs</h2>
+
+            <!-- Flex container for videos -->
+            <div class="video-gallery">
+                <!-- Embed YouTube Video 1 -->
+                <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/fEo6fwNWzDg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+                <!-- Embed YouTube Video 2 -->
+                <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/uSEvM73vZlw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
         </section>
 
-        <section class="section contact" id="contact">
-            <h2>Contact</h2>
-            <p>Direct Contact: <a href="mailto:ramanbhandari7@outlook.com">ramanbhandari7@outlook.com</a></p>
-            <p>Social Media Links:</p>
-            <ul class="social-links">
-                <li>
-                    <a href="https://www.linkedin.com/in/raman-bhandari-942554247/" target="_blank">
-                        <img src="assets/linkedin.jpg" alt="LinkedIn">LinkedIn
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.upwork.com/freelancers/~01f8e14f35ddc40da1" target="_blank">
-                        <img src="assets/upwork.png" alt="Upwork">Upwork
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.youtube.com/c/VADAZVLOGS" target="_blank">
-                        <img src="assets/youtube.jpg" alt="YouTube">YouTube
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.instagram.com/ramanbhandari1991?igsh=OTJwOXNiMTQxaW1k" target="_blank">
-                        <img src="assets/instagram.jfif" alt="Instagram">Instagram
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.facebook.com/ramanbhandari07" target="_blank">
-                        <img src="assets/facebook.png" alt="Facebook">Facebook
-                    </a>
-                </li>
-                <li>
-                    <a href="https://wa.me/9810430546" target="_blank">
-                        <img src="assets/whatsapp.jfif" alt="WhatsApp">WhatsApp
-                    </a>
-                </li>
-            </ul>
-            <p>Location: Doha, Qatar</p>
-        </section>
+    </main>
 
-    </div>
     <footer class="footer">
-        <p>Quick Links: <a href="#">Resume</a> | <a href="#contact">Contact</a></p>
-        <p>“Strive not to be a success, but rather to be of value.”</p>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Contact Me Section -->
+                <p class="contact-me">Contact Me:</p>
+
+                <!-- Social Media Links -->
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/raman-bhandari-942554247/" target="_blank" rel="noopener">
+                        <img src="assets/linkedin.png" alt="LinkedIn" class="social-icon">
+                    </a>
+                    <a href="https://www.upwork.com/freelancers/~01f8e14f35ddc40da1" target="_blank" rel="noopener">
+                        <img src="assets/upwork.png" alt="Upwork" class="social-icon">
+                    </a>
+                    <a href="https://www.youtube.com/c/VADAZVLOGS" target="_blank" rel="noopener">
+                        <img src="assets/youtube.jpg" alt="YouTube" class="social-icon">
+                    </a>
+                    <a href="https://www.instagram.com/ramanbhandari1991?igsh=OTJwOXNiMTQxaW1k" target="_blank" rel="noopener">
+                        <img src="assets/instagram.jfif" alt="Instagram" class="social-icon">
+                    </a>
+                    <a href="https://www.facebook.com/ramanbhandari07" target="_blank" rel="noopener">
+                        <img src="assets/facebook.png" alt="Facebook" class="social-icon">
+                    </a>
+                    <a href="https://wa.me/9810430546" target="_blank" rel="noopener">
+                        <img src="assets/whatsapp.jfif" alt="WhatsApp" class="social-icon">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Footer Quote -->
+            <p class="footer-quote">“Strive not to be a success, but rather to be of value.”</p>
+        </div>
     </footer>
+
 </body>
 </html>
