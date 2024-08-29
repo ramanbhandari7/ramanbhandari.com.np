@@ -1,6 +1,22 @@
+
+/* Base and Global Styles */
+html {
+    font-size: 18px; /* Base font size */
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+p.animate-paragraph {
+    color: black;
+}
+
+
 /* General Heading Styles */
 .quote {
-    font-family: 'Roboto', serif; /* Elegant font for quotes */
+    font-family: monospace, cursive; /* Elegant font for quotes */
     font-size: 1.5em; /* Larger font size for emphasis */
     font-style: italic; /* Italicize for a classic quote look */
     color: whitesmoke; /* Dark grey color for readability */
@@ -12,8 +28,27 @@
 }
 
 
+#about p,
+#skills p, ul.certificates-list li a,
+#experience ul li
+{
+    color: navy;
+}
+
+
 h2, p {
-    font-family: 'Roboto';
+    font-family: monospace, cursive;
+
+
+/* Base and Global Styles */
+html {
+    font-size: 18px; /* Base font size */
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -25,8 +60,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Specific Heading Styles for the Sections */
 #raman {
-    color: #4A90E2;
-    font-family: 'Roboto', sans-serif;
+    color: navy;
+    font-family: monospace, "Comic Sans", cursive;
     text-align: center;
     font-size: 36px;
     font-weight: bold;
@@ -115,19 +150,8 @@ h6 {
 }
 
 
-
-/* Base and Global Styles */
-html {
-    font-size: 18px; /* Base font size */
-    box-sizing: border-box;
-}
-
-*, *::before, *::after {
-    box-sizing: inherit;
-}
-
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: monospace, "Comic Sans", cursive;
     margin: 0;
     padding: 0;
     padding-bottom: 100px; /* Adjust based on footer height */
@@ -226,6 +250,7 @@ header {
 }
 
 .section p {
+    color:  #000080;
     font-size: 1.1em; /* Adjust the size of paragraph text */
     line-height: 1.6; /* Increase line-height for readability */
     margin: 10px 0; /* Add space between paragraphs */
@@ -235,6 +260,7 @@ header {
 }
 
 .section ul {
+    color:  #000080;
     list-style: none; /* Remove default list styling */
     padding: 0; /* Remove padding */
     margin: 20px auto; /* Center the list horizontally */
@@ -242,6 +268,7 @@ header {
 }
 
 .section li {
+    color:  #000080;
     margin-bottom: 10px; /* Add space between list items */
     padding: 10px; /* Add padding inside list items */
     border-radius: 5px; /* Round the corners of list items */
@@ -447,3 +474,4 @@ main {
     height: 100%;
     border: none;
 }
+
