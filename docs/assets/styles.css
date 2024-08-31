@@ -29,6 +29,7 @@ p.animate-paragraph {
 
 
 #about p,
+#service li a,
 #skills p, ul.certificates-list li a,
 #experience ul li
 {
@@ -474,4 +475,26 @@ main {
     height: 100%;
     border: none;
 }
+
+#typewriter {
+    font-family: monospace; /* Optional: For a typewriter font style */
+    white-space: wrap; /* To preserve spaces and line breaks */
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 1px; /* Adjust width to make it more visible */
+    height: 20px; /* Adjust height to match the text line-height */
+    background-color: black; /* Color of the cursor */
+    animation: typing 4s steps(40, end), blink 0.75s step-end infinite; /* Cursor blink effect */
+  }
+
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1; /* Cursor is visible at start and end */
+    }
+    50% {
+      opacity: 0; /* Cursor is invisible at the midpoint */
+    }
+  }
 

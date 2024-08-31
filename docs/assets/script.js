@@ -3,12 +3,25 @@ const speed = 50; // Typing speed in milliseconds
 let index = 0;
 
 function typeWriter() {
-    // Ensure the typewriter element is being targeted
     const typewriterElement = document.getElementById("typewriter");
-    if (typewriterElement && index < text.length) {
-        typewriterElement.innerHTML += text.charAt(index);
-        index++;
-        setTimeout(typeWriter, speed);
+
+    if (typewriterElement) {
+        // Add cursor span if not already present
+        if (!document.querySelector(".cursor")) {
+            const cursorSpan = document.createElement("span");
+            cursorSpan.className = "cursor";
+            typewriterElement.appendChild(cursorSpan);
+        }
+
+        // If there's text left to type
+        if (index < text.length) {
+            typewriterElement.insertBefore(document.createTextNode(text.charAt(index)), document.querySelector(".cursor"));
+            index++;
+            setTimeout(typeWriter, speed);
+        } else {
+            // Remove cursor after typing finishes
+            document.querySelector(".cursor").remove();
+        }
     }
 }
 
