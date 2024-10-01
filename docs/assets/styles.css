@@ -151,13 +151,18 @@ h6 {
 }
 
 
+/* Body should have a minimum height of 100vh */
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Make sure the body takes up the full view height */
     font-family: monospace, "Comic Sans", cursive;
-    margin: 0;
-    padding: 0;
-    padding-bottom: 100px; /* Adjust based on footer height */
-    background-color: #f4f4f4;
-    color: #333;
+}
+
+/* Main content should grow to take available space */
+main {
+    flex-grow: 1; /* Allow the main content to take up available space */
+    padding-bottom: 120px; /* Padding for footer height */
 }
 
 /* Header */
@@ -336,24 +341,23 @@ main {
 }
 
 /* Footer */
-/* Footer */
+/* Footer Styling */
 .footer {
     background: linear-gradient(45deg, #0056b3, #007bff);
     color: white;
     text-align: center;
-    padding: 10px 0; /* Reduce padding for smaller screens */
+    padding: 15px 0; /* Reduced padding for smaller height */
     width: 100%;
     box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2);
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    position: relative; /* Footer sits at the bottom naturally */
     z-index: 1000;
 }
 
+/* Footer content stays centered and flexible */
 .footer .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 10px; /* Adjust padding to be smaller */
+    padding: 0 20px;
 }
 
 .footer-content {
@@ -364,58 +368,52 @@ main {
 }
 
 .contact-me {
-    font-size: 1em; /* Adjust font size for smaller screens */
+    font-size: 1em;
     font-weight: bold;
     margin-bottom: 5px;
 }
 
 .footer-social {
     display: flex;
-    gap: 10px; /* Reduce the gap between social icons */
+    gap: 10px;
     margin-top: 5px;
 }
 
 .footer-social a img {
-    width: 20px; /* Adjust the size of the icons */
+    width: 20px;
     height: 20px;
     transition: transform 0.3s;
 }
 
-.footer-quote {
-    font-size: 1em; /* Adjust font size for footer quote */
-    font-style: italic;
-    margin: 10px 0;
+.footer-social a:hover img {
+    transform: scale(1.1);
 }
 
-/* Responsive Adjustments for Mobile */
-@media (max-width: 768px) {
-    .footer {
-        padding: 10px 0; /* Reduce the footer padding on mobile */
-    }
+.footer-quote {
+    font-size: 1em;
+    margin: 10px 0;
+    text-align: center;
+}
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
     .footer-content {
         flex-direction: column;
     }
 
-    .contact-me {
-        font-size: 0.9em; /* Reduce the contact text size */
-    }
-
-    .footer-social {
-        gap: 5px; /* Reduce the gap between social icons on mobile */
-    }
-
-    .footer-social a img {
-        width: 18px; /* Make icons smaller on mobile */
-        height: 18px;
+    .footer {
+        padding: 10px 0;
     }
 
     .footer-quote {
-        font-size: 0.9em; /* Adjust font size for the footer quote */
-        margin: 5px 0; /* Reduce margin for spacing */
+        font-size: 0.9em;
+    }
+
+    .footer-social a img {
+        width: 18px;
+        height: 18px;
     }
 }
-
 
 @media (max-width: 768px) {
     .video-gallery {
