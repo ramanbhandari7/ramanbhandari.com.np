@@ -336,23 +336,24 @@ main {
 }
 
 /* Footer */
+/* Footer */
 .footer {
     background: linear-gradient(45deg, #0056b3, #007bff);
     color: white;
     text-align: center;
-    padding: 20px 0;
+    padding: 10px 0; /* Reduce padding for smaller screens */
     width: 100%;
     box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2);
     position: fixed;
     bottom: 0;
     left: 0;
-    z-index: 1000; /* Ensure footer stays above other content */
+    z-index: 1000;
 }
 
 .footer .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 10px; /* Adjust padding to be smaller */
 }
 
 .footer-content {
@@ -363,48 +364,58 @@ main {
 }
 
 .contact-me {
-    font-size: 1.2em;
+    font-size: 1em; /* Adjust font size for smaller screens */
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .footer-social {
     display: flex;
-    gap: 15px;
-    margin-top: 10px;
+    gap: 10px; /* Reduce the gap between social icons */
+    margin-top: 5px;
 }
 
 .footer-social a img {
-    width: 24px;
-    height: 24px;
+    width: 20px; /* Adjust the size of the icons */
+    height: 20px;
     transition: transform 0.3s;
 }
 
-.footer-social a:hover img {
-    transform: scale(1.1);
-}
-
 .footer-quote {
-    font-size: 1.2em;
+    font-size: 1em; /* Adjust font size for footer quote */
     font-style: italic;
-    margin: 15px 0;
-    text-align: center;
+    margin: 10px 0;
 }
 
+/* Responsive Adjustments for Mobile */
+@media (max-width: 768px) {
+    .footer {
+        padding: 10px 0; /* Reduce the footer padding on mobile */
+    }
 
-
-/* Responsive Adjustments */
-@media (min-width: 768px) {
     .footer-content {
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
+        flex-direction: column;
     }
 
-    .contact-me, .footer-social {
-        margin: 0 20px;
+    .contact-me {
+        font-size: 0.9em; /* Reduce the contact text size */
+    }
+
+    .footer-social {
+        gap: 5px; /* Reduce the gap between social icons on mobile */
+    }
+
+    .footer-social a img {
+        width: 18px; /* Make icons smaller on mobile */
+        height: 18px;
+    }
+
+    .footer-quote {
+        font-size: 0.9em; /* Adjust font size for the footer quote */
+        margin: 5px 0; /* Reduce margin for spacing */
     }
 }
+
 
 @media (max-width: 768px) {
     .video-gallery {
