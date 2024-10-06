@@ -1,0 +1,39 @@
+/* Body font */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    font-size: 16px; /* Base font size */
+    color: #333; /* Text color */
+}
+
+/* Header font */
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; /* Bold weight */
+    color: #2c3e50; /* Header color */
+}
+
+/* Paragraph font */
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em; /* Normal paragraph size */
+    margin-bottom: 1em; /* Space between paragraphs */
+}
+
+/* Button styles */
+.button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500; /* Medium weight */
+    font-size: 1em; /* Button text size */
+    padding: 10px 20px; /* Padding around text */
+    background-color: #3498db; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease; /* Transition for hover effect */
+}
+
+.button:hover {
+    background-color: #2980b9; /* Darker background on hover */
+}
