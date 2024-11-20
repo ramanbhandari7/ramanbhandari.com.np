@@ -506,4 +506,17 @@ main {
       opacity: 0; /* Cursor is invisible at the midpoint */
     }
   }
+/* Basic styling for the header */
+header {
+    width: 100%;
+    position: relative;
+    padding: 20px 0;
+    background-color: #fff; /* You can change the background color if you like */
+    text-align: center; /* Centers the content */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin
 
