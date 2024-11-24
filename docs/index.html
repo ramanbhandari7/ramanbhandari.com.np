@@ -10,24 +10,67 @@
     <link rel="stylesheet" href="assets/styles.css">
     <script src="assets/script.js" defer></script>
     <style>
-        /* General styling for responsive badge */
+        /* Responsive Badge Styling */
         .credly-badge {
             width: 100%;
             max-width: 500px;
-            height: auto;
-            margin: 0 auto;
+            margin: 1rem auto;
         }
 
-        /* Ensure responsiveness for smaller screens */
+        /* Smaller screens adjustments */
         @media (max-width: 600px) {
             .credly-badge {
                 width: 80%;
             }
         }
+
+        .footer-social img {
+            width: 32px;
+            height: 32px;
+            margin: 0 0.5rem;
+        }
+
+        .footer-content, .footer-quote {
+            text-align: center;
+        }
+
+        .certificates-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .certificates-list li {
+            margin: 0.5rem 0;
+        }
+
+        header, footer {
+            background-color: #f8f9fa;
+            padding: 1rem 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
 <body>
+    <!-- Header Section -->
     <header>
         <div class="container">
             <h1 class="name">Raman Bhandari</h1>
@@ -35,55 +78,71 @@
         </div>
     </header>
 
+    <!-- Main Content -->
     <main class="container">
         <section class="section" id="skills">
             <h2>Skills & Certifications</h2>
             <p><strong>Skills:</strong> Web Applications, Digital Media, Excel Data, CRM, Marketing Strategy.</p>
             <ul class="certificates-list">
-                <li><a href="https://www.coursera.org/account/accomplishments/verify/R8FBUSIQFUZ" target="_blank">Google Data Analytics</a></li>
-                <li><a href="https://www.credly.com/badges/824fbf0b-efb5-436a-85fb-44828a47993e/public_url" target="_blank">Working in a Digital World: Professional Skills by IBM (Verified by Credly)</a></li>
-                
-                <!-- Credly Badge Embed -->
-                <div class="credly-badge">
-                    <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="824fbf0b-efb5-436a-85fb-44828a47993e" data-share-badge-host="https://www.credly.com"></div>
-                    <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                </div>
-
-                <li><a href="https://courses.cognitiveclass.ai/certificates/d0b0da8019c240e0860c4ca241dfef8a" target="_blank">Python 101 for Data Science (By IBM)</a></li>
-                <div class="credly-badge">
-                    <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="5a84165c-3684-460f-8f39-1399528370cd" data-share-badge-host="https://www.credly.com"></div>
-                    <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                </div>
-
-                <li><a href="https://www.credly.com/badges/0048adac-2913-4e9c-a311-ab484a1c0583/linked_in?t=skiqy3" target="_blank">Google AI Essentials</a></li>
-                <div class="credly-badge">
-                    <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="0048adac-2913-4e9c-a311-ab484a1c0583" data-share-badge-host="https://www.credly.com"></div>
-                    <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                </div>
+                <li><a href="https://www.coursera.org/account/accomplishments/verify/R8FBUSIQFUZ" target="_blank" rel="noopener">Google Data Analytics</a></li>
+                <li>
+                    <a href="https://www.credly.com/badges/824fbf0b-efb5-436a-85fb-44828a47993e/public_url" target="_blank" rel="noopener">
+                        Working in a Digital World: Professional Skills by IBM (Verified by Credly)
+                    </a>
+                    <div class="credly-badge">
+                        <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="824fbf0b-efb5-436a-85fb-44828a47993e" data-share-badge-host="https://www.credly.com"></div>
+                    </div>
+                </li>
+                <li><a href="https://courses.cognitiveclass.ai/certificates/d0b0da8019c240e0860c4ca241dfef8a" target="_blank" rel="noopener">Python 101 for Data Science (By IBM)</a></li>
+                <li>
+                    <a href="https://www.credly.com/badges/0048adac-2913-4e9c-a311-ab484a1c0583/linked_in?t=skiqy3" target="_blank" rel="noopener">Google AI Essentials</a>
+                    <div class="credly-badge">
+                        <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="0048adac-2913-4e9c-a311-ab484a1c0583" data-share-badge-host="https://www.credly.com"></div>
+                    </div>
+                </li>
             </ul>
         </section>
     </main>
 
-    <footer class="footer">
+    <!-- Footer Section -->
+    <footer>
         <div class="container">
             <div class="footer-content">
                 <p class="contact-me">Contact Me:</p>
                 <div class="footer-social">
-                    <a href="mailto:ramanbhandari7@outlook.com" rel="noopener" aria-label="Email"><img src="assets/email.png" alt="Email" class="social-icon"></a>
-                    <a href="https://www.linkedin.com/in/raman-bhandari-942554247/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="assets/linkedin.png" alt="LinkedIn" class="social-icon"></a>
-                    <a href="https://www.upwork.com/freelancers/~01f8e14f35ddc40da1" target="_blank" rel="noopener" aria-label="Upwork"><img src="assets/upwork.png" alt="Upwork" class="social-icon"></a>
-                    <a href="https://www.youtube.com/c/VADAZVLOGS" target="_blank" rel="noopener" aria-label="YouTube"><img src="assets/youtube.png" alt="YouTube" class="social-icon"></a>
-                    <a href="https://www.tiktok.com/@ramanbhandari007" target="_blank" rel="noopener" aria-label="Tiktok"><img src="assets/tiktok.png" alt="Tiktok" class="social-icon"></a>
-                    <a href="https://www.instagram.com/ramanbhandari1991?igsh=OTJwOXNiMTQxaW1k" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/instagram.png" alt="Instagram" class="social-icon"></a>
-                    <a href="https://www.facebook.com/ramanbhandari07" target="_blank" rel="noopener" aria-label="Facebook"><img src="assets/facebook.png" alt="Facebook" class="social-icon"></a>
-                    <a href="https://wa.me/9810430546" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="assets/whatsapp.png" alt="WhatsApp" class="social-icon"></a>
+                    <a href="mailto:ramanbhandari7@outlook.com" aria-label="Email">
+                        <img src="assets/email.png" alt="Email">
+                    </a>
+                    <a href="https://www.linkedin.com/in/raman-bhandari-942554247/" target="_blank" aria-label="LinkedIn">
+                        <img src="assets/linkedin.png" alt="LinkedIn">
+                    </a>
+                    <a href="https://www.upwork.com/freelancers/~01f8e14f35ddc40da1" target="_blank" aria-label="Upwork">
+                        <img src="assets/upwork.png" alt="Upwork">
+                    </a>
+                    <a href="https://www.youtube.com/c/VADAZVLOGS" target="_blank" aria-label="YouTube">
+                        <img src="assets/youtube.png" alt="YouTube">
+                    </a>
+                    <a href="https://www.tiktok.com/@ramanbhandari007" target="_blank" aria-label="TikTok">
+                        <img src="assets/tiktok.png" alt="TikTok">
+                    </a>
+                    <a href="https://www.instagram.com/ramanbhandari1991" target="_blank" aria-label="Instagram">
+                        <img src="assets/instagram.png" alt="Instagram">
+                    </a>
+                    <a href="https://www.facebook.com/ramanbhandari07" target="_blank" aria-label="Facebook">
+                        <img src="assets/facebook.png" alt="Facebook">
+                    </a>
+                    <a href="https://wa.me/9810430546" target="_blank" aria-label="WhatsApp">
+                        <img src="assets/whatsapp.png" alt="WhatsApp">
+                    </a>
                 </div>
             </div>
             <p class="footer-quote">“Strive not to be a success, but rather to be of value.”</p>
         </div>
     </footer>
 
+    <!-- Embed Script -->
     <script src="assets/scripts.js" defer></script>
+    <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 </body>
 
 </html>
