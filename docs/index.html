@@ -254,209 +254,126 @@
             color: white !important;
         }
 
-        /* === NEW/MODIFIED CSS FOR WHO AM I SECTION === */
-
-#who-am-i {
-    padding: 0; /* Remove padding from the section itself; the inner div will handle it */
-    position: relative;
-    color: #fff; /* Default text color to white for readability over a dark background image */
-}
-
-#who-am-i .who-am-i-background {
-    /* --- IMPORTANT: Add your background image path here --- */
-    background-image: linear-gradient(rgba(30, 40, 50, 0.88), rgba(30, 40, 50, 0.88)), url('assets/who-am-i-background.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed; /* Optional: for parallax effect */
-    padding: 80px 0; /* Padding for the content within the background div */
-}
-
-#who-am-i .section-title {
-    color: #fff; /* Ensure title is visible on dark background */
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-}
-#who-am-i .section-title::after {
-    background-color: #1abc9c; /* Your chosen accent color for the underline */
-}
-
-/* Styles for your existing .content class - mainly flex setup */
-#who-am-i .content {
-    display: flex;
-    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
-    gap: 40px;       /* Increased gap for better spacing with background */
-    align-items: flex-start; /* Align items to the top; changed from 'center' if subsections make text-content tall */
-}
-
-/* Styles for your existing .text-content class, adapted for dark background and new subsections */
-#who-am-i .text-content {
-    flex: 1; /* Takes up remaining space or defines base size */
-    min-width: 300px;
-    background-color: rgba(0, 0, 0, 0.3); /* Slightly more transparent overlay for the text box */
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Subtle shadow, may or may not be very visible */
-}
-
-#who-am-i .text-content p {
-    color: #e9ecef; /* Light gray/off-white for paragraphs for readability */
-    margin-bottom: 1.2em;
-    font-size: 1.05em;
-    line-height: 1.8;
-}
-#who-am-i .text-content strong {
-    color: #1abc9c; /* Accent color for strong text */
-    font-weight: 600; /* Slightly bolder */
-}
-
-#who-am-i .about-subsection {
-    margin-bottom: 25px;
-}
-#who-am-i .about-subsection:last-child {
-    margin-bottom: 0;
-}
-
-#who-am-i .about-subsection h3 {
-    color: #ffffff; /* White heading for subsections */
-    font-size: 1.5em; /* Adjusted size */
-    margin-bottom: 12px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25); /* Subtler border */
-    font-weight: 600;
-}
-
-/* Styles for your existing .about-image-container and .about-image classes */
-#who-am-i .about-image-container {
-    flex: 0 0 300px; /* Keeps fixed width for image container */
-    text-align: center;
-    align-self: center; /* Vertically center image container if .content uses align-items: flex-start */
-    /* background-color: rgba(0,0,0,0.1); /* Optional subtle bg for image container if needed */
-    /* padding: 15px; */
-    /* border-radius: 8px; */
-}
-
-#who-am-i .about-image {
-    max-width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px; /* Your existing border-radius */
-    border: 3px solid #1abc9c; /* Border to make image pop on dark background */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); /* Adjusted shadow for dark background */
-}
-
-/* Styling for Experience section when nested in #who-am-i */
-#who-am-i #experience {
-    margin-top: 50px; /* Space above the experience block */
-    padding: 30px;
-    background-color: rgba(0, 0, 0, 0.2); /* Slightly different background from .text-content */
-    border-radius: 8px;
-}
-
-#who-am-i #experience h3 { /* For the "My Experience" title */
-    text-align:center;
-    font-size:1.8em;
-    margin-bottom:30px;
-    color: #ffffff;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-
-#who-am-i #experience ul {
-    list-style: none;
-    padding-left: 0;
-}
-#who-am-i #experience ul li {
-    margin-bottom: 20px;
-    padding: 15px 15px 15px 25px; /* Adjusted padding for the pseudo-element */
-    position: relative;
-    border-left: 3px solid #1abc9c;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 0 5px 5px 0;
-    color: #e0e0e0;
-}
-#who-am-i #experience ul li::before { /* Bullet point */
-    content: ''; /* Changed to empty for custom shape or image later, or use '●' */
-    position: absolute;
-    left: -8px; /* Positioning for the timeline dot */
-    top: 19px;
-    height: 14px; /* Size of the dot */
-    width: 14px;  /* Size of the dot */
-    background-color: #1abc9c;
-    border-radius: 50%;
-    border: 2px solid #2c3e50; /* Dark border around dot to make it pop */
-}
-#who-am-i #experience ul li strong {
-    display: block;
-    font-size: 1.25em;
-    color: #ffffff;
-    margin-bottom: 5px;
-}
-#who-am-i #experience ul li a {
-    color: #50cce1; /* Bright link color */
-    font-style: italic;
-}
-#who-am-i #experience ul li a:hover {
-    color: #7adfea; /* Lighter hover for links */
-}
-
-
-/* Responsive adjustments */
-@media (max-width: 992px) {
-    #who-am-i .content {
-        flex-direction: column; /* Stack text content and image container */
-        align-items: center; /* Center items when stacked */
-    }
-    #who-am-i .text-content {
-        width: 100%; /* Allow text content to take full width when stacked */
-    }
-    #who-am-i .about-image-container {
-        flex-basis: auto; /* Allow it to take natural width or be constrained by its content */
-        width: auto; /* Adjust if necessary, or use max-width on image */
-        max-width: 300px; /* Ensure image doesn't get too large */
-        margin-top: 30px;
-    }
-}
-
-@media (max-width: 768px) {
-    #who-am-i .who-am-i-background {
-        padding: 60px 0; /* Reduce padding on smaller screens */
-        background-attachment: scroll; /* Disable fixed attachment on mobile for performance/rendering issues */
-    }
-    #who-am-i #experience ul li::before {
-        top: 17px; /* Slight readjustment for bullet point on mobile */
-        height: 12px;
-        width: 12px;
-        left: -7px;
-    }
-}
-
-
-        /* Experience Section - Combined within About for now or separate as needed */
-        #experience ul {
-            list-style: none;
-            padding-left: 20px;
-        }
-        #experience ul li {
-            margin-bottom: 20px;
-            padding-left: 30px;
+        /* === CSS FOR WHO AM I SECTION === */
+        #who-am-i {
+            padding: 0;
             position: relative;
-            border-left: 3px solid #1abc9c; /* Timeline effect */
+            color: #fff;
         }
-         #experience ul li::before {
-            content: '●';
-            position: absolute;
-            left: -9px; /* Adjust to center with line */
-            top: 0px;
+        #who-am-i .who-am-i-background {
+            background-image: linear-gradient(rgba(30, 40, 50, 0.88), rgba(30, 40, 50, 0.88)), url('assets/who-am-i-background.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            padding: 80px 0;
+        }
+        #who-am-i .section-title {
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+        }
+        #who-am-i .section-title::after {
+            background-color: #1abc9c;
+        }
+        #who-am-i .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        #who-am-i .text-content {
+            flex: 1;
+            min-width: 300px;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        #who-am-i .text-content p {
+            color: #e9ecef;
+            margin-bottom: 1.2em;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+        #who-am-i .text-content strong {
             color: #1abc9c;
-            font-size: 1.2em;
+            font-weight: 600;
         }
-        #experience ul li strong {
+        #who-am-i .about-subsection {
+            margin-bottom: 25px;
+        }
+        #who-am-i .about-subsection:last-child {
+            margin-bottom: 0;
+        }
+        #who-am-i .about-subsection h3 {
+            color: #ffffff;
+            font-size: 1.5em;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+            font-weight: 600;
+        }
+        #who-am-i .about-image-container {
+            flex: 0 0 300px;
+            text-align: center;
+            align-self: center;
+        }
+        #who-am-i .about-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 3px solid #1abc9c;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        #who-am-i #experience {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+        #who-am-i #experience h3 {
+            text-align:center;
+            font-size:1.8em;
+            margin-bottom:30px;
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        #who-am-i #experience ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        #who-am-i #experience ul li {
+            margin-bottom: 20px;
+            padding: 15px 15px 15px 25px;
+            position: relative;
+            border-left: 3px solid #1abc9c;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 0 5px 5px 0;
+            color: #e0e0e0;
+        }
+        #who-am-i #experience ul li::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 19px;
+            height: 14px;
+            width: 14px;
+            background-color: #1abc9c;
+            border-radius: 50%;
+            border: 2px solid #2c3e50;
+        }
+        #who-am-i #experience ul li strong {
             display: block;
-            font-size: 1.2em;
-            color: #2c3e50;
+            font-size: 1.25em;
+            color: #ffffff;
             margin-bottom: 5px;
         }
-        #experience ul li a {
+        #who-am-i #experience ul li a {
+            color: #50cce1;
             font-style: italic;
         }
-
+        #who-am-i #experience ul li a:hover {
+            color: #7adfea;
+        }
 
         /* Projects Section */
         .projects-grid {
@@ -468,7 +385,7 @@
             background: #ffffff;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            overflow: hidden; /* To contain image borders */
+            overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
@@ -477,14 +394,14 @@
             transform: translateY(-8px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.12);
         }
-        .project-card img.project-thumbnail { /* Class added in HTML */
+        .project-card img.project-thumbnail {
             width: 100%;
             height: 220px;
             object-fit: cover;
         }
         .project-card .project-content {
             padding: 25px;
-            flex-grow: 1; /* Allows content to fill space */
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
@@ -497,13 +414,13 @@
             font-size: 0.95em;
             color: #555;
             margin-bottom: 15px;
-            flex-grow: 1; /* Makes description take available space */
+            flex-grow: 1;
         }
         .project-card p strong {
             color: #333;
         }
         .project-links {
-            margin-top: auto; /* Pushes links to the bottom */
+            margin-top: auto;
             text-align: right;
         }
          .project-links .button {
@@ -517,7 +434,7 @@
         #certifications ul.certificates-list {
             list-style: none;
             padding: 0;
-            columns: 2; /* Create two columns for certifications */
+            columns: 2;
             column-gap: 30px;
         }
         #certifications ul.certificates-list li {
@@ -527,13 +444,13 @@
             border-radius: 5px;
             border-left: 4px solid #1abc9c;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            break-inside: avoid-column; /* Prevents items from breaking across columns */
+            break-inside: avoid-column;
         }
         #certifications ul.certificates-list li a {
             font-weight: bold;
-            display: block; /* Make link take full width for easier click */
+            display: block;
         }
-        #certifications .core-skills { /* For the <p> tag of core skills */
+        #certifications .core-skills {
             text-align: center;
             font-size: 1.1em;
             margin-bottom: 30px;
@@ -544,9 +461,8 @@
             text-align: center;
         }
 
-
         /* Volunteer Section */
-        .certificates-grid { /* Renamed from .certificates */
+        .certificates-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
@@ -565,12 +481,11 @@
             color: #2c3e50;
         }
         .certificate-viewer iframe {
-            border: 1px solid #ccc; /* Slight border for iframe */
+            border: 1px solid #ccc;
             width: 100%;
             height: 300px;
             border-radius: 4px;
         }
-
 
         /* Services Section */
         #service ul {
@@ -594,15 +509,9 @@
         #service li a {
             font-weight: bold;
             color: #2c3e50;
-            display: flex; /* For icon alignment if you add them */
+            display: flex;
             align-items: center;
         }
-         #service li a::before { /* Optional: add icons later */
-            /* content: '🔗';
-            margin-right: 10px;
-            color: #1abc9c; */
-         }
-
 
         /* Vlogs Section */
         .video-gallery {
@@ -612,7 +521,7 @@
         }
         .video-item {
             border-radius: 8px;
-            overflow:hidden; /* To make iframe corners round */
+            overflow:hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         .video-item iframe,
@@ -620,14 +529,172 @@
             width: 100%;
             min-height: 315px;
             border: none;
-            display: block; /* remove extra space below iframe */
+            display: block;
         }
 
+        /* === NEW CONTACT SECTION STYLES === */
+        #contact-us {
+            background-color: #ffffff; /* White background for the section */
+            padding: 80px 0;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .contact-form-container,
+        .contact-info-container {
+            flex: 1;
+            padding: 40px;
+            min-width: 300px;
+        }
+
+        .contact-form-container {
+            background-color: #f8f9fa;
+            border-radius: 8px 0 0 8px;
+        }
+        .contact-form-container h3 {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .form-subtitle {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 0;
+            font-size: 1em;
+            color: #333;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            outline: none;
+            background: transparent;
+            transition: border-color 0.3s ease;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        .form-group label {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            font-size: 1em;
+            color: #777;
+            pointer-events: none;
+            transition: 0.3s ease all;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-bottom: 2px solid #1abc9c;
+        }
+        .form-group input:focus ~ label,
+        .form-group input:valid ~ label,
+        .form-group textarea:focus ~ label,
+        .form-group textarea:valid ~ label {
+            top: -18px;
+            font-size: 0.85em;
+            color: #1abc9c;
+        }
+
+        .form-submit-button {
+            background-color: #2c3e50;
+            color: white !important;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-transform: none;
+            font-weight: bold;
+            font-size: 1em;
+            letter-spacing: 0;
+        }
+        .form-submit-button:hover {
+            background-color: #34495e;
+        }
+
+        .contact-info-container {
+            position: relative;
+            padding-left: 60px;
+        }
+        .contact-info-container h3 {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        .decorative-line-graphic {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            opacity: 0.7;
+        }
+        .decorative-line-graphic svg path {
+            stroke: #2c3e50;
+        }
+
+        ul.contact-details-list {
+            list-style: none;
+            padding: 0;
+        }
+        ul.contact-details-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .contact-icon-bg {
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        .contact-icon {
+            width: 28px;
+            height: 28px;
+        }
+
+        .contact-text strong {
+            display: block;
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 3px;
+            font-weight: 600;
+        }
+        .contact-text span {
+            font-size: 1em;
+            color: #555;
+        }
+        .contact-text span a {
+            color: #555;
+            text-decoration: none;
+        }
+        .contact-text span a:hover {
+            color: #1abc9c;
+            text-decoration: underline;
+        }
 
         /* Footer (Contact & Social) */
         .footer {
-            background: #2c3e50; /* Dark blue-gray */
-            color: #ecf0f1; /* Light gray text */
+            background: #2c3e50;
+            color: #ecf0f1;
             text-align: center;
             padding: 50px 20px;
             margin-top: 40px;
@@ -637,224 +704,89 @@
             flex-direction: column;
             align-items: center;
         }
-        .footer .contact-info, .footer .footer-social, .footer .footer-quote-container {
+        .footer .contact-info, /* Removed this, use #contact-us instead */
+        .footer .footer-social,
+        .footer .footer-quote-container {
             margin-bottom: 30px;
             width: 100%;
-            max-width: 600px; /* Control width of content */
-      /* === NEW CONTACT SECTION STYLES === */
-#contact-us {
-    background-color: #ffffff; /* White background for the section */
-    padding: 80px 0;
-}
+            max-width: 600px;
+        }
+        .footer h3 {
+            color: #fff;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        .footer p {
+            color: #bdc3c7;
+            font-size: 1em;
+        }
+        /* .footer .contact-info a { color: #1abc9c; word-break: break-all; } */ /* Not needed if contact info moved */
 
-.contact-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    background-color: #ffffff; /* Match section background or slightly different if desired */
-    border-radius: 10px;
-    /* box-shadow: 0 8px 25px rgba(0,0,0,0.08); */ /* Optional shadow for wrapper */
-    overflow: hidden; /* If using rounded corners on wrapper and children have backgrounds */
-}
+        .footer-social .social-icon {
+            width: 35px;
+            height: 35px;
+            margin: 0 12px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: grayscale(30%) opacity(0.8);
+        }
+        .footer-social .social-icon:hover {
+            transform: scale(1.2) translateY(-3px);
+            filter: grayscale(0%) opacity(1);
+        }
+        .footer-quote {
+            font-style: italic;
+            font-size: 1.1em;
+            color: #bdc3c7;
+        }
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #95a5a6;
+        }
 
-.contact-form-container,
-.contact-info-container {
-    flex: 1;
-    padding: 40px;
-    min-width: 300px; /* Ensure containers don't get too squished */
-}
 
-.contact-form-container {
-    background-color: #f8f9fa; /* Light gray as per image */
-    border-radius: 8px 0 0 8px; /* Rounded corners if wrapper doesn't have overflow hidden */
-}
-.contact-form-container h3 {
-    font-size: 2em;
-    color: #2c3e50; /* Dark blue-gray */
-    margin-bottom: 10px;
-}
-.form-subtitle {
-    font-size: 1em;
-    color: #555;
-    margin-bottom: 30px;
-}
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            /* For Who Am I Section */
+            #who-am-i .content {
+                flex-direction: column;
+                align-items: center;
+            }
+            #who-am-i .text-content {
+                width: 100%;
+            }
+            #who-am-i .about-image-container {
+                flex-basis: auto;
+                width: auto;
+                max-width: 300px;
+                margin-top: 30px;
+            }
+            /* For Contact Us Section */
+            .contact-info-container {
+                padding-left: 40px;
+            }
+        }
 
-/* Form Group styling for underlined inputs */
-.form-group {
-    position: relative;
-    margin-bottom: 40px;
-}
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="tel"],
-.form-group textarea {
-    width: 100%;
-    padding: 10px 0;
-    font-size: 1em;
-    color: #333;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    outline: none;
-    background: transparent;
-    transition: border-color 0.3s ease;
-}
-.form-group textarea {
-    resize: vertical;
-    min-height: 80px;
-}
-.form-group label {
-    position: absolute;
-    top: 10px;
-    left: 0;
-    font-size: 1em;
-    color: #777;
-    pointer-events: none;
-    transition: 0.3s ease all;
-}
-
-/* Input focus and filled animations */
-.form-group input:focus,
-.form-group textarea:focus {
-    border-bottom: 2px solid #1abc9c; /* Your accent color */
-}
-.form-group input:focus ~ label,
-.form-group input:valid ~ label, /* :valid is used when input has content and is valid */
-.form-group textarea:focus ~ label,
-.form-group textarea:valid ~ label {
-    top: -18px; /* Move label up */
-    font-size: 0.85em;
-    color: #1abc9c; /* Your accent color */
-}
-
-.form-submit-button { /* Use your existing .button class and add specifics */
-    background-color: #2c3e50; /* Dark button like image */
-    color: white !important;
-    padding: 12px 30px;
-    border-radius: 25px; /* More rounded */
-    text-transform: none;
-    font-weight: bold;
-    font-size: 1em;
-    letter-spacing: 0;
-}
-.form-submit-button:hover {
-    background-color: #34495e; /* Slightly lighter on hover */
-}
-
-.contact-info-container {
-    position: relative; /* For decorative graphic positioning */
-    padding-left: 60px; /* More space on left due to graphic */
-}
-.contact-info-container h3 {
-    font-size: 1.8em;
-    color: #2c3e50;
-    margin-bottom: 30px;
-}
-.decorative-line-graphic {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    opacity: 0.7;
-}
-.decorative-line-graphic svg path {
-    stroke: #2c3e50; /* Matches heading color or can be accent */
-}
-
-ul.contact-details-list {
-    list-style: none;
-    padding: 0;
-}
-ul.contact-details-list li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 25px;
-}
-.contact-icon-bg {
-    width: 55px;
-    height: 55px;
-    border-radius: 12px; /* Rounded rectangle */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 20px;
-    flex-shrink: 0; /* Prevent icon from shrinking */
-}
-.contact-icon {
-    width: 28px;
-    height: 28px;
-}
-/* Specific icon stroke colors inside the SVG already match example, but you could override here if needed */
-/* .contact-icon-bg[style*="#fde7f0"] .contact-icon path { stroke: #E91E63; } */ /* Example for pink */
-
-.contact-text strong {
-    display: block;
-    font-size: 1.1em;
-    color: #333;
-    margin-bottom: 3px;
-    font-weight: 600; /* Bolder like image */
-}
-.contact-text span {
-    font-size: 1em;
-    color: #555;
-}
-.contact-text span a {
-    color: #555;
-    text-decoration: none;
-}
-.contact-text span a:hover {
-    color: #1abc9c; /* Accent color on hover */
-    text-decoration: underline;
-}
-
-/* Responsive Adjustments for Contact Section */
-@media (max-width: 992px) {
-    .contact-info-container {
-        padding-left: 40px; /* Reduce padding */
-    }
-}
-
-@media (max-width: 768px) {
-    .contact-wrapper {
-        flex-direction: column;
-    }
-    .contact-form-container,
-    .contact-info-container {
-        border-radius: 8px; /* Full radius when stacked */
-    }
-    .contact-form-container {
-         min-height: auto; /* Remove fixed height if any was set implicitly */
-    }
-    .contact-info-container {
-        padding-left: 40px; /* Original padding on small screens */
-    }
-    .decorative-line-graphic {
-        top: 15px;
-        right: 15px;
-    }
-    .decorative-line-graphic svg {
-        width: 60px; /* Slightly smaller graphic */
-        height: 60px;
-    }
-}
-        /* Responsive adjustments for Navbar */
         @media (max-width: 860px) {
+            /* Navbar Responsive */
             .navbar ul.nav-links {
                 display: none;
                 flex-direction: column;
                 width: 100%;
                 position: absolute;
-                top: 70px; /* Height of navbar */
+                top: 70px; /* Matches navbar height for example, adjust if needed */
                 left: 0;
-                background-color: #34495e; /* Slightly lighter than navbar for dropdown */
-                padding-bottom: 10px; /* Padding for last item */
+                background-color: #34495e;
+                padding-bottom: 10px;
             }
             .navbar ul.nav-links.active {
-                display: flex; /* Show when active */
+                display: flex;
             }
             .navbar ul.nav-links li {
                 margin: 15px 0;
                 text-align: center;
             }
-            .navbar ul.nav-links a::after { /* Remove underline effect for mobile vertical menu */
+            .navbar ul.nav-links a::after {
                  display: none;
             }
             .menu-toggle {
@@ -870,8 +802,9 @@ ul.contact-details-list li {
                 transform: rotate(45deg) translate(-5px, -6px);
             }
         }
-        /* General responsive adjustments */
+        
         @media (max-width: 768px) {
+            /* General small screen adjustments */
             h2.section-title {
                 font-size: 2em;
             }
@@ -885,8 +818,40 @@ ul.contact-details-list li {
                 width: 95%;
             }
             .projects-grid, #certifications ul.certificates-list, #service ul, .video-gallery, .certificates-grid {
-                grid-template-columns: 1fr; /* Single column layout */
-                 columns: 1; /* For certifications list */
+                grid-template-columns: 1fr;
+                 columns: 1; /* For certifications list specifically */
+            }
+            /* Who Am I on mobile */
+            #who-am-i .who-am-i-background {
+                padding: 60px 0;
+                background-attachment: scroll;
+            }
+            #who-am-i #experience ul li::before {
+                top: 17px;
+                height: 12px;
+                width: 12px;
+                left: -7px;
+            }
+             /* Contact Us on mobile */
+            .contact-wrapper {
+                flex-direction: column;
+            }
+            .contact-form-container,
+            .contact-info-container {
+                border-radius: 8px;
+                padding-left: 40px; /* consistent padding for info when stacked */
+            }
+             .contact-form-container { /* Specific for form on mobile */
+                padding: 40px; /* Re-establish padding if .contact-info-container set it too generally */
+            }
+
+            .decorative-line-graphic {
+                top: 15px;
+                right: 15px;
+            }
+            .decorative-line-graphic svg {
+                width: 60px;
+                height: 60px;
             }
         }
 
@@ -907,20 +872,20 @@ ul.contact-details-list li {
                 <li><a href="#service">Services</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#volunteer">Volunteer</a></li> <!-- Added Volunteer, you can remove if not desired in nav -->
-                <li><a href="#footer-contact">Contact</a></li> <!-- Links to an ID in footer -->
-                <li><a href="#footer-social">Social</a></li>   <!-- Links to an ID in footer -->
+                <li><a href="#volunteer">Volunteer</a></li>
+                <li><a href="#contact-us">Contact</a></li> <!-- UPDATED LINK -->
+                <li><a href="#footer-social">Social</a></li>
             </ul>
         </div>
     </nav>
 
     <main>
-        <section id="home"> <!-- This is the Hero Section -->
+        <section id="home">
             <div class="container">
                 <img src="assets/profile.jpg" alt="Portrait of Raman Bhandari" class="profile-img">
                 <h1 id="raman-name">Raman Bhandari</h1>
                 <p class="tagline">"Bridging efficiency with digital precision"</p>
-                <div id="typewriter"></div> <!-- JavaScript will populate this -->
+                <div id="typewriter"></div>
                 <div class="button-group">
                     <a href="#projects" class="button">My Projects</a>
                     <a href="https://bit.ly/4gq7GWO" class="button secondary" target="_blank" rel="noopener">Hire me on Upwork</a>
@@ -928,9 +893,7 @@ ul.contact-details-list li {
             </div>
         </section>
 
-                <!-- WHO AM I (ABOUT) SECTION - UPDATED -->
         <section class="section" id="who-am-i">
-            <!-- This outer div will have the background image -->
             <div class="who-am-i-background">
                 <div class="container">
                     <h2 class="section-title">Who Am I?</h2>
@@ -949,15 +912,12 @@ ul.contact-details-list li {
                                 <p>When I'm not managing data or building websites, I enjoy creating vlogs to share insights and connect with a broader community. I'm also dedicated to staying updated with the latest industry trends, constantly expanding my skill set to tackle new and exciting challenges. Volunteering for events like the FIFA World Cup has further enriched my perspective on collaboration and community engagement.</p>
                             </div>
                          </div>
-                         <!-- Optional: Add an image here if you have one that sits on top of the BG, otherwise remove this div -->
                          <!--
-                         <div class="about-profile-image-container">
-                            <img src="assets/raman_professional_shot.jpg" alt="Raman Bhandari" class="about-profile-image">
+                         <div class="about-image-container">
+                            <img src="assets/raman_professional_shot.jpg" alt="Raman Bhandari" class="about-image">
                         </div>
                         -->
                     </div>
-
-                    <!-- Moved Experience here to be within the same visual block -->
                     <div id="experience" style="margin-top: 50px; padding: 20px; background-color: rgba(255,255,255,0.05); border-radius: 8px;">
                          <h3 style="text-align:center; font-size:1.8em; margin-bottom:30px; color: #ffffff; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">My Experience</h3>
                          <ul>
@@ -968,6 +928,7 @@ ul.contact-details-list li {
                 </div>
             </div>
         </section>
+
         <section class="section" id="service">
             <div class="container">
                 <h2 class="section-title">My Digital Services</h2>
@@ -988,7 +949,7 @@ ul.contact-details-list li {
             </div>
         </section>
 
-        <section class="section" id="projects"> <!-- ID changed from website-projects -->
+        <section class="section" id="projects">
             <div class="container">
                 <h2 class="section-title">My Website Projects</h2>
                 <div class="projects-grid">
@@ -1016,19 +977,17 @@ ul.contact-details-list li {
                             </div>
                         </div>
                     </div>
-                    <!-- Add more project-card divs as needed -->
                 </div>
             </div>
         </section>
 
-        <section class="section" id="certifications"> <!-- ID changed from skills -->
+        <section class="section" id="certifications">
             <div class="container">
                 <h2 class="section-title">Skills & Certifications</h2>
                 <p class="core-skills"><strong>Core Skills:</strong> Web Development (HTML, CSS, JavaScript), Data Analysis (Python, Excel, Power BI), Procurement, Logistics, Digital Media, CRM, Marketing Strategy.</p>
                 <ul class="certificates-list">
                     <li><a href="https://skills.yourlearning.ibm.com/certificate/PLAN-C4FCC67D3E76" target="_blank" rel="noopener">Working in a Digital World: Professional Skills - IBM SkillsBuild</a>
                         <div class="credly-badge-container" data-iframe-width="150" data-iframe-height="270" data-share-badge-id="824fbf0b-efb5-436a-85fb-44828a47993e" data-share-badge-host="https://www.credly.com"></div>
-                        <!-- Credly Script is loaded below li to target its own div -->
                         <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
                     </li>
                     <li><a href="https://courses.skillsbuild.skillsnetwork.site/certificates/3c18711470814c899e53fecc716b5c47?fbclid=..." target="_blank" rel="noopener">Data Analysis with Python By IBM</a></li>
@@ -1066,8 +1025,7 @@ ul.contact-details-list li {
             </div>
         </section>
 
-
-        <section class="section" id="vlogs"> <!-- Kept from original, was #portfolio for vlogs -->
+        <section class="section" id="vlogs">
             <div class="container">
                 <h2 class="section-title">Vadaz Vlogs (Raman Vlogs)</h2>
                  <div class="video-gallery">
@@ -1080,7 +1038,7 @@ ul.contact-details-list li {
                     <div class="video-item">
                         <div class="fb-video"
                             data-href="https://www.facebook.com/61576059702352/videos/484487918024452/"
-                            data-width="500" <!-- The CSS will manage width, but data-width can be a hint -->
+                            data-width="500"
                             data-show-text="false">
                             <blockquote cite="https://www.facebook.com/61576059702352/videos/484487918024452/" class="fb-xfbml-parse-ignore">
                                 <a href="https://www.facebook.com/61576059702352/videos/484487918024452/">📹 अब डिजिटल सेवा घरमै बसी!</a>
@@ -1091,52 +1049,88 @@ ul.contact-details-list li {
                 </div>
             </div>
         </section>
+
+        <!-- NEW CONTACT SECTION - CORRECTLY PLACED -->
+        <section class="section" id="contact-us">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-form-container">
+                        <h3>Let's Chat!</h3>
+                        <p class="form-subtitle">Fill out this quick form and we'll get back to you lickety split.</p>
+                        <form id="portfolio-contact-form" action="#" method="POST">
+                            <div class="form-group">
+                                <input type="text" id="contact-name" name="name" required>
+                                <label for="contact-name">Name*</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="contact-email" name="email" required>
+                                <label for="contact-email">Email*</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="contact-phone" name="phone">
+                                <label for="contact-phone">Phone (optional)</label>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="contact-message" name="message" rows="4" required></textarea>
+                                <label for="contact-message">How can we help? *</label>
+                            </div>
+                            <button type="submit" class="button form-submit-button">Submit</button>
+                        </form>
+                    </div>
+
+                    <div class="contact-info-container">
+                        <div class="decorative-line-graphic">
+                            <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 90L90 10" stroke="#2c3e50" stroke-width="4" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>Or just give us a shout</h3>
+                        <ul class="contact-details-list">
+                            <li>
+                                <div class="contact-icon-bg" style="background-color: #fde7f0;">
+                                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.3102 14.4432C16.1796 14.4432 15.0489 14.3526 13.9617 14.189C13.7055 14.1455 13.4402 14.2361 13.2501 14.4262L11.1558 16.5204C8.73394 15.3185 6.69943 13.2622 5.47571 10.8403L7.57898 8.7579C7.76007 8.55503 7.85062 8.29881 7.81618 8.04263C7.64364 6.95542 7.5621 5.82481 7.5621 4.69416C7.5621 4.24103 7.20106 3.88898 6.74794 3.88898H4.12824C3.68413 3.88898 3.33208 4.24103 3.33208 4.69416C3.33208 12.616 9.37489 18.6799 17.3102 18.6799C17.7543 18.6799 18.1063 18.3278 18.1063 17.8747V15.255C18.1063 14.8019 17.7543 14.4432 17.3102 14.4432Z" stroke="#E91E63" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="contact-text">
+                                    <strong>Call us</strong>
+                                    <span><a href="tel:+9779810430546">+977 9810430546</a></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact-icon-bg" style="background-color: #f0f4c3;">
+                                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#8BC34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 6L12 13L2 6" stroke="#8BC34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="contact-text">
+                                    <strong>Email</strong>
+                                    <span><a href="mailto:ramanbhandari7@outlook.com">ramanbhandari7@outlook.com</a></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact-icon-bg" style="background-color: #d4eef0;">
+                                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="#009688" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="#009688" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="contact-text">
+                                    <strong>Address</strong>
+                                    <span>Kerabari 6 Dangi<br>Morang, Nepal</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
         <div class="container">
-            <div id="footer-contact" class="contact-info"> <!-- ID for Navbar link -->
-                                    <ul class="contact-details-list">
-                        <li>
-                            <div class="contact-icon-bg" style="background-color: #fde7f0;"> <!-- Pinkish -->
-                                <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.3102 14.4432C16.1796 14.4432 15.0489 14.3526 13.9617 14.189C13.7055 14.1455 13.4402 14.2361 13.2501 14.4262L11.1558 16.5204C8.73394 15.3185 6.69943 13.2622 5.47571 10.8403L7.57898 8.7579C7.76007 8.55503 7.85062 8.29881 7.81618 8.04263C7.64364 6.95542 7.5621 5.82481 7.5621 4.69416C7.5621 4.24103 7.20106 3.88898 6.74794 3.88898H4.12824C3.68413 3.88898 3.33208 4.24103 3.33208 4.69416C3.33208 12.616 9.37489 18.6799 17.3102 18.6799C17.7543 18.6799 18.1063 18.3278 18.1063 17.8747V15.255C18.1063 14.8019 17.7543 14.4432 17.3102 14.4432Z" stroke="#E91E63" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            </div>
-                            <div class="contact-text">
-                                <strong>Call us</strong>
-                                <span><a href="tel:+9779810430546">+977 9810430546</a></span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="contact-icon-bg" style="background-color: #f0f4c3;"> <!-- Yellow-greenish -->
-                                <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#8BC34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 6L12 13L2 6" stroke="#8BC34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            </div>
-                            <div class="contact-text">
-                                <strong>Email</strong>
-                                <span><a href="mailto:ramanbhandari7@outlook.com">ramanbhandari7@outlook.com</a></span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="contact-icon-bg" style="background-color: #d4eef0;"> <!-- Tealish -->
-                                <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="#009688" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="#009688" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            </div>
-                            <div class="contact-text">
-                                <strong>Address</strong>
-                                <span>Kerabari 6 Dangi<br>Morang, Nepal</span>
-                            </div>
-                        </li>
-                    </ul>
-            </div>
-
-            <div id="footer-social" class="footer-social"> <!-- ID for Navbar link -->
+            <!-- The old #footer-contact div is removed. Navbar link now points to #contact-us -->
+            <div id="footer-social" class="footer-social">
                 <h3>Follow Me</h3>
-                <div> <!-- Wrapper for social icons -->
+                <div>
                     <a href="https://www.linkedin.com/in/raman-bhandari-942554247/" target="_blank" rel="noopener"><img src="assets/linkedin.png" alt="LinkedIn" class="social-icon"></a>
                     <a href="https://www.youtube.com/c/VADAZVLOGS" target="_blank" rel="noopener"><img src="assets/youtube.png" alt="YouTube" class="social-icon"></a>
                     <a href="https://www.tiktok.com/@ramanbhandari007" target="_blank" rel="noopener"><img src="assets/tiktok.png" alt="Tiktok" class="social-icon"></a>
                     <a href="https://www.instagram.com/ramanbhandari1991?igsh=OTJwOXNiMTQxaW1k" target="_blank" rel="noopener"><img src="assets/instagram.png" alt="Instagram" class="social-icon"></a>
                     <a href="https://www.facebook.com/ramanbhandari07" target="_blank" rel="noopener"><img src="assets/facebook.png" alt="Facebook" class="social-icon"></a>
-                    <!-- Removed email from social icons as it's in contact info -->
-                    <!-- Removed Upwork from social as it's more of a contact/hire link -->
                 </div>
             </div>
 
@@ -1156,10 +1150,8 @@ ul.contact-details-list li {
             if (menuToggle && navLinks) {
                 menuToggle.addEventListener('click', () => {
                     navLinks.classList.toggle('active');
-                    menuToggle.classList.toggle('active'); // For hamburger to X animation
+                    menuToggle.classList.toggle('active');
                 });
-
-                // Close menu when a link is clicked
                 navLinks.querySelectorAll('a').forEach(link => {
                     link.addEventListener('click', () => {
                         if (navLinks.classList.contains('active')) {
@@ -1170,7 +1162,6 @@ ul.contact-details-list li {
                 });
             }
 
-
             // Typewriter Effect
             const typewriterElement = document.getElementById('typewriter');
             if (typewriterElement) {
@@ -1179,7 +1170,6 @@ ul.contact-details-list li {
                 let charIndex = 0;
                 let currentText = '';
                 let isDeleting = false;
-
                 function type() {
                     currentText = texts[textIndex];
                     if (isDeleting) {
@@ -1189,34 +1179,24 @@ ul.contact-details-list li {
                         typewriterElement.textContent = currentText.substring(0, charIndex + 1);
                         charIndex++;
                     }
-
                     if (!isDeleting && charIndex === currentText.length) {
-                        setTimeout(() => isDeleting = true, 2000); // Pause at end
+                        setTimeout(() => isDeleting = true, 2000);
                     } else if (isDeleting && charIndex === 0) {
                         isDeleting = false;
                         textIndex = (textIndex + 1) % texts.length;
                     }
-
                     const typeSpeed = isDeleting ? 50 : 120;
                     setTimeout(type, typeSpeed);
                 }
-                type(); // Start the effect
+                type();
             }
-
-            // Smooth scrolling (already handled by CSS `scroll-behavior: smooth;` for modern browsers)
-            // But to ensure compatibility and active nav states, a JS solution might be added later.
 
             // Set current year in footer
             const yearSpan = document.getElementById('currentYear');
             if (yearSpan) {
                 yearSpan.textContent = new Date().getFullYear();
             }
-
-            // Active Navbar Link Highlighting (Optional)
-            // Could be added for more complex scroll spy behavior
         });
     </script>
-    <!-- Facebook SDK script is already loaded in the <head> or before body closing tag -->
-    <!-- Credly scripts are loaded inline where they are used to ensure their divs exist -->
 </body>
 </html>
