@@ -2,147 +2,872 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.5">
-    <meta name="description" content="Raman Bhandari - Inventory Strategist and Data Entry Specialist with a passion for digital solutions.">
-    <title>Raman Bhandari - Inventory Strategist</title>
-   <link rel="icon" href="assets/rmn.ico.jpg" type="image/x-icon">
-    <link rel="stylesheet" href="assets/styles.css">
-    <script src="assets/script.js"></script>
-    <!-- Load Facebook SDK -->
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Raman Bhandari - Inventory Strategist, Web Developer, and Data Entry Specialist with a passion for digital solutions.">
+    <title>Raman Bhandari - Professional Portfolio</title>
+    <link rel="icon" href="assets/rmn.ico.jpg" type="image/x-icon">
+
+    <!-- Load Facebook SDK (kept as is) -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
         src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v22.0">
-</script>
+    </script>
+
+    <!-- Google Fonts (Example: Open Sans and Montserrat) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.7;
+            background-color: #f4f7f6; /* Light grayish background */
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden; /* Clears floats */
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #2c3e50; /* Dark blue-gray */
+        }
+
+        h2.section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+        h2.section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #1abc9c; /* Accent color teal/green */
+            margin: 10px auto 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1abc9c; /* Accent color for links */
+        }
+        a:hover {
+            color: #16a085; /* Darker accent */
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: #2c3e50; /* Dark blue-gray */
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8em;
+            color: #fff;
+            font-weight: 700;
+        }
+        .navbar .logo a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .navbar .logo .highlight {
+            color: #1abc9c; /* Accent color */
+        }
+
+
+        .navbar ul.nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar ul.nav-links li {
+            margin-left: 25px;
+        }
+
+        .navbar ul.nav-links a {
+            color: #ecf0f1; /* Light gray for links */
+            padding: 0.5rem 0.2rem;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .navbar ul.nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #1abc9c;
+            transition: width 0.3s ease;
+        }
+
+        .navbar ul.nav-links a:hover,
+        .navbar ul.nav-links a.active { /* Style for active link (can be added via JS) */
+            color: #1abc9c; /* Accent color on hover */
+        }
+        .navbar ul.nav-links a:hover::after,
+        .navbar ul.nav-links a.active::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle .bar {
+            height: 3px;
+            width: 25px;
+            background-color: #fff;
+            margin: 4px 0;
+            transition: 0.3s;
+        }
+
+
+        /* Main Content Sections Styling */
+        main {
+            padding-top: 80px; /* Height of the navbar */
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+        .section:nth-child(even) {
+             background-color: #ffffff; /* Alternate section background */
+        }
+
+
+        /* Hero Section (Home) */
+        #home {
+            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('assets/hero-background.jpg'); /* Add a background image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax-like effect */
+            color: #fff;
+            text-align: center;
+            min-height: calc(100vh - 80px); /* Full viewport height minus navbar */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #home .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin-bottom: 25px;
+            border: 5px solid #1abc9c;
+            box-shadow: 0 0 15px rgba(26, 188, 156, 0.5);
+        }
+        #home h1#raman-name { /* Changed ID */
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            color: #fff;
+            font-weight: 700;
+        }
+        #home p.tagline {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #ecf0f1;
+        }
+        #home #typewriter {
+            font-size: 1.3em;
+            color: #1abc9c; /* Accent for typewriter */
+            margin-bottom: 30px;
+            min-height: 1.5em;
+            font-weight: bold;
+        }
+        .button-group {
+            margin-top: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #1abc9c; /* Accent color */
+            color: white !important;
+            text-decoration: none;
+            border-radius: 25px; /* Pill-shaped buttons */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            margin: 10px 10px;
+            font-size: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .button:hover {
+            background-color: #16a085; /* Darker accent */
+            transform: translateY(-3px);
+        }
+        .button.secondary { /* For Upwork button, etc. */
+            background-color: transparent;
+            border: 2px solid #1abc9c;
+            color: #1abc9c !important;
+        }
+        .button.secondary:hover {
+            background-color: #1abc9c;
+            color: white !important;
+        }
+
+        /* Who Am I (About) Section */
+        #who-am-i .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+        #who-am-i .text-content {
+            flex: 1;
+            min-width: 300px;
+        }
+         #who-am-i .about-image-container { /* Optional: if you want an image beside text */
+            flex: 0 0 300px; /* Fixed width for image container */
+            text-align: center;
+        }
+        #who-am-i .about-image {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+
+        /* Experience Section - Combined within About for now or separate as needed */
+        #experience ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+        #experience ul li {
+            margin-bottom: 20px;
+            padding-left: 30px;
+            position: relative;
+            border-left: 3px solid #1abc9c; /* Timeline effect */
+        }
+         #experience ul li::before {
+            content: '●';
+            position: absolute;
+            left: -9px; /* Adjust to center with line */
+            top: 0px;
+            color: #1abc9c;
+            font-size: 1.2em;
+        }
+        #experience ul li strong {
+            display: block;
+            font-size: 1.2em;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        #experience ul li a {
+            font-style: italic;
+        }
+
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .project-card {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            overflow: hidden; /* To contain image borders */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+        .project-card img.project-thumbnail { /* Class added in HTML */
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .project-card .project-content {
+            padding: 25px;
+            flex-grow: 1; /* Allows content to fill space */
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card h3 {
+            font-size: 1.6em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .project-card p {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 15px;
+            flex-grow: 1; /* Makes description take available space */
+        }
+        .project-card p strong {
+            color: #333;
+        }
+        .project-links {
+            margin-top: auto; /* Pushes links to the bottom */
+            text-align: right;
+        }
+         .project-links .button {
+            padding: 8px 18px;
+            font-size: 0.9em;
+            margin-left: 10px;
+            border-radius: 20px;
+         }
+
+        /* Skills/Certifications Section */
+        #certifications ul.certificates-list {
+            list-style: none;
+            padding: 0;
+            columns: 2; /* Create two columns for certifications */
+            column-gap: 30px;
+        }
+        #certifications ul.certificates-list li {
+            background: #ffffff;
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #1abc9c;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            break-inside: avoid-column; /* Prevents items from breaking across columns */
+        }
+        #certifications ul.certificates-list li a {
+            font-weight: bold;
+            display: block; /* Make link take full width for easier click */
+        }
+        #certifications .core-skills { /* For the <p> tag of core skills */
+            text-align: center;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        .credly-badge-container {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+
+        /* Volunteer Section */
+        .certificates-grid { /* Renamed from .certificates */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .certificate-viewer {
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .certificate-viewer h3 {
+            font-size: 1.2em;
+            text-align: center;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        .certificate-viewer iframe {
+            border: 1px solid #ccc; /* Slight border for iframe */
+            width: 100%;
+            height: 300px;
+            border-radius: 4px;
+        }
+
+
+        /* Services Section */
+        #service ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        #service li {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        #service li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+        #service li a {
+            font-weight: bold;
+            color: #2c3e50;
+            display: flex; /* For icon alignment if you add them */
+            align-items: center;
+        }
+         #service li a::before { /* Optional: add icons later */
+            /* content: '🔗';
+            margin-right: 10px;
+            color: #1abc9c; */
+         }
+
+
+        /* Vlogs Section */
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+        .video-item {
+            border-radius: 8px;
+            overflow:hidden; /* To make iframe corners round */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .video-item iframe,
+        .video-item .fb-video, .video-item .fb-video iframe {
+            width: 100%;
+            min-height: 315px;
+            border: none;
+            display: block; /* remove extra space below iframe */
+        }
+
+
+        /* Footer (Contact & Social) */
+        .footer {
+            background: #2c3e50; /* Dark blue-gray */
+            color: #ecf0f1; /* Light gray text */
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 40px;
+        }
+        .footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .footer .contact-info, .footer .footer-social, .footer .footer-quote-container {
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 600px; /* Control width of content */
+        }
+        .footer h3 { /* For "Contact Me", "Follow Me" titles */
+            color: #fff;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        .footer p {
+            color: #bdc3c7; /* Lighter gray */
+            font-size: 1em;
+        }
+        .footer .contact-info a {
+            color: #1abc9c;
+            word-break: break-all; /* For long email/links */
+        }
+        .footer-social .social-icon {
+            width: 35px;
+            height: 35px;
+            margin: 0 12px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: grayscale(30%) opacity(0.8);
+        }
+        .footer-social .social-icon:hover {
+            transform: scale(1.2) translateY(-3px);
+            filter: grayscale(0%) opacity(1);
+        }
+        .footer-quote {
+            font-style: italic;
+            font-size: 1.1em;
+            color: #bdc3c7;
+        }
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #95a5a6; /* Very light gray */
+        }
+
+
+        /* Responsive adjustments for Navbar */
+        @media (max-width: 860px) {
+            .navbar ul.nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 70px; /* Height of navbar */
+                left: 0;
+                background-color: #34495e; /* Slightly lighter than navbar for dropdown */
+                padding-bottom: 10px; /* Padding for last item */
+            }
+            .navbar ul.nav-links.active {
+                display: flex; /* Show when active */
+            }
+            .navbar ul.nav-links li {
+                margin: 15px 0;
+                text-align: center;
+            }
+            .navbar ul.nav-links a::after { /* Remove underline effect for mobile vertical menu */
+                 display: none;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+             .menu-toggle.active .bar:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+            .menu-toggle.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .menu-toggle.active .bar:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+        }
+        /* General responsive adjustments */
+        @media (max-width: 768px) {
+            h2.section-title {
+                font-size: 2em;
+            }
+            #home h1#raman-name {
+                font-size: 2.5em;
+            }
+            #home p.tagline {
+                font-size: 1.2em;
+            }
+            .container {
+                width: 95%;
+            }
+            .projects-grid, #certifications ul.certificates-list, #service ul, .video-gallery, .certificates-grid {
+                grid-template-columns: 1fr; /* Single column layout */
+                 columns: 1; /* For certifications list */
+            }
+        }
+
+    </style>
 </head>
 <body>
-    <header>
+
+    <nav class="navbar">
         <div class="container">
-           <h1 class="name" style="font-weight: normal; color: darkgreen; font-family: 'Times New Roman', sans-serif;">Raman Bhandari</h1>
-            <p class="quote" style="color: darkblue; font-family: 'Times New Roman', Times, serif;">"Bridging efficiency with digital precision"</p>
-        </div>
-    </header>
- <main class="container">
-        <section class="home">
-            <img src="assets/profile.jpg" alt="Portrait of Raman Bhandari" class="profile-img">
-            <h1 id="raman">Hi, I’m Raman Bhandari</h1>
-            <div id="typewriter"></div>
-            <div class="button-group">
-                <a href="#portfolio" class="button">Watch my recent vlogs</a>
-                <a href="https://bit.ly/4gq7GWO" class="button" target="_blank" rel="noopener">Hire me on Upwork</a>
+            <div class="logo"><a href="#home">Raman <span class="highlight">Bhandari</span></a></div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-        <section class="section" id="about">
-            <h2>About Me</h2>
-            <p><strong>Professional Summary:</strong> I am experienced in procurement, logistics, and freelancing on Upwork. I am committed to excellence and teamwork.</p>
-            <p><strong>Personal Insights:</strong> My motivation comes from a dedication to solving challenges efficiently and effectively.</p>
-             <section class="section" id="experience">
-            <h2>Experience</h2>
-            <ul>
-                <li><strong>Data Entry & Inventory Clerk</strong><br><a href="https://al-baironi.com/" target="_blank">Al Baironi Trading & Distribution, Doha Qatar</a><br>January 2024 – Present</li>
-                <li><strong>Storekeeper</strong><br><a href="https://www.albakerq.com/" target="_blank">Al Baker Group, Doha Qatar</a><br>September 2015 – September 2023</li>
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="#who-am-i">Who Am I?</a></li>
+                <li><a href="#service">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#volunteer">Volunteer</a></li> <!-- Added Volunteer, you can remove if not desired in nav -->
+                <li><a href="#footer-contact">Contact</a></li> <!-- Links to an ID in footer -->
+                <li><a href="#footer-social">Social</a></li>   <!-- Links to an ID in footer -->
             </ul>
-        </section>
+        </div>
+    </nav>
 
-        <section id="volunteer">
-            <h2>Volunteer</h2>
-            <p>As part of the FIFA World Cup 2022™ volunteer program, I was honored to contribute and receive appreciation for my efforts. Below are the certificates acknowledging my participation.</p>
-            <div class="certificates">
-                <div class="certificate-viewer">
-                    <h3>FIFA World Cup 2022™ Certificate of Appreciation</h3>
-                    <iframe src="assets/FIFA World Cup 2022™ Certificate of Appreciation.pdf" width="100%" height="200px" style="border: none;"></iframe>
+    <main>
+        <section id="home"> <!-- This is the Hero Section -->
+            <div class="container">
+                <img src="assets/profile.jpg" alt="Portrait of Raman Bhandari" class="profile-img">
+                <h1 id="raman-name">Raman Bhandari</h1>
+                <p class="tagline">"Bridging efficiency with digital precision"</p>
+                <div id="typewriter"></div> <!-- JavaScript will populate this -->
+                <div class="button-group">
+                    <a href="#projects" class="button">My Projects</a>
+                    <a href="https://bit.ly/4gq7GWO" class="button secondary" target="_blank" rel="noopener">Hire me on Upwork</a>
                 </div>
-                <div class="certificate-viewer">
-                    <h3>Host Country FIFA World Cup 2022™ Certificate of Appreciation</h3>
-                    <iframe src="assets/Host Country FIFA World Cup 2022™ Certificate of Appreciation.pdf" width="100%" height="200px" style="border: none;"></iframe>
             </div>
         </section>
-        <section class="section" id="skills">
-            <h2>Skills & Certifications</h2>
-            <p><strong>Skills:</strong> Web Applications, Digital Media, Excel Data, CRM, Marketing Strategy.</p>
-            <ul class="certificates-list">
-                <li><a href="https://skills.yourlearning.ibm.com/certificate/PLAN-C4FCC67D3E76" target="_blank" rel="noopener">Working in a Digital World: Professional Skills - IBM SkillsBuild</a></li>
-                <li><a href="https://courses.skillsbuild.skillsnetwork.site/certificates/3c18711470814c899e53fecc716b5c47?fbclid=IwY2xjawHIzd1leHRuA2FlbQIxMAABHdZjns2aFFli1ELiZS3kATFfapCCGruYZUzGXnRzSK2lvYHRwYmUqdwmbg_aem_70t7BwE8q11MYRzQdCENRQ" target="_blank" rel="noopener">Data Analysis with Python By IBM</a></li>
-               <li><a href="https://www.credly.com/badges/824fbf0b-efb5-436a-85fb-44828a47993e/public_url" target="_blank">Working in a Digital World: Professional Skills by IBM (Verified by Credly)</a></li>
-               <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="824fbf0b-efb5-436a-85fb-44828a47993e" data-share-badge-host="https://www.credly.com"></div>
-<script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                <li><a href="https://www.credly.com/badges/0048adac-2913-4e9c-a311-ab484a1c0583/linked_in?t=skiqy3" target="_blank">Google AI Essentials</a></li>
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="0048adac-2913-4e9c-a311-ab484a1c0583" data-share-badge-host="https://www.credly.com"></div>
-<script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                <li><a href="https://www.linkedin.com/learning/certificates/eba7afe8e313dcf06b189b6545b4f7c8c3e3ed3c19ea8b44bf32a29d365d299d" target="_blank">Excel Essential Training (Microsoft 365)</a></li>
-                <li><a href="https://coursera.org/share/f7e0bd8f2420ab50608d5b5ec966db00" target="_blank">Search Engine Optimization (SEO) with Squarespace By Coursera</a></li>
-                <li><a href="https://courses.cognitiveclass.ai/certificates/d0b0da8019c240e0860c4ca241dfef8a" target="_blank">Python 101 for Data Science (By IBM)</a></li>
-                <li><a href="https://www.coursera.org/account/accomplishments/verify/TQL5RXYRDZRA?utm_source=ios&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course" target="_blank">Supply Chain Logistics</a></li>
-                <li><a href="https://www.coursera.org/learn/from-excel-to-power-bi" target="_blank">From Excel to Power BI</a></li>
-               <li><a href="https://learndigital.withgoogle.com/digitalgarage" target="_blank" rel="noopener">Google Digital Garage</a></li>
-                 <li><a href="https://www.coursera.org/account/accomplishments/verify/R8FBUSIQFUZ" target="_blank">Google Data Analytics</a></li>
-                <li><a href="https://www.coursera.org/account/accomplishments/verify/PGUSLGBAMDRK?utm_source=ios&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course" target="_blank">Business Analysis & Process Management</a></li>
-                <li><a href="https://www.mygreatlearning.com/certificate/TCRMKVLC" target="_blank" rel="noopener">Supply Chain Management</a></li>
-            </ul>
-        </section>
-<section class="section" id="service">
-    <h2>My Services</h2>
-    <ul>
-        <li><a href="https://www.ssf.gov.np/" target="_blank">Social Security Fund For Foreign Employment</a></li>
-        <li><a href="https://applydl.dotm.gov.np/" target="_blank">Driving License Form Fill-up in Nepal</a></li>
-        <li><a href="https://wa.me/9779810430546" target="_blank">Professional CV Writing</a></li>
-        <li><a href="https://www.nrb.org.np/" target="_blank">Online Bank Account Opening in Nepal</a></li>
-        <li><a href="https://meroshare.cdsc.com.np/" target="_blank">Mero Share & Demat Account Opening Guide</a></li>
-        <li><a href="https://emrtds.nepalpassport.gov.np/" target="_blank">Online Passport Form Filling in Nepal</a></li>
-        <li><a href="https://ird.gov.np/" target="_blank">PAN Card Registration</a></li>
-        <li><a href="https://https://www.nlk.org.np/" target="_blank">CIT Account Opening</a></li>
-        <li><a href="https://nidmc.gov.np/" target="_blank">National ID Card Registration in Nepal</a></li>
-        <li><a href="https://www.jlpt.jp/" target="_blank">Japan Language Test Form Fill-up</a></li>
-        <li><a href="https://wa.me/9779810430546" target="_blank">All Kinds of Online Digital Solutions</a></li>
-    </ul>
-</section>
-      <section class="section" id="portfolio">
-    <h2>Vadaz Vlogs (Raman Vlogs)</h2>
-    <div class="video-gallery">
-        <!-- Single YouTube Video (Keep your best-performing one) -->
-        <div class="video-item">
-            <iframe 
-                src="https://www.youtube.com/embed/Bza1q-FDaY8?si=ZsiBfNaP1gGDbHPq" 
-                frameborder="0" 
-                allowfullscreen>
-            </iframe>
-        </div>
 
-        <!-- Facebook Video Embed -->
-        <div class="video-item">
-            <div class="fb-video" 
-                data-href="https://www.facebook.com/61576059702352/videos/484487918024452/" 
-                data-width="500" 
-                data-show-text="false">
-                <blockquote cite="https://www.facebook.com/61576059702352/videos/484487918024452/" class="fb-xfbml-parse-ignore">
-                    <a href="https://www.facebook.com/61576059702352/videos/484487918024452/">📹 अब डिजिटल सेवा घरमै बसी!</a>
-                    <p>Posted by <a href="https://www.facebook.com/people/Digital-Hub-Online-Nepal/61576059702352/">Digital Hub Online Nepal</a> on Friday, May 16, 2025</p>
-                </blockquote>
+        <section class="section" id="who-am-i">
+            <div class="container">
+                <h2 class="section-title">Who Am I?</h2>
+                <div class="content">
+                     <div class="text-content">
+                        <p><strong>Professional Summary:</strong> Experienced in procurement, logistics, web development, and freelancing on Upwork. Committed to excellence, teamwork, and delivering high-quality digital solutions.</p>
+                        <p><strong>Personal Insights:</strong> My motivation comes from a dedication to solving challenges efficiently and effectively, leveraging digital tools and creative strategies to achieve impactful results. I am passionate about continuous learning and adapting to new technologies.</p>
+                     </div>
+                     <!-- Optional: Add an image here if you have one for the 'About Me' section -->
+                     <!-- <div class="about-image-container">
+                        <img src="assets/about-me-image.jpg" alt="Raman Bhandari at work" class="about-image">
+                    </div> -->
+                </div>
+
+                <div id="experience" style="margin-top: 40px;"> <!-- Nesting Experience here -->
+                     <h3 style="text-align:center; font-size:1.8em; margin-bottom:30px; color: #34495e;">My Experience</h3>
+                     <ul>
+                        <li><strong>Data Entry & Inventory Clerk</strong><br><a href="https://al-baironi.com/" target="_blank" rel="noopener">Al Baironi Trading & Distribution, Doha Qatar</a><br>January 2024 – Present</li>
+                        <li><strong>Storekeeper</strong><br><a href="https://www.albakerq.com/" target="_blank" rel="noopener">Al Baker Group, Doha Qatar</a><br>September 2015 – September 2023</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
+        <section class="section" id="service">
+            <div class="container">
+                <h2 class="section-title">My Digital Services</h2>
+                <p style="text-align:center; max-width: 700px; margin-left:auto; margin-right:auto; margin-bottom: 40px;">I offer assistance and guidance with various online applications and digital tasks, providing streamlined solutions for your needs:</p>
+                <ul>
+                    <li>Assistance with: <a href="https://www.ssf.gov.np/" target="_blank" rel="noopener">Social Security Fund (Nepal)</a></li>
+                    <li>Assistance with: <a href="https://applydl.dotm.gov.np/" target="_blank" rel="noopener">Driving License Form (Nepal)</a></li>
+                    <li><a href="https://wa.me/9779810430546" target="_blank" rel="noopener">Professional CV Writing</a></li>
+                    <li>Guidance for: <a href="https://www.nrb.org.np/" target="_blank" rel="noopener">Online Bank Account Opening (Nepal)</a></li>
+                    <li>Guidance for: <a href="https://meroshare.cdsc.com.np/" target="_blank" rel="noopener">Mero Share & Demat Account</a></li>
+                    <li>Assistance with: <a href="https://emrtds.nepalpassport.gov.np/" target="_blank" rel="noopener">Online Passport Form (Nepal)</a></li>
+                    <li>Assistance with: <a href="https://ird.gov.np/" target="_blank" rel="noopener">PAN Card Registration (Nepal)</a></li>
+                    <li>Guidance for: <a href="https://www.nlk.org.np/" target="_blank" rel="noopener">CIT Account Opening (Nepal)</a></li>
+                    <li>Assistance with: <a href="https://nidmc.gov.np/" target="_blank" rel="noopener">National ID Card Registration (Nepal)</a></li>
+                    <li>Assistance with: <a href="https://www.jlpt.jp/" target="_blank" rel="noopener">Japan Language Test Form</a></li>
+                    <li><a href="https://wa.me/9779810430546" target="_blank" rel="noopener">Comprehensive Online Digital Solutions</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" id="projects"> <!-- ID changed from website-projects -->
+            <div class="container">
+                <h2 class="section-title">My Website Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <img src="assets/project1-thumbnail.jpg" alt="Project 1 Thumbnail" class="project-thumbnail">
+                        <div class="project-content">
+                            <h3>Project Title 1</h3>
+                            <p>A brief description of your project. "A responsive e-commerce platform for selling artisanal crafts, featuring secure payments and inventory management."</p>
+                            <p><strong>Technologies:</strong> HTML, CSS, JavaScript, React, Node.js</p>
+                            <div class="project-links">
+                                <a href="#" class="button secondary" target="_blank" rel="noopener">View Code</a>
+                                <a href="#" class="button" target="_blank" rel="noopener">Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="assets/project2-thumbnail.jpg" alt="Project 2 Thumbnail" class="project-thumbnail">
+                         <div class="project-content">
+                            <h3>Project Title 2</h3>
+                            <p>Description for your second project. "A personal blog site built with a static site generator, focusing on speed, SEO, and a clean reading experience."</p>
+                            <p><strong>Technologies:</strong> Python (Django), PostgreSQL, Bootstrap</p>
+                            <div class="project-links">
+                                <a href="#" class="button secondary" target="_blank" rel="noopener">View Code</a>
+                                <a href="#" class="button" target="_blank" rel="noopener">Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more project-card divs as needed -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="certifications"> <!-- ID changed from skills -->
+            <div class="container">
+                <h2 class="section-title">Skills & Certifications</h2>
+                <p class="core-skills"><strong>Core Skills:</strong> Web Development (HTML, CSS, JavaScript), Data Analysis (Python, Excel, Power BI), Procurement, Logistics, Digital Media, CRM, Marketing Strategy.</p>
+                <ul class="certificates-list">
+                    <li><a href="https://skills.yourlearning.ibm.com/certificate/PLAN-C4FCC67D3E76" target="_blank" rel="noopener">Working in a Digital World: Professional Skills - IBM SkillsBuild</a>
+                        <div class="credly-badge-container" data-iframe-width="150" data-iframe-height="270" data-share-badge-id="824fbf0b-efb5-436a-85fb-44828a47993e" data-share-badge-host="https://www.credly.com"></div>
+                        <!-- Credly Script is loaded below li to target its own div -->
+                        <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+                    </li>
+                    <li><a href="https://courses.skillsbuild.skillsnetwork.site/certificates/3c18711470814c899e53fecc716b5c47?fbclid=..." target="_blank" rel="noopener">Data Analysis with Python By IBM</a></li>
+                    <li><a href="https://www.credly.com/badges/0048adac-2913-4e9c-a311-ab484a1c0583/linked_in?t=skiqy3" target="_blank" rel="noopener">Google AI Essentials</a>
+                        <div class="credly-badge-container" data-iframe-width="150" data-iframe-height="270" data-share-badge-id="0048adac-2913-4e9c-a311-ab484a1c0583" data-share-badge-host="https://www.credly.com"></div>
+                        <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+                    </li>
+                    <li><a href="https://www.linkedin.com/learning/certificates/eba7afe8e313dcf06b189b6545b4f7c8c3e3ed3c19ea8b44bf32a29d365d299d" target="_blank"  rel="noopener">Excel Essential Training (Microsoft 365)</a></li>
+                    <li><a href="https://coursera.org/share/f7e0bd8f2420ab50608d5b5ec966db00" target="_blank" rel="noopener">Search Engine Optimization (SEO) with Squarespace By Coursera</a></li>
+                    <li><a href="https://courses.cognitiveclass.ai/certificates/d0b0da8019c240e0860c4ca241dfef8a" target="_blank" rel="noopener">Python 101 for Data Science (By IBM)</a></li>
+                    <li><a href="https://www.coursera.org/account/accomplishments/verify/TQL5RXYRDZRA" target="_blank" rel="noopener">Supply Chain Logistics</a></li>
+                    <li><a href="https://www.coursera.org/learn/from-excel-to-power-bi" target="_blank" rel="noopener">From Excel to Power BI</a></li>
+                    <li><a href="https://learndigital.withgoogle.com/digitalgarage" target="_blank" rel="noopener">Google Digital Garage</a></li>
+                    <li><a href="https://www.coursera.org/account/accomplishments/verify/R8FBUSIQFUZ" target="_blank" rel="noopener">Google Data Analytics</a></li>
+                    <li><a href="https://www.coursera.org/account/accomplishments/verify/PGUSLGBAMDRK" target="_blank" rel="noopener">Business Analysis & Process Management</a></li>
+                    <li><a href="https://www.mygreatlearning.com/certificate/TCRMKVLC" target="_blank" rel="noopener">Supply Chain Management</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" id="volunteer">
+            <div class="container">
+                <h2 class="section-title">Volunteer Work</h2>
+                <p style="text-align:center; max-width: 700px; margin-left:auto; margin-right:auto; margin-bottom: 40px;">I was honored to contribute to the FIFA World Cup 2022™ volunteer program and received appreciation for my efforts. The certificates below acknowledge my participation.</p>
+                <div class="certificates-grid">
+                    <div class="certificate-viewer">
+                        <h3>FIFA World Cup 2022™ Certificate</h3>
+                        <iframe src="assets/FIFA World Cup 2022™ Certificate of Appreciation.pdf"></iframe>
+                    </div>
+                    <div class="certificate-viewer">
+                        <h3>Host Country FIFA World Cup 2022™ Certificate</h3>
+                        <iframe src="assets/Host Country FIFA World Cup 2022™ Certificate of Appreciation.pdf"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="section" id="vlogs"> <!-- Kept from original, was #portfolio for vlogs -->
+            <div class="container">
+                <h2 class="section-title">Vadaz Vlogs (Raman Vlogs)</h2>
+                 <div class="video-gallery">
+                    <div class="video-item">
+                        <iframe
+                            src="https://www.youtube.com/embed/Bza1q-FDaY8?si=ZsiBfNaP1gGDbHPq"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-item">
+                        <div class="fb-video"
+                            data-href="https://www.facebook.com/61576059702352/videos/484487918024452/"
+                            data-width="500" <!-- The CSS will manage width, but data-width can be a hint -->
+                            data-show-text="false">
+                            <blockquote cite="https://www.facebook.com/61576059702352/videos/484487918024452/" class="fb-xfbml-parse-ignore">
+                                <a href="https://www.facebook.com/61576059702352/videos/484487918024452/">📹 अब डिजिटल सेवा घरमै बसी!</a>
+                                <p>Posted by <a href="https://www.facebook.com/people/Digital-Hub-Online-Nepal/61576059702352/">Digital Hub Online Nepal</a> on Friday, May 16, 2025</p>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <p class="contact-me">Contact Me:</p>
-                <div class="footer-social">
-                    <a href="mailto:ramanbhandari7@outlook.com" rel="noopener"><img src="assets/email.png" alt="Email" class="social-icon"></a>
+            <div id="footer-contact" class="contact-info"> <!-- ID for Navbar link -->
+                <h3>Contact Me</h3>
+                <p>Feel free to reach out via email or connect with me on professional platforms.</p>
+                <p><strong>Email:</strong> <a href="mailto:ramanbhandari7@outlook.com">ramanbhandari7@outlook.com</a></p>
+                <p><strong>Upwork:</strong> <a href="https://bit.ly/4gq7GWO" target="_blank" rel="noopener">Hire me on Upwork</a></p>
+                <p><strong>WhatsApp:</strong> <a href="https://wa.me/9779810430546" target="_blank" rel="noopener">Message me on WhatsApp</a></p>
+            </div>
+
+            <div id="footer-social" class="footer-social"> <!-- ID for Navbar link -->
+                <h3>Follow Me</h3>
+                <div> <!-- Wrapper for social icons -->
                     <a href="https://www.linkedin.com/in/raman-bhandari-942554247/" target="_blank" rel="noopener"><img src="assets/linkedin.png" alt="LinkedIn" class="social-icon"></a>
-                    <a href="https://bit.ly/4gq7GWO" target="_blank" rel="noopener"><img src="assets/upwork.png" alt="Upwork" class="social-icon"></a>
                     <a href="https://www.youtube.com/c/VADAZVLOGS" target="_blank" rel="noopener"><img src="assets/youtube.png" alt="YouTube" class="social-icon"></a>
                     <a href="https://www.tiktok.com/@ramanbhandari007" target="_blank" rel="noopener"><img src="assets/tiktok.png" alt="Tiktok" class="social-icon"></a>
                     <a href="https://www.instagram.com/ramanbhandari1991?igsh=OTJwOXNiMTQxaW1k" target="_blank" rel="noopener"><img src="assets/instagram.png" alt="Instagram" class="social-icon"></a>
                     <a href="https://www.facebook.com/ramanbhandari07" target="_blank" rel="noopener"><img src="assets/facebook.png" alt="Facebook" class="social-icon"></a>
-                    <a href="https://wa.me/9779810430546" target="_blank" rel="noopener"><img src="assets/whatsapp.png" alt="WhatsApp" class="social-icon"></a>
+                    <!-- Removed email from social icons as it's in contact info -->
+                    <!-- Removed Upwork from social as it's more of a contact/hire link -->
                 </div>
             </div>
-            <p class="footer-quote">“Strive not to be a success, but rather to be of value.”</p>
+
+            <div class="footer-quote-container">
+                 <p class="footer-quote">“Strive not to be a success, but rather to be of value.” – Albert Einstein</p>
+            </div>
+            <p class="copyright">© <span id="currentYear"></span> Raman Bhandari. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <script src="assets/scripts.js" defer></script>
-</body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const menuToggle = document.getElementById('mobile-menu');
+            const navLinks = document.getElementById('nav-menu');
 
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    menuToggle.classList.toggle('active'); // For hamburger to X animation
+                });
+
+                // Close menu when a link is clicked
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (navLinks.classList.contains('active')) {
+                            navLinks.classList.remove('active');
+                            menuToggle.classList.remove('active');
+                        }
+                    });
+                });
+            }
+
+
+            // Typewriter Effect
+            const typewriterElement = document.getElementById('typewriter');
+            if (typewriterElement) {
+                const texts = ["Inventory Strategist", "Web Enthusiast", "Data Specialist", "Freelancer"];
+                let textIndex = 0;
+                let charIndex = 0;
+                let currentText = '';
+                let isDeleting = false;
+
+                function type() {
+                    currentText = texts[textIndex];
+                    if (isDeleting) {
+                        typewriterElement.textContent = currentText.substring(0, charIndex - 1);
+                        charIndex--;
+                    } else {
+                        typewriterElement.textContent = currentText.substring(0, charIndex + 1);
+                        charIndex++;
+                    }
+
+                    if (!isDeleting && charIndex === currentText.length) {
+                        setTimeout(() => isDeleting = true, 2000); // Pause at end
+                    } else if (isDeleting && charIndex === 0) {
+                        isDeleting = false;
+                        textIndex = (textIndex + 1) % texts.length;
+                    }
+
+                    const typeSpeed = isDeleting ? 50 : 120;
+                    setTimeout(type, typeSpeed);
+                }
+                type(); // Start the effect
+            }
+
+            // Smooth scrolling (already handled by CSS `scroll-behavior: smooth;` for modern browsers)
+            // But to ensure compatibility and active nav states, a JS solution might be added later.
+
+            // Set current year in footer
+            const yearSpan = document.getElementById('currentYear');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+
+            // Active Navbar Link Highlighting (Optional)
+            // Could be added for more complex scroll spy behavior
+        });
+    </script>
+    <!-- Facebook SDK script is already loaded in the <head> or before body closing tag -->
+    <!-- Credly scripts are loaded inline where they are used to ensure their divs exist -->
+</body>
 </html>
