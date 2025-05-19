@@ -976,6 +976,22 @@
             .decorative-line-graphic { top: 15px; right: 15px; }
             .decorative-line-graphic svg { width: 60px; height: 60px; }
         }
+        /* === RESPONSIVE ADJUSTMENTS === */
+
+/* ... your existing @media (max-width: 992px) etc. ... */
+
+@media (max-width: 768px) { /* Or your preferred mobile breakpoint */
+    /* ... your existing mobile styles for #home fonts, etc. ... */
+
+    #home {
+        background-attachment: scroll; /* Change from 'fixed' to 'scroll' for mobile */
+        /* You might also want to ensure the min-height is still appropriate,
+           sometimes calc(100vh - navbar_height) can be very tall on mobile
+           if content is short, but for a hero it's often fine. */
+    }
+
+    /* ... other existing mobile styles for Who Am I, etc. ... */
+}
     </style>
 </head>
 <body>
