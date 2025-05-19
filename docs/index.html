@@ -171,20 +171,20 @@
         }
 
         /* Hero Section (Home) - Text Only Now */
-        #home {
-            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('assets/main.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: #fff;
-            min-height: calc(100vh - 80px);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 20px; /* Padding for the content inside */
-            text-align: center; /* Center align the text content */
-        }
+       #home {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('assets/main.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* THIS IS LIKELY THE CULPRIT ON MOBILE */
+    color: #fff;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
 
         .home-text-content { /* This now directly inside #home */
             max-width: 750px; /* Max width for the text block */
