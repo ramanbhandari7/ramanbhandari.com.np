@@ -181,78 +181,81 @@
 
 
         /* Hero Section (Home) */
-        #home {
-            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('assets/hero-background.jpg'); /* Add a background image */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed; /* Parallax-like effect */
-            color: #fff;
-            text-align: center;
-            min-height: calc(100vh - 80px); /* Full viewport height minus navbar */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        #home .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            margin-bottom: 25px;
-            border: 5px solid #1abc9c;
-            box-shadow: 0 0 15px rgba(26, 188, 156, 0.5);
-        }
-        #home h1#raman-name { /* Changed ID */
-            font-size: 3.5em;
-            margin-bottom: 10px;
-            color: #fff;
-            font-weight: 700;
-        }
-        #home p.tagline {
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            color: #ecf0f1;
-        }
-        #home #typewriter {
-            font-size: 1.3em;
-            color: #1abc9c; /* Accent for typewriter */
-            margin-bottom: 30px;
-            min-height: 1.5em;
-            font-weight: bold;
-        }
-        .button-group {
-            margin-top: 20px;
-        }
-        .button {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: #1abc9c; /* Accent color */
-            color: white !important;
-            text-decoration: none;
-            border-radius: 25px; /* Pill-shaped buttons */
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            border: none;
-            cursor: pointer;
-            margin: 10px 10px;
-            font-size: 1em;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .button:hover {
-            background-color: #16a085; /* Darker accent */
-            transform: translateY(-3px);
-        }
-        .button.secondary { /* For Upwork button, etc. */
-            background-color: transparent;
-            border: 2px solid #1abc9c;
-            color: #1abc9c !important;
-        }
-        .button.secondary:hover {
-            background-color: #1abc9c;
-            color: white !important;
-        }
+        /* Hero Section (Home) */
+#home {
+    /* THIS IS THE LINE TO CHANGE */
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('assets/main.jpg'); /* <-- CHANGED TO main.jpg */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax-like effect */
+    color: #fff;
+    text-align: center;
+    min-height: calc(100vh - 80px); /* Full viewport height minus navbar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#home .profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin-bottom: 25px;
+    border: 5px solid #1abc9c;
+    box-shadow: 0 0 15px rgba(26, 188, 156, 0.5);
+}
+#home h1#raman-name { /* Changed ID */
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: #fff;
+    font-weight: 700;
+}
+#home p.tagline {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #ecf0f1;
+}
+#home #typewriter {
+    font-size: 1.3em;
+    color: #1abc9c; /* Accent for typewriter */
+    margin-bottom: 30px;
+    min-height: 1.5em;
+    font-weight: bold;
+}
+/* These .button-group and .button styles are more general but are used within #home */
+.button-group {
+    margin-top: 20px;
+}
+.button { /* This is a general button style, not exclusive to #home but used there */
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #1abc9c; /* Accent color */
+    color: white !important;
+    text-decoration: none;
+    border-radius: 25px; /* Pill-shaped buttons */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+    margin: 10px 10px;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.button:hover {
+    background-color: #16a085; /* Darker accent */
+    transform: translateY(-3px);
+}
+.button.secondary { /* Specific button variant */
+    background-color: transparent;
+    border: 2px solid #1abc9c;
+    color: #1abc9c !important;
+}
+.button.secondary:hover {
+    background-color: #1abc9c;
+    color: white !important;
+}
 /* === CSS FOR WHO AM I SECTION === */
 #who-am-i {
     padding: 0;
