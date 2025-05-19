@@ -254,26 +254,178 @@
             color: white !important;
         }
 
-        /* Who Am I (About) Section */
-        #who-am-i .content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            align-items: center;
-        }
-        #who-am-i .text-content {
-            flex: 1;
-            min-width: 300px;
-        }
-         #who-am-i .about-image-container { /* Optional: if you want an image beside text */
-            flex: 0 0 300px; /* Fixed width for image container */
-            text-align: center;
-        }
-        #who-am-i .about-image {
-            max-width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+        /* === NEW/MODIFIED CSS FOR WHO AM I SECTION === */
+
+#who-am-i {
+    padding: 0; /* Remove padding from the section itself; the inner div will handle it */
+    position: relative;
+    color: #fff; /* Default text color to white for readability over a dark background image */
+}
+
+#who-am-i .who-am-i-background {
+    /* --- IMPORTANT: Add your background image path here --- */
+    background-image: linear-gradient(rgba(30, 40, 50, 0.88), rgba(30, 40, 50, 0.88)), url('assets/who-am-i-background.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; /* Optional: for parallax effect */
+    padding: 80px 0; /* Padding for the content within the background div */
+}
+
+#who-am-i .section-title {
+    color: #fff; /* Ensure title is visible on dark background */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+#who-am-i .section-title::after {
+    background-color: #1abc9c; /* Your chosen accent color for the underline */
+}
+
+/* Styles for your existing .content class - mainly flex setup */
+#who-am-i .content {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    gap: 40px;       /* Increased gap for better spacing with background */
+    align-items: flex-start; /* Align items to the top; changed from 'center' if subsections make text-content tall */
+}
+
+/* Styles for your existing .text-content class, adapted for dark background and new subsections */
+#who-am-i .text-content {
+    flex: 1; /* Takes up remaining space or defines base size */
+    min-width: 300px;
+    background-color: rgba(0, 0, 0, 0.3); /* Slightly more transparent overlay for the text box */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Subtle shadow, may or may not be very visible */
+}
+
+#who-am-i .text-content p {
+    color: #e9ecef; /* Light gray/off-white for paragraphs for readability */
+    margin-bottom: 1.2em;
+    font-size: 1.05em;
+    line-height: 1.8;
+}
+#who-am-i .text-content strong {
+    color: #1abc9c; /* Accent color for strong text */
+    font-weight: 600; /* Slightly bolder */
+}
+
+#who-am-i .about-subsection {
+    margin-bottom: 25px;
+}
+#who-am-i .about-subsection:last-child {
+    margin-bottom: 0;
+}
+
+#who-am-i .about-subsection h3 {
+    color: #ffffff; /* White heading for subsections */
+    font-size: 1.5em; /* Adjusted size */
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25); /* Subtler border */
+    font-weight: 600;
+}
+
+/* Styles for your existing .about-image-container and .about-image classes */
+#who-am-i .about-image-container {
+    flex: 0 0 300px; /* Keeps fixed width for image container */
+    text-align: center;
+    align-self: center; /* Vertically center image container if .content uses align-items: flex-start */
+    /* background-color: rgba(0,0,0,0.1); /* Optional subtle bg for image container if needed */
+    /* padding: 15px; */
+    /* border-radius: 8px; */
+}
+
+#who-am-i .about-image {
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Your existing border-radius */
+    border: 3px solid #1abc9c; /* Border to make image pop on dark background */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); /* Adjusted shadow for dark background */
+}
+
+/* Styling for Experience section when nested in #who-am-i */
+#who-am-i #experience {
+    margin-top: 50px; /* Space above the experience block */
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.2); /* Slightly different background from .text-content */
+    border-radius: 8px;
+}
+
+#who-am-i #experience h3 { /* For the "My Experience" title */
+    text-align:center;
+    font-size:1.8em;
+    margin-bottom:30px;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+#who-am-i #experience ul {
+    list-style: none;
+    padding-left: 0;
+}
+#who-am-i #experience ul li {
+    margin-bottom: 20px;
+    padding: 15px 15px 15px 25px; /* Adjusted padding for the pseudo-element */
+    position: relative;
+    border-left: 3px solid #1abc9c;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 0 5px 5px 0;
+    color: #e0e0e0;
+}
+#who-am-i #experience ul li::before { /* Bullet point */
+    content: ''; /* Changed to empty for custom shape or image later, or use '●' */
+    position: absolute;
+    left: -8px; /* Positioning for the timeline dot */
+    top: 19px;
+    height: 14px; /* Size of the dot */
+    width: 14px;  /* Size of the dot */
+    background-color: #1abc9c;
+    border-radius: 50%;
+    border: 2px solid #2c3e50; /* Dark border around dot to make it pop */
+}
+#who-am-i #experience ul li strong {
+    display: block;
+    font-size: 1.25em;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+#who-am-i #experience ul li a {
+    color: #50cce1; /* Bright link color */
+    font-style: italic;
+}
+#who-am-i #experience ul li a:hover {
+    color: #7adfea; /* Lighter hover for links */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    #who-am-i .content {
+        flex-direction: column; /* Stack text content and image container */
+        align-items: center; /* Center items when stacked */
+    }
+    #who-am-i .text-content {
+        width: 100%; /* Allow text content to take full width when stacked */
+    }
+    #who-am-i .about-image-container {
+        flex-basis: auto; /* Allow it to take natural width or be constrained by its content */
+        width: auto; /* Adjust if necessary, or use max-width on image */
+        max-width: 300px; /* Ensure image doesn't get too large */
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    #who-am-i .who-am-i-background {
+        padding: 60px 0; /* Reduce padding on smaller screens */
+        background-attachment: scroll; /* Disable fixed attachment on mobile for performance/rendering issues */
+    }
+    #who-am-i #experience ul li::before {
+        top: 17px; /* Slight readjustment for bullet point on mobile */
+        height: 12px;
+        width: 12px;
+        left: -7px;
+    }
+}
 
 
         /* Experience Section - Combined within About for now or separate as needed */
@@ -619,30 +771,46 @@
             </div>
         </section>
 
+                <!-- WHO AM I (ABOUT) SECTION - UPDATED -->
         <section class="section" id="who-am-i">
-            <div class="container">
-                <h2 class="section-title">Who Am I?</h2>
-                <div class="content">
-                     <div class="text-content">
-                        <p><strong>Professional Summary:</strong> Experienced in procurement, logistics, web development, and freelancing on Upwork. Committed to excellence, teamwork, and delivering high-quality digital solutions.</p>
-                        <p><strong>Personal Insights:</strong> My motivation comes from a dedication to solving challenges efficiently and effectively, leveraging digital tools and creative strategies to achieve impactful results. I am passionate about continuous learning and adapting to new technologies.</p>
-                     </div>
-                     <!-- Optional: Add an image here if you have one for the 'About Me' section -->
-                     <!-- <div class="about-image-container">
-                        <img src="assets/about-me-image.jpg" alt="Raman Bhandari at work" class="about-image">
-                    </div> -->
-                </div>
+            <!-- This outer div will have the background image -->
+            <div class="who-am-i-background">
+                <div class="container">
+                    <h2 class="section-title">Who Am I?</h2>
+                    <div class="content">
+                         <div class="text-content">
+                            <div class="about-subsection">
+                                <h3>My Journey & Philosophy</h3>
+                                <p>My journey into the world of procurement, logistics, and web technology has been driven by a relentless curiosity and a desire to create efficient, impactful solutions. I believe in the power of digital precision to transform complex challenges into streamlined processes. Every project is an opportunity to learn, innovate, and deliver value.</p>
+                            </div>
+                            <div class="about-subsection">
+                                <h3>Professional Approach</h3>
+                                <p>With a foundation in inventory management and data analysis, I approach problems methodically, focusing on detail and accuracy. As a web enthusiast and developer, I'm passionate about crafting user-friendly digital experiences. On platforms like Upwork, I strive to understand client needs deeply and provide solutions that exceed expectations. Teamwork, clear communication, and a commitment to continuous improvement are core to my work ethic.</p>
+                            </div>
+                             <div class="about-subsection">
+                                <h3>Beyond Work</h3>
+                                <p>When I'm not managing data or building websites, I enjoy creating vlogs to share insights and connect with a broader community. I'm also dedicated to staying updated with the latest industry trends, constantly expanding my skill set to tackle new and exciting challenges. Volunteering for events like the FIFA World Cup has further enriched my perspective on collaboration and community engagement.</p>
+                            </div>
+                         </div>
+                         <!-- Optional: Add an image here if you have one that sits on top of the BG, otherwise remove this div -->
+                         <!--
+                         <div class="about-profile-image-container">
+                            <img src="assets/raman_professional_shot.jpg" alt="Raman Bhandari" class="about-profile-image">
+                        </div>
+                        -->
+                    </div>
 
-                <div id="experience" style="margin-top: 40px;"> <!-- Nesting Experience here -->
-                     <h3 style="text-align:center; font-size:1.8em; margin-bottom:30px; color: #34495e;">My Experience</h3>
-                     <ul>
-                        <li><strong>Data Entry & Inventory Clerk</strong><br><a href="https://al-baironi.com/" target="_blank" rel="noopener">Al Baironi Trading & Distribution, Doha Qatar</a><br>January 2024 – Present</li>
-                        <li><strong>Storekeeper</strong><br><a href="https://www.albakerq.com/" target="_blank" rel="noopener">Al Baker Group, Doha Qatar</a><br>September 2015 – September 2023</li>
-                    </ul>
+                    <!-- Moved Experience here to be within the same visual block -->
+                    <div id="experience" style="margin-top: 50px; padding: 20px; background-color: rgba(255,255,255,0.05); border-radius: 8px;">
+                         <h3 style="text-align:center; font-size:1.8em; margin-bottom:30px; color: #ffffff; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">My Experience</h3>
+                         <ul>
+                            <li><strong>Data Entry & Inventory Clerk</strong><br><a href="https://al-baironi.com/" target="_blank" rel="noopener">Al Baironi Trading & Distribution, Doha Qatar</a><br>January 2024 – Present</li>
+                            <li><strong>Storekeeper</strong><br><a href="https://www.albakerq.com/" target="_blank" rel="noopener">Al Baker Group, Doha Qatar</a><br>September 2015 – September 2023</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
-
         <section class="section" id="service">
             <div class="container">
                 <h2 class="section-title">My Digital Services</h2>
