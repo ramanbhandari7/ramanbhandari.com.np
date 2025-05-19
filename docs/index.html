@@ -253,128 +253,128 @@
             background-color: #1abc9c;
             color: white !important;
         }
-
-        /* === CSS FOR WHO AM I SECTION === */
-        #who-am-i {
-            padding: 0;
-            position: relative;
-            color: #fff;
-        }
-        #who-am-i .who-am-i-background {
-            background-image: linear-gradient(rgba(30, 40, 50, 0.88), rgba(30, 40, 50, 0.88)), url('assets/who-am-i-background.jpg');
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
-            padding: 80px 0;
-        }
-        #who-am-i .section-title {
-            color: #fff;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-        }
-        #who-am-i .section-title::after {
-            background-color: #1abc9c;
-        }
-        #who-am-i .content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            align-items: flex-start;
-        }
-        #who-am-i .text-content {
-            flex: 1;
-            min-width: 300px;
-            background-color: rgba(0, 0, 0, 0.3);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        #who-am-i .text-content p {
-            color: #e9ecef;
-            margin-bottom: 1.2em;
-            font-size: 1.05em;
-            line-height: 1.8;
-        }
-        #who-am-i .text-content strong {
-            color: #1abc9c;
-            font-weight: 600;
-        }
-        #who-am-i .about-subsection {
-            margin-bottom: 25px;
-        }
-        #who-am-i .about-subsection:last-child {
-            margin-bottom: 0;
-        }
-        #who-am-i .about-subsection h3 {
-            color: #ffffff;
-            font-size: 1.5em;
-            margin-bottom: 12px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-            font-weight: 600;
-        }
-        #who-am-i .about-image-container {
-            flex: 0 0 300px;
-            text-align: center;
-            align-self: center;
-        }
-        #who-am-i .about-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            border: 3px solid #1abc9c;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-        }
-        #who-am-i #experience {
-            margin-top: 50px;
-            padding: 30px;
-            background-color: rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-        }
-        #who-am-i #experience h3 {
-            text-align:center;
-            font-size:1.8em;
-            margin-bottom:30px;
-            color: #ffffff;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-        #who-am-i #experience ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        #who-am-i #experience ul li {
-            margin-bottom: 20px;
-            padding: 15px 15px 15px 25px;
-            position: relative;
-            border-left: 3px solid #1abc9c;
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 0 5px 5px 0;
-            color: #e0e0e0;
-        }
-        #who-am-i #experience ul li::before {
-            content: '';
-            position: absolute;
-            left: -8px;
-            top: 19px;
-            height: 14px;
-            width: 14px;
-            background-color: #1abc9c;
-            border-radius: 50%;
-            border: 2px solid #2c3e50;
-        }
-        #who-am-i #experience ul li strong {
-            display: block;
-            font-size: 1.25em;
-            color: #ffffff;
-            margin-bottom: 5px;
-        }
-        #who-am-i #experience ul li a {
-            color: #50cce1;
-            font-style: italic;
-        }
-        #who-am-i #experience ul li a:hover {
-            color: #7adfea;
-        }
-
+/* === CSS FOR WHO AM I SECTION === */
+#who-am-i {
+    padding: 0;
+    position: relative;
+    color: #fff;
+}
+#who-am-i .who-am-i-background {
+    /* THIS IS THE LINE TO CHANGE */
+    background-image: linear-gradient(rgba(30, 40, 50, 0.88), rgba(30, 40, 50, 0.88)), url('assets/hero.jpg'); /* <-- CHANGED TO hero.jpg */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    padding: 80px 0;
+}
+#who-am-i .section-title {
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+#who-am-i .section-title::after {
+    background-color: #1abc9c;
+}
+#who-am-i .content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+}
+#who-am-i .text-content {
+    flex: 1;
+    min-width: 300px;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+#who-am-i .text-content p {
+    color: #e9ecef;
+    margin-bottom: 1.2em;
+    font-size: 1.05em;
+    line-height: 1.8;
+}
+#who-am-i .text-content strong {
+    color: #1abc9c;
+    font-weight: 600;
+}
+#who-am-i .about-subsection {
+    margin-bottom: 25px;
+}
+#who-am-i .about-subsection:last-child {
+    margin-bottom: 0;
+}
+#who-am-i .about-subsection h3 {
+    color: #ffffff;
+    font-size: 1.5em;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    font-weight: 600;
+}
+#who-am-i .about-image-container {
+    flex: 0 0 300px;
+    text-align: center;
+    align-self: center;
+}
+#who-am-i .about-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 3px solid #1abc9c;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+#who-am-i #experience {
+    margin-top: 50px;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+#who-am-i #experience h3 {
+    text-align:center;
+    font-size:1.8em;
+    margin-bottom:30px;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+#who-am-i #experience ul {
+    list-style: none;
+    padding-left: 0;
+}
+#who-am-i #experience ul li {
+    margin-bottom: 20px;
+    padding: 15px 15px 15px 25px;
+    position: relative;
+    border-left: 3px solid #1abc9c;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 0 5px 5px 0;
+    color: #e0e0e0;
+}
+#who-am-i #experience ul li::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 19px;
+    height: 14px;
+    width: 14px;
+    background-color: #1abc9c;
+    border-radius: 50%;
+    border: 2px solid #2c3e50;
+}
+#who-am-i #experience ul li strong {
+    display: block;
+    font-size: 1.25em;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+#who-am-i #experience ul li a {
+    color: #50cce1;
+    font-style: italic;
+}
+#who-am-i #experience ul li a:hover {
+    color: #7adfea;
+}
+        
         /* Projects Section */
         .projects-grid {
             display: grid;
