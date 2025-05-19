@@ -706,57 +706,198 @@
             text-decoration: underline;
         }
 
-        /* Footer */
-        .footer {
-            background: #2c3e50;
-            color: #ecf0f1;
-            text-align: center;
-            padding: 50px 20px;
-            margin-top: 40px;
-        }
-        .footer .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .footer .footer-social,
-        .footer .footer-quote-container {
-            margin-bottom: 30px;
-            width: 100%;
-            max-width: 600px;
-        }
-        .footer h3 {
-            color: #fff;
-            font-size: 1.8em;
-            margin-bottom: 15px;
-        }
-        .footer p {
-            color: #bdc3c7;
-            font-size: 1em;
-        }
+      /* === NEW FOOTER STYLES FOR PERSONAL PORTFOLIO === */
+.site-footer-new {
+    background-color: #2c3e50; /* Your existing dark footer background */
+    color: #e0e0e0;
+    padding: 50px 0 0 0; /* Top padding; bottom padding handled by .footer-bottom-new */
+    font-size: 0.95em; /* Slightly larger base font for footer */
+    line-height: 1.7;
+}
 
-        .footer-social .social-icon {
-            width: 35px;
-            height: 35px;
-            margin: 0 12px;
-            transition: transform 0.3s ease, filter 0.3s ease;
-            filter: grayscale(30%) opacity(0.8);
-        }
-        .footer-social .social-icon:hover {
-            transform: scale(1.2) translateY(-3px);
-            filter: grayscale(0%) opacity(1);
-        }
-        .footer-quote {
-            font-style: italic;
-            font-size: 1.1em;
-            color: #bdc3c7;
-        }
-        .copyright {
-            margin-top: 20px;
-            font-size: 0.9em;
-            color: #95a5a6;
-        }
+.footer-container-new {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px; /* Consistent gap */
+    padding-bottom: 40px; /* Space above copyright bar */
+}
 
+.footer-column-new {
+    flex: 1;
+    min-width: 280px; /* Adjust based on content */
+    padding: 0 15px; /* Consistent internal padding */
+}
+
+.footer-column-new h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    font-size: 1.5em; /* Prominent headings */
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #4a6a80; /* Your accent color or a lighter border */
+    font-weight: 600;
+}
+
+/* "Raman Bhandari" / About Me Column */
+.footer-about-me p {
+    color: #bdc3c7;
+    font-size: 0.9em;
+    line-height: 1.6;
+}
+
+.footer-social-icons-new {
+    margin-bottom: 20px; /* Space below icons */
+    display: flex;
+    gap: 12px; /* Space between icons */
+    flex-wrap: wrap; /* Allow icons to wrap if too many */
+}
+
+.footer-social-icons-new .social-icon-new {
+    display: inline-flex; /* Use flex for alignment within circle */
+    justify-content: center;
+    align-items: center;
+    width: 40px; /* Size of the icon circle */
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle background */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social-icons-new .social-icon-new img {
+    width: 20px; /* Size of the icon image inside the circle */
+    height: 20px;
+    /* Assuming you use white/light SVG icons so filter might not be needed
+       If using dark icons that need to be white:
+       filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(200%) contrast(100%); */
+}
+
+.footer-social-icons-new .social-icon-new:hover {
+    background-color: #1abc9c; /* Your main accent color */
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* Quick Navigation Column */
+.footer-quick-links-me ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-quick-links-me ul li {
+    margin-bottom: 12px;
+}
+
+.footer-quick-links-me ul li a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-quick-links-me ul li a::before {
+    content: ">"; /* Arrow indicator */
+    color: #1abc9c; /* Accent color */
+    margin-right: 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-quick-links-me ul li a:hover {
+    color: #ffffff;
+    padding-left: 5px;
+}
+.footer-quick-links-me ul li a:hover::before {
+    color: #ffffff;
+}
+
+/* Contact Me Column */
+.footer-contact-me p {
+    color: #bdc3c7;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center; /* Align icon with text */
+    font-size: 0.9em;
+}
+.footer-contact-me p a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-contact-me p a:hover {
+    color: #1abc9c;
+}
+.contact-icon-inline { /* SVG icons used in contact info */
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    fill: #1abc9c; /* Accent color for the icon fill */
+    flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+
+/* Bottom Bar (Copyright and Quote) */
+.footer-bottom-new {
+    background-color: #1f384a; /* Even darker, or same as main footer background */
+    padding: 25px 0;
+    text-align: center;
+    font-size: 0.9em;
+    color: #95a5a6;
+}
+.footer-bottom-new .container p { /* For both quote and copyright */
+    margin: 8px 0;
+}
+.footer-bottom-new .footer-quote { /* Your existing quote style */
+    font-style: italic;
+    font-size: 1.1em;
+    color: #bdc3c7;
+    margin-bottom: 15px; /* Space below quote */
+}
+.footer-bottom-new .copyright { /* Your existing copyright style */
+    font-size: 0.9em;
+    color: #95a5a6;
+}
+
+/* Responsive for New Footer */
+@media (max-width: 860px) { /* Adjusted breakpoint if needed */
+    .footer-container-new {
+        flex-direction: column;
+        /* text-align: center; /* Centering text in columns on mobile */
+    }
+    .footer-column-new {
+        min-width: 100%;
+        margin-bottom: 35px;
+        /* text-align can be per column if needed or centered by parent */
+    }
+    .footer-column-new:last-child {
+        margin-bottom: 0;
+    }
+    .footer-social-icons-new {
+        justify-content: flex-start; /* Or center if .footer-column-new is text-align: center */
+    }
+    .footer-quick-links-me ul {
+         /* text-align can remain left if parent is not text-align center */
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-column-new h3 {
+        font-size: 1.3em; /* Slightly smaller headings */
+    }
+    .footer-about-me, .footer-quick-links-me, .footer-contact-me {
+        text-align: center; /* Center content for these columns on mobile */
+    }
+    .footer-social-icons-new {
+        justify-content: center;
+    }
+    .footer-quick-links-me ul, .footer-contact-me p {
+        text-align: left; /* Keep text left-aligned within centered block */
+        display: inline-block; /* Allow centering for the block */
+    }
+    .footer-contact-me p {
+        justify-content: center; /* if still display:flex */
+    }
+
+}
         /* Responsive adjustments */
         @media (max-width: 992px) {
             #who-am-i .content-text-block { /* Renamed class for content */
@@ -1105,24 +1246,74 @@
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div id="footer-social" class="footer-social">
-                <h3>Follow Me</h3>
-                <div>
-                    <a href="https://www.linkedin.com/in/raman-bhandari-942554247/" target="_blank" rel="noopener"><img src="assets/linkedin.png" alt="LinkedIn" class="social-icon"></a>
-                    <a href="https://www.youtube.com/c/VADAZVLOGS" target="_blank" rel="noopener"><img src="assets/youtube.png" alt="YouTube" class="social-icon"></a>
-                    <a href="https://www.tiktok.com/@ramanbhandari007" target="_blank" rel="noopener"><img src="assets/tiktok.png" alt="Tiktok" class="social-icon"></a>
-                    <a href="https://www.instagram.com/ramanbhandari1991?igsh=OTJwOXNiMTQxaW1k" target="_blank" rel="noopener"><img src="assets/instagram.png" alt="Instagram" class="social-icon"></a>
-                    <a href="https://www.facebook.com/ramanbhandari07" target="_blank" rel="noopener"><img src="assets/facebook.png" alt="Facebook" class="social-icon"></a>
+        <!-- Existing main content ends -->
+    </main>
+
+    <footer class="site-footer-new"> <!-- Using a new class name to avoid conflicts if you keep old footer styles -->
+        <div class="container footer-container-new">
+            <div class="footer-column-new footer-about-me">
+                <h3>Raman Bhandari</h3>
+                <div class="footer-social-icons-new">
+                    <!-- Your Personal Social Media Links -->
+                    <a href="https://www.linkedin.com/in/raman-bhandari-942554247/" target="_blank" rel="noopener" title="LinkedIn" class="social-icon-new"><img src="assets/linkedin-white.svg" alt="LinkedIn"></a> <!-- Placeholder icon path -->
+                    <a href="https://www.youtube.com/c/VADAZVLOGS" target="_blank" rel="noopener" title="YouTube" class="social-icon-new"><img src="assets/youtube-white.svg" alt="YouTube"></a> <!-- Placeholder icon path -->
+                    <a href="https://www.tiktok.com/@ramanbhandari007" target="_blank" rel="noopener" title="TikTok" class="social-icon-new"><img src="assets/tiktok-white.svg" alt="TikTok"></a> <!-- Placeholder icon path -->
+                    <a href="https://www.facebook.com/ramanbhandari07" target="_blank" rel="noopener" title="Facebook" class="social-icon-new"><img src="assets/facebook-white.svg" alt="Facebook"></a> <!-- Placeholder icon path -->
+                    <a href="https://www.instagram.com/ramanbhandari1991?igsh=OTJwOXNiMTQxaW1k" target="_blank" rel="noopener" title="Instagram" class="social-icon-new"><img src="assets/instagram-white.svg" alt="Instagram"></a> <!-- Placeholder icon path -->
                 </div>
+                <p>Inventory Strategist, Web Enthusiast, and Data Specialist passionate about bridging efficiency with digital precision. Continuously learning and applying new skills to deliver impactful solutions.</p>
             </div>
-            <div class="footer-quote-container">
+
+            <div class="footer-column-new footer-quick-links-me">
+                <h3>Quick Navigation</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#who-am-i">Who Am I?</a></li>
+                    <li><a href="#service">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#volunteer">Volunteer</a></li>
+                    <li><a href="#contact-us">Contact</a></li>
+                    <li><a href="#vlogs">Vlogs</a></li> <!-- Link to your Vlogs section if it exists -->
+                </ul>
+            </div>
+
+            <div class="footer-column-new footer-contact-me">
+                <h3>Get In Touch</h3>
+                <p>
+                    <svg class="contact-icon-inline" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"/><path d="M22 6L12 13L2 6"/></svg>
+                    <a href="mailto:ramanbhandari7@outlook.com">ramanbhandari7@outlook.com</a>
+                </p>
+                <p>
+                    <svg class="contact-icon-inline" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.3102 14.4432C16.1796 14.4432 15.0489 14.3526 13.9617 14.189C13.7055 14.1455 13.4402 14.2361 13.2501 14.4262L11.1558 16.5204C8.73394 15.3185 6.69943 13.2622 5.47571 10.8403L7.57898 8.7579C7.76007 8.55503 7.85062 8.29881 7.81618 8.04263C7.64364 6.95542 7.5621 5.82481 7.5621 4.69416C7.5621 4.24103 7.20106 3.88898 6.74794 3.88898H4.12824C3.68413 3.88898 3.33208 4.24103 3.33208 4.69416C3.33208 12.616 9.37489 18.6799 17.3102 18.6799C17.7543 18.6799 18.1063 18.3278 18.1063 17.8747V15.255C18.1063 14.8019 17.7543 14.4432 17.3102 14.4432Z"/></svg>
+                    <a href="tel:+9779810430546">+977 9810430546</a>
+                </p>
+                 <p>
+                    <svg class="contact-icon-inline" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z"/><path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"/></svg>
+                     Kerabari 6 Dangi, Morang, Nepal
+                 </p>
+            </div>
+        </div>
+        <div class="footer-bottom-new">
+            <div class="container">
                  <p class="footer-quote">“Strive not to be a success, but rather to be of value.” – Albert Einstein</p>
+                <p class="copyright">© <span id="currentYearPersonalFooter"></span> Raman Bhandari. All Rights Reserved.</p>
             </div>
-            <p class="copyright">© <span id="currentYear"></span> Raman Bhandari. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Existing script code...
+        // Add this for the new footer's copyright year
+        document.addEventListener('DOMContentLoaded', function() {
+            // ... your existing DOMContentLoaded functions ...
+
+            const yearSpanPersonalFooter = document.getElementById('currentYearPersonalFooter');
+            if (yearSpanPersonalFooter) {
+                yearSpanPersonalFooter.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
