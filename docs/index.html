@@ -641,43 +641,200 @@
             margin-bottom: 30px;
             width: 100%;
             max-width: 600px; /* Control width of content */
-        }
-        .footer h3 { /* For "Contact Me", "Follow Me" titles */
-            color: #fff;
-            font-size: 1.8em;
-            margin-bottom: 15px;
-        }
-        .footer p {
-            color: #bdc3c7; /* Lighter gray */
-            font-size: 1em;
-        }
-        .footer .contact-info a {
-            color: #1abc9c;
-            word-break: break-all; /* For long email/links */
-        }
-        .footer-social .social-icon {
-            width: 35px;
-            height: 35px;
-            margin: 0 12px;
-            transition: transform 0.3s ease, filter 0.3s ease;
-            filter: grayscale(30%) opacity(0.8);
-        }
-        .footer-social .social-icon:hover {
-            transform: scale(1.2) translateY(-3px);
-            filter: grayscale(0%) opacity(1);
-        }
-        .footer-quote {
-            font-style: italic;
-            font-size: 1.1em;
-            color: #bdc3c7;
-        }
-        .copyright {
-            margin-top: 20px;
-            font-size: 0.9em;
-            color: #95a5a6; /* Very light gray */
-        }
+      /* === NEW CONTACT SECTION STYLES === */
+#contact-us {
+    background-color: #ffffff; /* White background for the section */
+    padding: 80px 0;
+}
 
+.contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    background-color: #ffffff; /* Match section background or slightly different if desired */
+    border-radius: 10px;
+    /* box-shadow: 0 8px 25px rgba(0,0,0,0.08); */ /* Optional shadow for wrapper */
+    overflow: hidden; /* If using rounded corners on wrapper and children have backgrounds */
+}
 
+.contact-form-container,
+.contact-info-container {
+    flex: 1;
+    padding: 40px;
+    min-width: 300px; /* Ensure containers don't get too squished */
+}
+
+.contact-form-container {
+    background-color: #f8f9fa; /* Light gray as per image */
+    border-radius: 8px 0 0 8px; /* Rounded corners if wrapper doesn't have overflow hidden */
+}
+.contact-form-container h3 {
+    font-size: 2em;
+    color: #2c3e50; /* Dark blue-gray */
+    margin-bottom: 10px;
+}
+.form-subtitle {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Form Group styling for underlined inputs */
+.form-group {
+    position: relative;
+    margin-bottom: 40px;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1em;
+    color: #333;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    background: transparent;
+    transition: border-color 0.3s ease;
+}
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+.form-group label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 1em;
+    color: #777;
+    pointer-events: none;
+    transition: 0.3s ease all;
+}
+
+/* Input focus and filled animations */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-bottom: 2px solid #1abc9c; /* Your accent color */
+}
+.form-group input:focus ~ label,
+.form-group input:valid ~ label, /* :valid is used when input has content and is valid */
+.form-group textarea:focus ~ label,
+.form-group textarea:valid ~ label {
+    top: -18px; /* Move label up */
+    font-size: 0.85em;
+    color: #1abc9c; /* Your accent color */
+}
+
+.form-submit-button { /* Use your existing .button class and add specifics */
+    background-color: #2c3e50; /* Dark button like image */
+    color: white !important;
+    padding: 12px 30px;
+    border-radius: 25px; /* More rounded */
+    text-transform: none;
+    font-weight: bold;
+    font-size: 1em;
+    letter-spacing: 0;
+}
+.form-submit-button:hover {
+    background-color: #34495e; /* Slightly lighter on hover */
+}
+
+.contact-info-container {
+    position: relative; /* For decorative graphic positioning */
+    padding-left: 60px; /* More space on left due to graphic */
+}
+.contact-info-container h3 {
+    font-size: 1.8em;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+.decorative-line-graphic {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    opacity: 0.7;
+}
+.decorative-line-graphic svg path {
+    stroke: #2c3e50; /* Matches heading color or can be accent */
+}
+
+ul.contact-details-list {
+    list-style: none;
+    padding: 0;
+}
+ul.contact-details-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+.contact-icon-bg {
+    width: 55px;
+    height: 55px;
+    border-radius: 12px; /* Rounded rectangle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    flex-shrink: 0; /* Prevent icon from shrinking */
+}
+.contact-icon {
+    width: 28px;
+    height: 28px;
+}
+/* Specific icon stroke colors inside the SVG already match example, but you could override here if needed */
+/* .contact-icon-bg[style*="#fde7f0"] .contact-icon path { stroke: #E91E63; } */ /* Example for pink */
+
+.contact-text strong {
+    display: block;
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 3px;
+    font-weight: 600; /* Bolder like image */
+}
+.contact-text span {
+    font-size: 1em;
+    color: #555;
+}
+.contact-text span a {
+    color: #555;
+    text-decoration: none;
+}
+.contact-text span a:hover {
+    color: #1abc9c; /* Accent color on hover */
+    text-decoration: underline;
+}
+
+/* Responsive Adjustments for Contact Section */
+@media (max-width: 992px) {
+    .contact-info-container {
+        padding-left: 40px; /* Reduce padding */
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-wrapper {
+        flex-direction: column;
+    }
+    .contact-form-container,
+    .contact-info-container {
+        border-radius: 8px; /* Full radius when stacked */
+    }
+    .contact-form-container {
+         min-height: auto; /* Remove fixed height if any was set implicitly */
+    }
+    .contact-info-container {
+        padding-left: 40px; /* Original padding on small screens */
+    }
+    .decorative-line-graphic {
+        top: 15px;
+        right: 15px;
+    }
+    .decorative-line-graphic svg {
+        width: 60px; /* Slightly smaller graphic */
+        height: 60px;
+    }
+}
         /* Responsive adjustments for Navbar */
         @media (max-width: 860px) {
             .navbar ul.nav-links {
@@ -939,11 +1096,35 @@
     <footer class="footer">
         <div class="container">
             <div id="footer-contact" class="contact-info"> <!-- ID for Navbar link -->
-                <h3>Contact Me</h3>
-                <p>Feel free to reach out via email or connect with me on professional platforms.</p>
-                <p><strong>Email:</strong> <a href="mailto:ramanbhandari7@outlook.com">ramanbhandari7@outlook.com</a></p>
-                <p><strong>Upwork:</strong> <a href="https://bit.ly/4gq7GWO" target="_blank" rel="noopener">Hire me on Upwork</a></p>
-                <p><strong>WhatsApp:</strong> <a href="https://wa.me/9779810430546" target="_blank" rel="noopener">Message me on WhatsApp</a></p>
+                                    <ul class="contact-details-list">
+                        <li>
+                            <div class="contact-icon-bg" style="background-color: #fde7f0;"> <!-- Pinkish -->
+                                <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.3102 14.4432C16.1796 14.4432 15.0489 14.3526 13.9617 14.189C13.7055 14.1455 13.4402 14.2361 13.2501 14.4262L11.1558 16.5204C8.73394 15.3185 6.69943 13.2622 5.47571 10.8403L7.57898 8.7579C7.76007 8.55503 7.85062 8.29881 7.81618 8.04263C7.64364 6.95542 7.5621 5.82481 7.5621 4.69416C7.5621 4.24103 7.20106 3.88898 6.74794 3.88898H4.12824C3.68413 3.88898 3.33208 4.24103 3.33208 4.69416C3.33208 12.616 9.37489 18.6799 17.3102 18.6799C17.7543 18.6799 18.1063 18.3278 18.1063 17.8747V15.255C18.1063 14.8019 17.7543 14.4432 17.3102 14.4432Z" stroke="#E91E63" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="contact-text">
+                                <strong>Call us</strong>
+                                <span><a href="tel:+9779810430546">+977 9810430546</a></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon-bg" style="background-color: #f0f4c3;"> <!-- Yellow-greenish -->
+                                <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#8BC34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 6L12 13L2 6" stroke="#8BC34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="contact-text">
+                                <strong>Email</strong>
+                                <span><a href="mailto:ramanbhandari7@outlook.com">ramanbhandari7@outlook.com</a></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon-bg" style="background-color: #d4eef0;"> <!-- Tealish -->
+                                <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="#009688" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="#009688" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="contact-text">
+                                <strong>Address</strong>
+                                <span>Kerabari 6 Dangi<br>Morang, Nepal</span>
+                            </div>
+                        </li>
+                    </ul>
             </div>
 
             <div id="footer-social" class="footer-social"> <!-- ID for Navbar link -->
