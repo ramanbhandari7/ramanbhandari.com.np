@@ -7,12 +7,6 @@
     <title>Raman Bhandari - Professional Portfolio</title>
     <link rel="icon" href="assets/rmn.ico.jpg" type="image/x-icon">
 
-    <!-- Load Facebook SDK (kept as is) -->
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous"
-        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v22.0">
-    </script>
-
     <!-- Google Fonts (Example: Open Sans and Montserrat) -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 
@@ -39,7 +33,7 @@
             width: 90%;
             max-width: 1200px;
             margin: auto;
-            overflow: hidden; /* Clears floats */
+            /* overflow: hidden; /* Clears floats, but can hide content. Not always needed with flex/grid. */
             padding: 0 20px;
         }
 
@@ -169,7 +163,7 @@
 
         /* Main Content Sections Styling */
         main {
-            padding-top: 80px; /* Height of the navbar */
+            padding-top: 80px; /* Approximate height of the navbar, adjust if navbar height changes */
         }
 
         .section {
@@ -180,279 +174,255 @@
         }
 
 
-        /* Hero Section (Home) */
-        /* Hero Section (Home) */
-#home {
-    /* Your existing general styles (if any) */
-body {
-    margin: 0;
-    font-family: sans-serif; /* Example font */
-    /* ... other body styles ... */
-}
+        /* Hero Section (Home) - CORRECTED */
+        #home {
+            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('assets/main.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax-like effect */
+            color: #fff;
+            min-height: calc(100vh - 80px); /* Full viewport height minus navbar height */
+            display: flex;
+            flex-direction: row; /* Lays out children (text-block, image) side-by-side */
+            align-items: center; /* Vertically aligns the text block and image */
+            justify-content: space-around; /* Distributes space. Alternatives: 'center', 'space-between' */
+            padding: 40px; /* Padding for content within #home */
+            gap: 30px; /* Space between the text content and the image */
+        }
 
-*, *::before, *::after {
-    box-sizing: border-box;
-}
+        /* NEW: Container for text content within #home */
+        .home-text-content {
+            flex: 1; /* Allows the text content to take up available space */
+            max-width: 600px; /* Optional: constrain width for readability */
+            text-align: left; /* Align text to the left within this block */
+        }
 
-/* === MODIFIED #home SECTION === */
-#home {
-    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('assets/main.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Parallax-like effect */
-    color: #fff;
-    min-height: calc(100vh - 80px); /* Full viewport height minus navbar (adjust 80px if your navbar height is different) */
-    
-    display: flex;
-    flex-direction: row; /* Lays out children (text-block, image) side-by-side */
-    align-items: center; /* Vertically aligns the text block and image */
-    justify-content: space-around; /* Distributes space around the items. Consider 'center' or 'space-evenly' */
-    padding: 40px; /* Add padding for spacing from screen edges */
-    gap: 30px; /* Adds space between the text content and the image */
-}
+        /* MODIFIED: Profile image styles for #home */
+        #home .profile-img { /* Selector specific to #home */
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid #1abc9c;
+            box-shadow: 0 0 15px rgba(26, 188, 156, 0.5);
+            flex-shrink: 0; /* Prevents image from shrinking */
+            object-fit: cover;
+        }
 
-/* NEW: Container for text content within #home */
-.home-text-content {
-    flex: 1; /* Allows the text content to take up available space */
-    max-width: 600px; /* Optional: constrain width for readability */
-    text-align: left; /* Align text to the left within this block */
-}
+        /* Text element styles within .home-text-content */
+        #home h1#raman-name {
+            font-size: 3.5em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #fff;
+            font-weight: 700;
+        }
 
-/* MODIFIED: Profile image styles */
-#home .profile-img {
-    width: 180px; /* Your existing size */
-    height: 180px; /* Your existing size */
-    border-radius: 50%;
-    /* margin-bottom: 25px; /* Removed, as vertical spacing is handled by align-items and horizontal by gap/justify-content */
-    border: 5px solid #1abc9c; /* Your existing border */
-    box-shadow: 0 0 15px rgba(26, 188, 156, 0.5); /* Your existing shadow */
-    flex-shrink: 0; /* Prevents image from shrinking if text content is long */
-    object-fit: cover; /* Ensures image covers the area nicely */
-}
+        #home p.tagline {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #ecf0f1;
+        }
 
-/* Text element styles within .home-text-content (mostly your existing styles) */
-#home h1#raman-name {
-    font-size: 3.5em;
-    margin-top: 0; /* Good practice to zero out top margin for first child */
-    margin-bottom: 10px;
-    color: #fff;
-    font-weight: 700;
-}
+        #home #typewriter {
+            font-size: 1.3em;
+            color: #1abc9c; /* Accent for typewriter */
+            margin-bottom: 30px;
+            min-height: 1.5em;
+            font-weight: bold;
+        }
 
-#home p.tagline {
-    font-size: 1.5em;
-    margin-bottom: 15px;
-    color: #ecf0f1;
-}
+        /* Button styles (retained from your general button styles) */
+        .button-group {
+            margin-top: 20px;
+        }
 
-#home #typewriter {
-    font-size: 1.3em;
-    color: #1abc9c; /* Accent for typewriter */
-    margin-bottom: 30px;
-    min-height: 1.5em; /* Your existing style, good for preventing layout shifts */
-    font-weight: bold;
-}
+        .button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #1abc9c;
+            color: white !important;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            margin: 0 10px 10px 0; /* Margin: top right bottom left - for left alignment */
+            font-size: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .button:last-child {
+            margin-right: 0;
+        }
 
-/* Your existing button styles */
-.button-group {
-    margin-top: 20px;
-    /* Buttons will align left due to .home-text-content's text-align: left */
-}
+        .button:hover {
+            background-color: #16a085;
+            transform: translateY(-3px);
+        }
 
-.button {
-    display: inline-block;
-    padding: 12px 30px;
-    background-color: #1abc9c;
-    color: white !important; /* Using !important as per your original CSS */
-    text-decoration: none;
-    border-radius: 25px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    border: none;
-    cursor: pointer;
-    margin: 0 10px 10px 0; /* Adjusted margin for left alignment, added bottom margin for potential wrapping */
-    font-size: 1em;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-.button:last-child { /* If it's the last button in a row */
-    margin-right: 0;
-}
+        .button.secondary {
+            background-color: transparent;
+            border: 2px solid #1abc9c;
+            color: #1abc9c !important;
+        }
 
+        .button.secondary:hover {
+            background-color: #1abc9c;
+            color: white !important;
+        }
 
-.button:hover {
-    background-color: #16a085;
-    transform: translateY(-3px);
-}
+        /* === RESPONSIVE ADJUSTMENTS for #home === */
+        @media (max-width: 768px) {
+            #home {
+                flex-direction: column; /* Stack items vertically */
+                text-align: center; /* Center align the content when stacked */
+                justify-content: center; /* Re-center content vertically */
+                padding: 40px 20px; /* Adjust padding for smaller screens */
+            }
 
-.button.secondary {
-    background-color: transparent;
-    border: 2px solid #1abc9c;
-    color: #1abc9c !important; /* Using !important as per your original CSS */
-}
+            .home-text-content {
+                text-align: center; /* Ensure text within this block is centered on mobile */
+                order: 2; /* Text content below image */
+                margin-top: 30px; /* Space above text when stacked below image */
+            }
 
-.button.secondary:hover {
-    background-color: #1abc9c;
-    color: white !important; /* Using !important as per your original CSS */
-}
+            #home .profile-img {
+                order: 1; /* Image on top */
+                margin-bottom: 0; /* Reset margin if any */
+            }
 
+            /* Button group already centers text, so buttons center. Explicit for clarity: */
+             .button-group { /* No change needed if text-align center inherited */
+                text-align: center;
+             }
+             .button { /* Adjust margins for centered buttons on mobile */
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+        }
 
-/* === RESPONSIVE ADJUSTMENTS === */
-@media (max-width: 768px) { /* Adjust breakpoint as needed */
-    #home {
-        flex-direction: column; /* Stack items vertically */
-        text-align: center; /* Center align the content when stacked */
-        justify-content: center; /* Re-center content vertically */
-        padding: 40px 20px; /* Adjust padding for smaller screens */
-    }
-
-    .home-text-content {
-        text-align: center; /* Ensure text within this block is centered on mobile */
-        margin-bottom: 30px; /* Add space between text block and image when stacked */
-        order: 2; /* Optional: If you want text below image, and image is first in HTML */
-                   /* If text is first in HTML (as suggested), this is not needed for text below */
-    }
-
-    #home .profile-img {
-        margin-bottom: 0; /* Remove bottom margin if .home-text-content adds it, or set as needed */
-        /* To re-center the image if it's not automatically by #home's align-items: center */
-        /* margin-left: auto; */
-        /* margin-right: auto; */
-        order: 1; /* Optional: If you want image above text, and image is first in HTML */
-                  /* If text is first in HTML (as suggested), this moves image to top */
-    }
-
-    .button-group {
-        text-align: center; /* Ensure buttons are centered on mobile */
-    }
-
-    .button {
-        margin-left: 5px; /* Adjust margins for centered buttons */
-        margin-right: 5px;
-    }
-}
-/* === CSS FOR WHO AM I SECTION === */
-#who-am-i {
-    padding: 0;
-    position: relative;
-    color: #fff;
-}
-#who-am-i .who-am-i-background {
-    /* THIS IS THE LINE TO CHANGE */
-    background-image: linear-gradient(rgba(30, 40, 50, 0.88), rgba(30, 40, 50, 0.88)), url('assets/hero.jpg'); /* <-- CHANGED TO hero.jpg */
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-    padding: 80px 0;
-}
-#who-am-i .section-title {
-    color: #fff;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-}
-#who-am-i .section-title::after {
-    background-color: #1abc9c;
-}
-#who-am-i .content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    align-items: flex-start;
-}
-#who-am-i .text-content {
-    flex: 1;
-    min-width: 300px;
-    background-color: rgba(0, 0, 0, 0.3);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-#who-am-i .text-content p {
-    color: #e9ecef;
-    margin-bottom: 1.2em;
-    font-size: 1.05em;
-    line-height: 1.8;
-}
-#who-am-i .text-content strong {
-    color: #1abc9c;
-    font-weight: 600;
-}
-#who-am-i .about-subsection {
-    margin-bottom: 25px;
-}
-#who-am-i .about-subsection:last-child {
-    margin-bottom: 0;
-}
-#who-am-i .about-subsection h3 {
-    color: #ffffff;
-    font-size: 1.5em;
-    margin-bottom: 12px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-    font-weight: 600;
-}
-#who-am-i .about-image-container {
-    flex: 0 0 300px;
-    text-align: center;
-    align-self: center;
-}
-#who-am-i .about-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    border: 3px solid #1abc9c;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-}
-#who-am-i #experience {
-    margin-top: 50px;
-    padding: 30px;
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-}
-#who-am-i #experience h3 {
-    text-align:center;
-    font-size:1.8em;
-    margin-bottom:30px;
-    color: #ffffff;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-#who-am-i #experience ul {
-    list-style: none;
-    padding-left: 0;
-}
-#who-am-i #experience ul li {
-    margin-bottom: 20px;
-    padding: 15px 15px 15px 25px;
-    position: relative;
-    border-left: 3px solid #1abc9c;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 0 5px 5px 0;
-    color: #e0e0e0;
-}
-#who-am-i #experience ul li::before {
-    content: '';
-    position: absolute;
-    left: -8px;
-    top: 19px;
-    height: 14px;
-    width: 14px;
-    background-color: #1abc9c;
-    border-radius: 50%;
-    border: 2px solid #2c3e50;
-}
-#who-am-i #experience ul li strong {
-    display: block;
-    font-size: 1.25em;
-    color: #ffffff;
-    margin-bottom: 5px;
-}
-#who-am-i #experience ul li a {
-    color: #50cce1;
-    font-style: italic;
-}
-#who-am-i #experience ul li a:hover {
-    color: #7adfea;
-}
+        /* === CSS FOR WHO AM I SECTION === */
+        #who-am-i {
+            padding: 0; /* Section itself might not need padding if inner .who-am-i-background has it */
+            position: relative;
+            color: #fff;
+        }
+        #who-am-i .who-am-i-background {
+            background-image: linear-gradient(rgba(30, 40, 50, 0.88), rgba(30, 40, 50, 0.88)), url('assets/hero.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            padding: 80px 0;
+        }
+        #who-am-i .section-title { /* Overriding general .section-title for this section */
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+        }
+        #who-am-i .section-title::after { /* Ensure ::after matches if color changes */
+            background-color: #1abc9c;
+        }
+        #who-am-i .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: flex-start; /* Changed from center to flex-start */
+        }
+        #who-am-i .text-content { /* Not .home-text-content, but specific to #who-am-i */
+            flex: 1;
+            min-width: 300px;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        #who-am-i .text-content p {
+            color: #e9ecef;
+            margin-bottom: 1.2em;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+        #who-am-i .text-content strong {
+            color: #1abc9c;
+            font-weight: 600; /* Changed from 700 to 600 for style variation */
+        }
+        #who-am-i .about-subsection {
+            margin-bottom: 25px;
+        }
+        #who-am-i .about-subsection:last-child {
+            margin-bottom: 0;
+        }
+        #who-am-i .about-subsection h3 {
+            color: #ffffff;
+            font-size: 1.5em;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+            font-weight: 600;
+        }
+        #who-am-i .about-image-container {
+            flex: 0 0 300px; /* Example fixed width */
+            text-align: center;
+            align-self: center; /* To center it vertically if flex-start used on parent */
+        }
+        #who-am-i .about-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 3px solid #1abc9c;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        #who-am-i #experience { /* Experience block specific to who-am-i */
+            margin-top: 50px;
+            padding: 30px; /* Increased padding */
+            background-color: rgba(0, 0, 0, 0.2); /* Darker for contrast */
+            border-radius: 8px;
+        }
+        #who-am-i #experience h3 {
+            text-align:center;
+            font-size:1.8em;
+            margin-bottom:30px;
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        #who-am-i #experience ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        #who-am-i #experience ul li {
+            margin-bottom: 20px;
+            padding: 15px 15px 15px 25px; /* LTRB padding */
+            position: relative;
+            border-left: 3px solid #1abc9c;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 0 5px 5px 0; /* Rounded right corners */
+            color: #e0e0e0;
+        }
+        #who-am-i #experience ul li::before {
+            content: '';
+            position: absolute;
+            left: -8px; /* Pulls it over the border-left */
+            top: 19px; /* Align vertically with text */
+            height: 14px;
+            width: 14px;
+            background-color: #1abc9c;
+            border-radius: 50%;
+            border: 2px solid #2c3e50; /* Matches dark background for 'punch-out' */
+        }
+        #who-am-i #experience ul li strong {
+            display: block;
+            font-size: 1.25em;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+        #who-am-i #experience ul li a {
+            color: #50cce1; /* Brighter link color */
+            font-style: italic;
+        }
+        #who-am-i #experience ul li a:hover {
+            color: #7adfea;
+        }
         
         /* Projects Section */
         .projects-grid {
@@ -499,10 +469,10 @@ body {
             color: #333;
         }
         .project-links {
-            margin-top: auto;
+            margin-top: auto; /* Pushes links to the bottom */
             text-align: right;
         }
-         .project-links .button {
+         .project-links .button { /* Specific styling for buttons in project cards */
             padding: 8px 18px;
             font-size: 0.9em;
             margin-left: 10px;
@@ -513,8 +483,8 @@ body {
         #certifications ul.certificates-list {
             list-style: none;
             padding: 0;
-            columns: 2;
-            column-gap: 30px;
+            columns: 2; /* Create two columns for the list items */
+            column-gap: 30px; /* Space between columns */
         }
         #certifications ul.certificates-list li {
             background: #ffffff;
@@ -523,11 +493,11 @@ body {
             border-radius: 5px;
             border-left: 4px solid #1abc9c;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            break-inside: avoid-column;
+            break-inside: avoid-column; /* Prevents items from breaking across columns */
         }
         #certifications ul.certificates-list li a {
             font-weight: bold;
-            display: block;
+            display: block; /* Make link take full width for easier click */
         }
         #certifications .core-skills {
             text-align: center;
@@ -537,7 +507,7 @@ body {
         }
         .credly-badge-container {
             margin-top: 10px;
-            text-align: center;
+            text-align: center; /* Center align Credly badge if it's block/inline-block */
         }
 
         /* Volunteer Section */
@@ -585,7 +555,7 @@ body {
             transform: translateY(-5px);
             box-shadow: 0 6px 15px rgba(0,0,0,0.1);
         }
-        #service li a {
+        #service li a { /* Apply flex to align icon (if any) with text */
             font-weight: bold;
             color: #2c3e50;
             display: flex;
@@ -600,42 +570,43 @@ body {
         }
         .video-item {
             border-radius: 8px;
-            overflow:hidden;
+            overflow:hidden; /* Ensure iframe respects border-radius */
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         .video-item iframe,
-        .video-item .fb-video, .video-item .fb-video iframe {
+        .video-item .fb-video, .video-item .fb-video iframe { /* Ensure FB video iframe behaves */
             width: 100%;
-            min-height: 315px;
-            border: none;
-            display: block;
+            min-height: 315px; /* Common aspect ratio height for 16:9 at ~560px width */
+            border: none; /* Remove default iframe border */
+            display: block; /* Avoid extra space below iframe */
         }
 
         /* === NEW CONTACT SECTION STYLES === */
         #contact-us {
             background-color: #ffffff; /* White background for the section */
-            padding: 80px 0;
+            padding: 80px 0; /* Top and bottom padding */
         }
 
         .contact-wrapper {
             display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            overflow: hidden;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            gap: 40px; /* Space between form and info block */
+            background-color: #ffffff; /* Inner background if needed, could be removed */
+            border-radius: 10px; /* Rounded corners for the wrapper */
+            overflow: hidden; /* If child elements might exceed rounded corners */
+            /* box-shadow: 0 10px 30px rgba(0,0,0,0.07); /* Optional: soft shadow on the wrapper */
         }
 
         .contact-form-container,
         .contact-info-container {
-            flex: 1;
-            padding: 40px;
-            min-width: 300px;
+            flex: 1; /* Each takes half the space, or stacks if wraps */
+            padding: 40px; /* Inner padding */
+            min-width: 300px; /* Minimum width before wrapping */
         }
 
         .contact-form-container {
-            background-color: #f8f9fa;
-            border-radius: 8px 0 0 8px;
+            background-color: #f8f9fa; /* Light background for form side */
+            border-radius: 8px 0 0 8px; /* Rounded corners matching wrapper or specific design */
         }
         .contact-form-container h3 {
             font-size: 2em;
@@ -650,66 +621,68 @@ body {
 
         .form-group {
             position: relative;
-            margin-bottom: 40px;
+            margin-bottom: 40px; /* More space for floating label */
         }
         .form-group input[type="text"],
         .form-group input[type="email"],
         .form-group input[type="tel"],
         .form-group textarea {
             width: 100%;
-            padding: 10px 0;
+            padding: 10px 0; /* Padding for text input area */
             font-size: 1em;
             color: #333;
             border: none;
-            border-bottom: 1px solid #ccc;
+            border-bottom: 1px solid #ccc; /* Underline effect */
             outline: none;
-            background: transparent;
+            background: transparent; /* Important for floating label to not overlap */
             transition: border-color 0.3s ease;
         }
         .form-group textarea {
-            resize: vertical;
+            resize: vertical; /* Allow vertical resize only */
             min-height: 80px;
         }
         .form-group label {
             position: absolute;
-            top: 10px;
+            top: 10px; /* Aligns with input text padding */
             left: 0;
             font-size: 1em;
             color: #777;
-            pointer-events: none;
-            transition: 0.3s ease all;
+            pointer-events: none; /* Label doesn't interfere with input click */
+            transition: 0.3s ease all; /* Smooth animation */
         }
 
+        /* Floating label effect */
         .form-group input:focus,
         .form-group textarea:focus {
-            border-bottom: 2px solid #1abc9c;
+            border-bottom: 2px solid #1abc9c; /* Highlight on focus */
         }
         .form-group input:focus ~ label,
-        .form-group input:valid ~ label,
+        .form-group input:valid ~ label, /* Label floats when input is valid (has content) */
         .form-group textarea:focus ~ label,
         .form-group textarea:valid ~ label {
-            top: -18px;
-            font-size: 0.85em;
-            color: #1abc9c;
+            top: -18px; /* Move label up */
+            font-size: 0.85em; /* Make label smaller */
+            color: #1abc9c; /* Change label color */
         }
 
-        .form-submit-button {
-            background-color: #2c3e50;
-            color: white !important;
+        .form-submit-button { /* Using .button class with an additional identifier */
+            background-color: #2c3e50; /* Darker primary button color */
+            color: white !important; /* Ensure text is white */
             padding: 12px 30px;
-            border-radius: 25px;
-            text-transform: none;
+            border-radius: 25px; /* Consistent with other buttons */
+            text-transform: none; /* Or uppercase, if preferred for form submit */
             font-weight: bold;
             font-size: 1em;
-            letter-spacing: 0;
+            letter-spacing: 0; /* Or specific letter spacing */
+            /* margin: 0; Remove specific button margins if handled by button-group or general flow */
         }
         .form-submit-button:hover {
-            background-color: #34495e;
+            background-color: #34495e; /* Slightly lighter on hover */
         }
 
         .contact-info-container {
-            position: relative;
-            padding-left: 60px;
+            position: relative; /* For decorative element positioning */
+            padding-left: 60px; /* Creates space for icons or design elements if on left */
         }
         .contact-info-container h3 {
             font-size: 1.8em;
@@ -722,7 +695,7 @@ body {
             right: 20px;
             opacity: 0.7;
         }
-        .decorative-line-graphic svg path {
+        .decorative-line-graphic svg path { /* Target path if SVG is inline or for specific parts */
             stroke: #2c3e50;
         }
 
@@ -732,26 +705,26 @@ body {
         }
         ul.contact-details-list li {
             display: flex;
-            align-items: center;
+            align-items: center; /* Vertically align icon with text */
             margin-bottom: 25px;
         }
         .contact-icon-bg {
             width: 55px;
             height: 55px;
-            border-radius: 12px;
+            border-radius: 12px; /* Slightly rounded square */
             display: flex;
             justify-content: center;
             align-items: center;
             margin-right: 20px;
-            flex-shrink: 0;
+            flex-shrink: 0; /* Prevent icon from shrinking */
         }
-        .contact-icon {
-            width: 28px;
+        .contact-icon { /* Styling for the SVG icon itself */
+            width: 28px; /* Adjust size as needed */
             height: 28px;
         }
 
         .contact-text strong {
-            display: block;
+            display: block; /* Makes title take full width */
             font-size: 1.1em;
             color: #333;
             margin-bottom: 3px;
@@ -761,12 +734,12 @@ body {
             font-size: 1em;
             color: #555;
         }
-        .contact-text span a {
+        .contact-text span a { /* Make sure links inherit styles or get specific ones */
             color: #555;
             text-decoration: none;
         }
         .contact-text span a:hover {
-            color: #1abc9c;
+            color: #1abc9c; /* Accent on hover */
             text-decoration: underline;
         }
 
@@ -783,12 +756,11 @@ body {
             flex-direction: column;
             align-items: center;
         }
-        .footer .contact-info, /* Removed this, use #contact-us instead */
         .footer .footer-social,
         .footer .footer-quote-container {
             margin-bottom: 30px;
             width: 100%;
-            max-width: 600px;
+            max-width: 600px; /* Constrain width of footer content */
         }
         .footer h3 {
             color: #fff;
@@ -796,21 +768,20 @@ body {
             margin-bottom: 15px;
         }
         .footer p {
-            color: #bdc3c7;
+            color: #bdc3c7; /* Lighter text for footer */
             font-size: 1em;
         }
-        /* .footer .contact-info a { color: #1abc9c; word-break: break-all; } */ /* Not needed if contact info moved */
 
         .footer-social .social-icon {
-            width: 35px;
+            width: 35px; /* Uniform size for social icons */
             height: 35px;
-            margin: 0 12px;
+            margin: 0 12px; /* Spacing between icons */
             transition: transform 0.3s ease, filter 0.3s ease;
-            filter: grayscale(30%) opacity(0.8);
+            filter: grayscale(30%) opacity(0.8); /* Subtle inactive state */
         }
         .footer-social .social-icon:hover {
-            transform: scale(1.2) translateY(-3px);
-            filter: grayscale(0%) opacity(1);
+            transform: scale(1.2) translateY(-3px); /* Pop effect on hover */
+            filter: grayscale(0%) opacity(1); /* Full color on hover */
         }
         .footer-quote {
             font-style: italic;
@@ -820,7 +791,7 @@ body {
         .copyright {
             margin-top: 20px;
             font-size: 0.9em;
-            color: #95a5a6;
+            color: #95a5a6; /* Very subtle copyright text */
         }
 
 
@@ -829,48 +800,49 @@ body {
             /* For Who Am I Section */
             #who-am-i .content {
                 flex-direction: column;
-                align-items: center;
+                align-items: center; /* Center items when stacked */
             }
-            #who-am-i .text-content {
+            #who-am-i .text-content { /* Take full width if desired */
                 width: 100%;
             }
             #who-am-i .about-image-container {
-                flex-basis: auto;
-                width: auto;
-                max-width: 300px;
+                flex-basis: auto; /* Reset flex-basis */
+                width: auto; /* Or specific width like 80% */
+                max-width: 300px; /* Maintain max-width */
                 margin-top: 30px;
             }
             /* For Contact Us Section */
-            .contact-info-container {
-                padding-left: 40px;
+            .contact-info-container { /* Reset padding-left if problematic when stacked */
+                padding-left: 40px; /* Assuming it should remain the same on tablet */
             }
         }
 
-        @media (max-width: 860px) {
+        @media (max-width: 860px) { /* Further refined mobile breakpoint */
             /* Navbar Responsive */
             .navbar ul.nav-links {
-                display: none;
+                display: none; /* Hidden by default */
                 flex-direction: column;
                 width: 100%;
                 position: absolute;
-                top: 70px; /* Matches navbar height for example, adjust if needed */
+                top: 70px; /* Adjust if navbar height is different (e.g., calc(1rem + ...)) */
                 left: 0;
-                background-color: #34495e;
+                background-color: #34495e; /* Slightly different from navbar for distinction or same */
                 padding-bottom: 10px;
             }
-            .navbar ul.nav-links.active {
+            .navbar ul.nav-links.active { /* Class added by JS to show */
                 display: flex;
             }
             .navbar ul.nav-links li {
-                margin: 15px 0;
+                margin: 15px 0; /* Vertical spacing for items */
                 text-align: center;
             }
-            .navbar ul.nav-links a::after {
+            .navbar ul.nav-links a::after { /* Remove underline effect for mobile nav items */
                  display: none;
             }
             .menu-toggle {
-                display: flex;
+                display: flex; /* Show hamburger */
             }
+            /* Hamburger animation */
              .menu-toggle.active .bar:nth-child(1) {
                 transform: rotate(-45deg) translate(-5px, 6px);
             }
@@ -882,46 +854,51 @@ body {
             }
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: 768px) { /* General mobile / small tablet overrides */
             /* General small screen adjustments */
             h2.section-title {
-                font-size: 2em;
+                font-size: 2em; /* Smaller section titles */
             }
-            #home h1#raman-name {
-                font-size: 2.5em;
-            }
-            #home p.tagline {
-                font-size: 1.2em;
-            }
+            /* #home styles already handled above for 768px */
+
             .container {
-                width: 95%;
+                width: 95%; /* Slightly more width */
             }
-            .projects-grid, #certifications ul.certificates-list, #service ul, .video-gallery, .certificates-grid {
+            /* Make grids single column */
+            .projects-grid, 
+            #service ul, 
+            .video-gallery, 
+            .certificates-grid {
                 grid-template-columns: 1fr;
-                 columns: 1; /* For certifications list specifically */
             }
+            #certifications ul.certificates-list { /* Specific for this list */
+                 columns: 1; 
+            }
+
             /* Who Am I on mobile */
             #who-am-i .who-am-i-background {
-                padding: 60px 0;
-                background-attachment: scroll;
+                padding: 60px 20px; /* Adjusted padding for content */
+                background-attachment: scroll; /* Disable parallax on mobile for performance/rendering */
             }
-            #who-am-i #experience ul li::before {
+            #who-am-i #experience ul li::before { /* Adjust timeline dot */
                 top: 17px;
                 height: 12px;
                 width: 12px;
                 left: -7px;
             }
+
              /* Contact Us on mobile */
             .contact-wrapper {
-                flex-direction: column;
+                flex-direction: column; /* Stack form and info */
             }
             .contact-form-container,
             .contact-info-container {
-                border-radius: 8px;
-                padding-left: 40px; /* consistent padding for info when stacked */
+                border-radius: 8px; /* Consistent rounding when stacked */
+                padding-left: 20px; /* Reduce padding slightly */
+                padding-right: 20px;
             }
-             .contact-form-container { /* Specific for form on mobile */
-                padding: 40px; /* Re-establish padding if .contact-info-container set it too generally */
+            .contact-form-container { /* Ensure form has its general padding if overridden */
+                padding: 40px 20px;
             }
 
             .decorative-line-graphic {
@@ -937,7 +914,13 @@ body {
     </style>
 </head>
 <body>
-        <nav class="navbar">
+    <!-- Load Facebook SDK -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v22.0">
+    </script>
+
+    <nav class="navbar">
         <div class="container">
             <div class="logo"><a href="#home">Raman <span class="highlight">Bhandari</span></a></div>
             <div class="menu-toggle" id="mobile-menu">
@@ -946,7 +929,7 @@ body {
                 <span class="bar"></span>
             </div>
             <ul class="nav-links" id="nav-menu">
-                <li><a href="#home">Home</a></li> <!-- ADDED THIS LINE -->
+                <li><a href="#home">Home</a></li>
                 <li><a href="#who-am-i">Who Am I?</a></li>
                 <li><a href="#service">Services</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -959,9 +942,10 @@ body {
     </nav>
 
     <main>
+        <!-- HOME SECTION - HTML CORRECTED -->
         <section id="home">
-            <div class="container">
-                <img src="assets/profile.jpg" alt="Portrait of Raman Bhandari" class="profile-img">
+            <!-- .container div removed to allow #home flex items to be direct children -->
+            <div class="home-text-content"> <!-- Text content wrapper -->
                 <h1 id="raman-name">Raman Bhandari</h1>
                 <p class="tagline">"Bridging efficiency with digital precision"</p>
                 <div id="typewriter"></div>
@@ -970,6 +954,7 @@ body {
                     <a href="https://bit.ly/4gq7GWO" class="button secondary" target="_blank" rel="noopener">Hire me on Upwork</a>
                 </div>
             </div>
+            <img src="assets/profile.jpg" alt="Portrait of Raman Bhandari" class="profile-img"> <!-- Image outside text content -->
         </section>
 
         <section class="section" id="who-am-i">
@@ -1027,7 +1012,7 @@ body {
                 </ul>
             </div>
         </section>
-                <section class="section" id="projects">
+        <section class="section" id="projects">
             <div class="container">
                 <h2 class="section-title">My Website Projects</h2>
                 <div class="projects-grid">
@@ -1039,7 +1024,7 @@ body {
                             <p><strong>Technologies:</strong> HTML, CSS, JavaScript (Please update with actual technologies used)</p>
                             <div class="project-links">
                                 <a href="https://github.com/ramanbhandari7/minilandacademy" class="button secondary" target="_blank" rel="noopener">View Code</a>
-                                <a href="https://minilandacademy.edu.np/" class="button" target="_blank" rel="noopener">Live Demo</a>
+                                <a href="https://minilandacademy.edu.np/" class="button" target="_blank" rel="noopener">Live Webiste</a>
                             </div>
                         </div>
                     </div>
@@ -1051,7 +1036,7 @@ body {
                             <p><strong>Technologies:</strong> HTML, CSS, JavaScript (Update based on actual development)</p>
                             <div class="project-links">
                                 <a href="https://ramanbhandari7.github.io/sarwajanikschool.edu.np/" class="button secondary" target="_blank" rel="noopener">View Code (GitHub Pages)</a>
-                                <a href="https://ramanbhandari7.github.io/sarwajanikschool.edu.np/" class="button" target="_blank" rel="noopener">View Progress</a>
+                                <a href="https://sarwajanikschool.edu.np/" class="button" target="_blank" rel="noopener">Live Coming Soon Website</a>
                             </div>
                         </div>
                     </div>
@@ -1066,12 +1051,10 @@ body {
                 <ul class="certificates-list">
                     <li><a href="https://skills.yourlearning.ibm.com/certificate/PLAN-C4FCC67D3E76" target="_blank" rel="noopener">Working in a Digital World: Professional Skills - IBM SkillsBuild</a>
                         <div class="credly-badge-container" data-iframe-width="150" data-iframe-height="270" data-share-badge-id="824fbf0b-efb5-436a-85fb-44828a47993e" data-share-badge-host="https://www.credly.com"></div>
-                        <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
                     </li>
                     <li><a href="https://courses.skillsbuild.skillsnetwork.site/certificates/3c18711470814c899e53fecc716b5c47?fbclid=..." target="_blank" rel="noopener">Data Analysis with Python By IBM</a></li>
                     <li><a href="https://www.credly.com/badges/0048adac-2913-4e9c-a311-ab484a1c0583/linked_in?t=skiqy3" target="_blank" rel="noopener">Google AI Essentials</a>
                         <div class="credly-badge-container" data-iframe-width="150" data-iframe-height="270" data-share-badge-id="0048adac-2913-4e9c-a311-ab484a1c0583" data-share-badge-host="https://www.credly.com"></div>
-                        <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
                     </li>
                     <li><a href="https://www.linkedin.com/learning/certificates/eba7afe8e313dcf06b189b6545b4f7c8c3e3ed3c19ea8b44bf32a29d365d299d" target="_blank"  rel="noopener">Excel Essential Training (Microsoft 365)</a></li>
                     <li><a href="https://coursera.org/share/f7e0bd8f2420ab50608d5b5ec966db00" target="_blank" rel="noopener">Search Engine Optimization (SEO) with Squarespace By Coursera</a></li>
@@ -1083,6 +1066,8 @@ body {
                     <li><a href="https://www.coursera.org/account/accomplishments/verify/PGUSLGBAMDRK" target="_blank" rel="noopener">Business Analysis & Process Management</a></li>
                     <li><a href="https://www.mygreatlearning.com/certificate/TCRMKVLC" target="_blank" rel="noopener">Supply Chain Management</a></li>
                 </ul>
+                 <!-- Single Credly script at the end of certification items or just before body close -->
+                <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
             </div>
         </section>
 
@@ -1093,11 +1078,11 @@ body {
                 <div class="certificates-grid">
                     <div class="certificate-viewer">
                         <h3>FIFA World Cup 2022™ Certificate</h3>
-                        <iframe src="assets/FIFA World Cup 2022™ Certificate of Appreciation.pdf"></iframe>
+                        <iframe src="assets/FIFA%20World%20Cup%202022™%20Certificate%20of%20Appreciation.pdf"></iframe> <!-- Ensure filename with spaces is URL encoded or rename file -->
                     </div>
                     <div class="certificate-viewer">
                         <h3>Host Country FIFA World Cup 2022™ Certificate</h3>
-                        <iframe src="assets/Host Country FIFA World Cup 2022™ Certificate of Appreciation.pdf"></iframe>
+                        <iframe src="assets/Host%20Country%20FIFA%20World%20Cup%202022™%20Certificate%20of%20Appreciation.pdf"></iframe> <!-- Ensure filename with spaces is URL encoded or rename file -->
                     </div>
                 </div>
             </div>
@@ -1110,13 +1095,15 @@ body {
                     <div class="video-item">
                         <iframe
                             src="https://www.youtube.com/embed/Bza1q-FDaY8?si=ZsiBfNaP1gGDbHPq"
+                            title="YouTube video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen>
                         </iframe>
                     </div>
                     <div class="video-item">
                         <div class="fb-video"
                             data-href="https://www.facebook.com/61576059702352/videos/484487918024452/"
-                            data-width="500"
+                            data-width="500" <!-- Consider removing or setting to 100% if using grid layout -->
                             data-show-text="false">
                             <blockquote cite="https://www.facebook.com/61576059702352/videos/484487918024452/" class="fb-xfbml-parse-ignore">
                                 <a href="https://www.facebook.com/61576059702352/videos/484487918024452/">📹 अब डिजिटल सेवा घरमै बसी!</a>
@@ -1128,14 +1115,13 @@ body {
             </div>
         </section>
 
-        <!-- NEW CONTACT SECTION - CORRECTLY PLACED -->
         <section class="section" id="contact-us">
             <div class="container">
                 <div class="contact-wrapper">
                     <div class="contact-form-container">
                         <h3>Let's Chat!</h3>
                         <p class="form-subtitle">Fill out this quick form and we'll get back to you lickety split.</p>
-                        <form id="portfolio-contact-form" action="#" method="POST">
+                        <form id="portfolio-contact-form" action="#" method="POST"> <!-- Consider using a form submission service or backend -->
                             <div class="form-group">
                                 <input type="text" id="contact-name" name="name" required>
                                 <label for="contact-name">Name*</label>
@@ -1200,7 +1186,6 @@ body {
 
     <footer class="footer">
         <div class="container">
-            <!-- The old #footer-contact div is removed. Navbar link now points to #contact-us -->
             <div id="footer-social" class="footer-social">
                 <h3>Follow Me</h3>
                 <div>
@@ -1258,15 +1243,15 @@ body {
                         charIndex++;
                     }
                     if (!isDeleting && charIndex === currentText.length) {
-                        setTimeout(() => isDeleting = true, 2000);
+                        setTimeout(() => isDeleting = true, 2000); // Pause at end of word
                     } else if (isDeleting && charIndex === 0) {
                         isDeleting = false;
-                        textIndex = (textIndex + 1) % texts.length;
+                        textIndex = (textIndex + 1) % texts.length; // Move to next word
                     }
-                    const typeSpeed = isDeleting ? 50 : 120;
+                    const typeSpeed = isDeleting ? 50 : 120; // Typing speed
                     setTimeout(type, typeSpeed);
                 }
-                type();
+                if (texts.length > 0) type(); // Start typing if there are texts
             }
 
             // Set current year in footer
@@ -1274,6 +1259,24 @@ body {
             if (yearSpan) {
                 yearSpan.textContent = new Date().getFullYear();
             }
+
+            // Optional: Form submission handling (basic example)
+            // const contactForm = document.getElementById('portfolio-contact-form');
+            // if (contactForm) {
+            //     contactForm.addEventListener('submit', function(event) {
+            //         event.preventDefault(); // Prevent default page reload
+            //         // Here you would typically gather form data and send it via AJAX
+            //         // For example, using Fetch API or XMLHttpRequest
+            //         // const formData = new FormData(contactForm);
+            //         // fetch('your-server-endpoint', { method: 'POST', body: formData })
+            //         //     .then(response => response.json())
+            //         //     .then(data => console.log('Success:', data))
+            //         //     .catch(error => console.error('Error:', error));
+            //         alert('Thank you for your message! (This is a demo, no data was sent)');
+            //         contactForm.reset(); // Optionally reset the form
+            //     });
+            // }
+
         });
     </script>
 </body>
