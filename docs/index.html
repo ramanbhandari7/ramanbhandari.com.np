@@ -183,78 +183,154 @@
         /* Hero Section (Home) */
         /* Hero Section (Home) */
 #home {
-    /* THIS IS THE LINE TO CHANGE */
-    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('assets/main.jpg'); /* <-- CHANGED TO main.jpg */
+    /* Your existing general styles (if any) */
+body {
+    margin: 0;
+    font-family: sans-serif; /* Example font */
+    /* ... other body styles ... */
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* === MODIFIED #home SECTION === */
+#home {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('assets/main.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Parallax-like effect */
     color: #fff;
-    text-align: center;
-    min-height: calc(100vh - 80px); /* Full viewport height minus navbar */
+    min-height: calc(100vh - 80px); /* Full viewport height minus navbar (adjust 80px if your navbar height is different) */
+    
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row; /* Lays out children (text-block, image) side-by-side */
+    align-items: center; /* Vertically aligns the text block and image */
+    justify-content: space-around; /* Distributes space around the items. Consider 'center' or 'space-evenly' */
+    padding: 40px; /* Add padding for spacing from screen edges */
+    gap: 30px; /* Adds space between the text content and the image */
 }
+
+/* NEW: Container for text content within #home */
+.home-text-content {
+    flex: 1; /* Allows the text content to take up available space */
+    max-width: 600px; /* Optional: constrain width for readability */
+    text-align: left; /* Align text to the left within this block */
+}
+
+/* MODIFIED: Profile image styles */
 #home .profile-img {
-    width: 180px;
-    height: 180px;
+    width: 180px; /* Your existing size */
+    height: 180px; /* Your existing size */
     border-radius: 50%;
-    margin-bottom: 25px;
-    border: 5px solid #1abc9c;
-    box-shadow: 0 0 15px rgba(26, 188, 156, 0.5);
+    /* margin-bottom: 25px; /* Removed, as vertical spacing is handled by align-items and horizontal by gap/justify-content */
+    border: 5px solid #1abc9c; /* Your existing border */
+    box-shadow: 0 0 15px rgba(26, 188, 156, 0.5); /* Your existing shadow */
+    flex-shrink: 0; /* Prevents image from shrinking if text content is long */
+    object-fit: cover; /* Ensures image covers the area nicely */
 }
-#home h1#raman-name { /* Changed ID */
+
+/* Text element styles within .home-text-content (mostly your existing styles) */
+#home h1#raman-name {
     font-size: 3.5em;
+    margin-top: 0; /* Good practice to zero out top margin for first child */
     margin-bottom: 10px;
     color: #fff;
     font-weight: 700;
 }
+
 #home p.tagline {
     font-size: 1.5em;
     margin-bottom: 15px;
     color: #ecf0f1;
 }
+
 #home #typewriter {
     font-size: 1.3em;
     color: #1abc9c; /* Accent for typewriter */
     margin-bottom: 30px;
-    min-height: 1.5em;
+    min-height: 1.5em; /* Your existing style, good for preventing layout shifts */
     font-weight: bold;
 }
-/* These .button-group and .button styles are more general but are used within #home */
+
+/* Your existing button styles */
 .button-group {
     margin-top: 20px;
+    /* Buttons will align left due to .home-text-content's text-align: left */
 }
-.button { /* This is a general button style, not exclusive to #home but used there */
+
+.button {
     display: inline-block;
     padding: 12px 30px;
-    background-color: #1abc9c; /* Accent color */
-    color: white !important;
+    background-color: #1abc9c;
+    color: white !important; /* Using !important as per your original CSS */
     text-decoration: none;
-    border-radius: 25px; /* Pill-shaped buttons */
+    border-radius: 25px;
     transition: background-color 0.3s ease, transform 0.2s ease;
     border: none;
     cursor: pointer;
-    margin: 10px 10px;
+    margin: 0 10px 10px 0; /* Adjusted margin for left alignment, added bottom margin for potential wrapping */
     font-size: 1em;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
+.button:last-child { /* If it's the last button in a row */
+    margin-right: 0;
+}
+
+
 .button:hover {
-    background-color: #16a085; /* Darker accent */
+    background-color: #16a085;
     transform: translateY(-3px);
 }
-.button.secondary { /* Specific button variant */
+
+.button.secondary {
     background-color: transparent;
     border: 2px solid #1abc9c;
-    color: #1abc9c !important;
+    color: #1abc9c !important; /* Using !important as per your original CSS */
 }
+
 .button.secondary:hover {
     background-color: #1abc9c;
-    color: white !important;
+    color: white !important; /* Using !important as per your original CSS */
+}
+
+
+/* === RESPONSIVE ADJUSTMENTS === */
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+    #home {
+        flex-direction: column; /* Stack items vertically */
+        text-align: center; /* Center align the content when stacked */
+        justify-content: center; /* Re-center content vertically */
+        padding: 40px 20px; /* Adjust padding for smaller screens */
+    }
+
+    .home-text-content {
+        text-align: center; /* Ensure text within this block is centered on mobile */
+        margin-bottom: 30px; /* Add space between text block and image when stacked */
+        order: 2; /* Optional: If you want text below image, and image is first in HTML */
+                   /* If text is first in HTML (as suggested), this is not needed for text below */
+    }
+
+    #home .profile-img {
+        margin-bottom: 0; /* Remove bottom margin if .home-text-content adds it, or set as needed */
+        /* To re-center the image if it's not automatically by #home's align-items: center */
+        /* margin-left: auto; */
+        /* margin-right: auto; */
+        order: 1; /* Optional: If you want image above text, and image is first in HTML */
+                  /* If text is first in HTML (as suggested), this moves image to top */
+    }
+
+    .button-group {
+        text-align: center; /* Ensure buttons are centered on mobile */
+    }
+
+    .button {
+        margin-left: 5px; /* Adjust margins for centered buttons */
+        margin-right: 5px;
+    }
 }
 /* === CSS FOR WHO AM I SECTION === */
 #who-am-i {
