@@ -1,1 +1,1009 @@
+/* css/style.css */
+
+/* CSS Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.7;
+    background-color: #f4f7f6; /* Light grayish background */
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #2c3e50; /* Dark blue-gray */
+}
+
+h2.section-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+}
+h2.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #1abc9c; /* Accent color teal/green */
+    margin: 10px auto 0;
+}
+
+a {
+    text-decoration: none;
+    color: #1abc9c; /* Accent color for links */
+}
+a:hover {
+    color: #16a085; /* Darker accent */
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+/* Navigation Bar */
+.navbar {
+    background: #2c3e50;
+    color: #fff;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    color: #fff;
+    font-weight: 700;
+}
+.navbar .logo a {
+    color: #fff;
+    text-decoration: none;
+}
+.navbar .logo .highlight {
+    color: #1abc9c;
+}
+
+.navbar ul.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.navbar ul.nav-links li {
+    margin-left: 25px;
+}
+
+.navbar ul.nav-links a {
+    color: #ecf0f1;
+    padding: 0.5rem 0.2rem;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95em;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.navbar ul.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #1abc9c;
+    transition: width 0.3s ease;
+}
+
+.navbar ul.nav-links a:hover,
+.navbar ul.nav-links a.active { /* Style for active link */
+    color: #1abc9c;
+}
+.navbar ul.nav-links a:hover::after,
+.navbar ul.nav-links a.active::after { /* Underline for active link */
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: #fff;
+    margin: 4px 0;
+    transition: 0.3s;
+}
+
+/* Main Content Sections Styling */
+main {
+    padding-top: 80px; /* Height of fixed navbar */
+}
+
+.section { /* General styling for all page content sections */
+    padding: 60px 0;
+}
+/* If you want alternating backgrounds for *pages*, you'd need to target page-specific IDs.
+   This rule might not be very effective with one main section per page.
+   Alternatively, you can set specific background colors per page ID below. */
+/*
+.section:nth-child(even) {
+     background-color: #ffffff;
+}
+*/
+
+
+/* Hero Section (Home Page - index.html) */
+#home { /* This ID is on the <section> in index.html */
+    color: #fff;
+    min-height: calc(100vh - 80px); /* Ensure full viewport height considering navbar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px; /* Padding is for the content within, video is background */
+    text-align: center;
+    position: relative; /* For positioning video and button */
+    overflow: hidden; /* To contain the video */
+}
+
+.home-background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+#home::before { /* Overlay for home page video */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(44, 62, 80, 0.6);
+    z-index: 1;
+}
+
+.home-text-content {
+    max-width: 750px;
+    position: relative;
+    z-index: 2;
+}
+
+#home h1#raman-name { /* More specific if needed, or just #raman-name if unique */
+    font-size: 3.5em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #fff;
+    font-weight: 700;
+}
+
+#home p.tagline {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #ecf0f1;
+}
+
+#home #typewriter {
+    font-size: 1.3em;
+    color: #1abc9c;
+    margin-bottom: 30px;
+    min-height: 1.5em;
+    font-weight: bold;
+}
+
+.mute-button {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    padding: 10px 18px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 2;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+.mute-button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* General Button styles (shared across sections) */
+.button-group {
+    margin-top: 20px;
+}
+.button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #1abc9c;
+    color: white !important;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+    margin: 5px 10px;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.button:hover {
+    background-color: #16a085;
+    transform: translateY(-3px);
+}
+.button.secondary {
+    background-color: transparent;
+    border: 2px solid #1abc9c;
+    color: #1abc9c !important;
+}
+.button.secondary:hover {
+    background-color: #1abc9c;
+    color: white !important;
+}
+
+/* General Profile Image Style (Circular) - Used in about.html */
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid #1abc9c;
+    box-shadow: 0 0 15px rgba(26, 188, 156, 0.5);
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Who Am I Page (about.html) */
+#who-am-i-page { /* Styles for the main section container of about.html */
+    padding: 0; /* The background div will have padding */
+    position: relative;
+    color: #fff;
+    /* background-color: #f4f7f6; /* Default body background, override if needed */
+}
+/* The .who-am-i-background itself will be the direct child of the container div within #who-am-i-page */
+#who-am-i-page .who-am-i-background {
+    background-image: linear-gradient(rgba(30, 40, 50, 0.88), rgba(30, 40, 50, 0.88)), url('../assets/hero.jpg'); /* Adjusted path */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    padding: 80px 0;
+}
+#who-am-i-page .section-title { /* Specific title styling for this page */
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    text-align: center;
+    margin-bottom: 30px;
+}
+#who-am-i-page .section-title::after {
+    background-color: #1abc9c;
+}
+#who-am-i-page .who-am-i-image-wrapper {
+    text-align: center;
+    margin-bottom: 40px;
+}
+#who-am-i-page .content-text-block {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+#who-am-i-page .text-content { 
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
+}
+#who-am-i-page .text-content:last-child {
+    margin-bottom: 0;
+}
+#who-am-i-page .text-content p {
+    color: #e9ecef;
+    margin-bottom: 1.2em;
+    font-size: 1.05em;
+    line-height: 1.8;
+}
+#who-am-i-page .text-content strong {
+    color: #1abc9c;
+    font-weight: 600;
+}
+#who-am-i-page .about-subsection {
+    margin-bottom: 25px;
+}
+#who-am-i-page .about-subsection:last-child {
+    margin-bottom: 0;
+}
+#who-am-i-page .about-subsection h3 {
+    color: #ffffff;
+    font-size: 1.5em;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    font-weight: 600;
+}
+#who-am-i-page #experience { /* ID can remain if it's unique within this page context */
+    max-width: 800px;
+    margin: 50px auto 0 auto;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+#who-am-i-page #experience h3 {
+    text-align:center;
+    font-size:1.8em;
+    margin-bottom:30px;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+#who-am-i-page #experience ul {
+    list-style: none;
+    padding-left: 0;
+}
+#who-am-i-page #experience ul li {
+    margin-bottom: 20px;
+    padding: 15px 15px 15px 25px;
+    position: relative;
+    border-left: 3px solid #1abc9c;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 0 5px 5px 0;
+    color: #e0e0e0;
+}
+#who-am-i-page #experience ul li::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 19px;
+    height: 14px;
+    width: 14px;
+    background-color: #1abc9c;
+    border-radius: 50%;
+    border: 2px solid #2c3e50;
+}
+#who-am-i-page #experience ul li strong {
+    display: block;
+    font-size: 1.25em;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+#who-am-i-page #experience ul li a {
+    color: #50cce1;
+    font-style: italic;
+}
+#who-am-i-page #experience ul li a:hover {
+    color: #7adfea;
+}
+        
+/* Projects Page (projects.html) */
+#projects-page {
+    background-color: #f4f7f6; /* Or #ffffff if preferred for this page */
+}
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+.project-card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+.project-card img.project-thumbnail {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+.project-card .project-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.project-card h3 {
+    font-size: 1.6em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+.project-card p {
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+.project-card p strong {
+    color: #333;
+}
+.project-links {
+    margin-top: auto;
+    text-align: right;
+}
+.project-links .button {
+    padding: 8px 18px;
+    font-size: 0.9em;
+    margin-left: 10px;
+    border-radius: 20px;
+}
+
+/* Certifications Page (certifications.html) */
+#certifications-page {
+     background-color: #ffffff; /* Example of specific page background */
+}
+#certifications-page ul.certificates-list { /* Target specific list on this page */
+    list-style: none;
+    padding: 0;
+    columns: 2;
+    column-gap: 30px;
+}
+#certifications-page ul.certificates-list li {
+    background: #ffffff;
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 5px;
+    border-left: 4px solid #1abc9c;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    break-inside: avoid-column;
+}
+#certifications-page ul.certificates-list li a {
+    font-weight: bold;
+    display: block;
+}
+#certifications-page .core-skills {
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    color: #555;
+}
+.credly-badge-container { /* This class is general, can be used on any page */
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Volunteer Page (volunteer.html) */
+#volunteer-page {
+    /* background-color: #f4f7f6; */ /* Default or specific */
+}
+.certificates-grid { /* This class could be reused, ensure specificity if needed */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.certificate-viewer {
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.certificate-viewer h3 {
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+.certificate-viewer iframe {
+    border: 1px solid #ccc;
+    width: 100%;
+    height: 300px; /* Consider aspect-ratio for responsiveness if possible */
+    border-radius: 4px;
+}
+
+/* Services Page (services.html) */
+#services-page {
+    /* background-color: #ffffff; */ /* Example: white background for this page */
+}
+/* Updated selector for services list */
+#services-page .services-list-container {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+#services-page .services-list-container li {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+#services-page .services-list-container li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+#services-page .services-list-container li a {
+    font-weight: bold;
+    color: #2c3e50;
+    display: flex; /* If you had icons or complex content in <a> */
+    align-items: center;
+}
+
+/* Vlogs Page (vlogs.html) */
+#vlogs-page {
+    /* background-color: #f4f7f6; */
+}
+.video-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+.video-item {
+    border-radius: 8px;
+    overflow:hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background-color: #000; /* Fallback for iframe loading */
+}
+.video-item iframe,
+.video-item .fb-video, 
+.video-item .fb-video iframe { /* Ensure FB video iframe also behaves */
+    width: 100%;
+    min-height: 315px; /* Adjust as needed, or use aspect-ratio */
+    border: none;
+    display: block; /* Removes extra space below iframe */
+}
+
+/* Contact Page (contact.html) */
+#contact-us-page { /* Page specific ID for contact section */
+    background-color: #ffffff; /* Specific background for this page */
+    padding: 80px 0; /* Specific padding for this page */
+}
+.contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    background-color: #ffffff; /* Inner wrapper background */
+    border-radius: 10px;
+    overflow: hidden; /* For rounded corners on children */
+}
+.contact-form-container,
+.contact-info-container {
+    flex: 1;
+    padding: 40px;
+    min-width: 300px; /* For wrapping behavior */
+}
+.contact-form-container {
+    background-color: #f8f9fa; /* Slightly different bg for form area */
+    /* border-radius: 8px 0 0 8px; */ /* Might not be needed if parent handles overflow */
+}
+.contact-form-container h3 {
+    font-size: 2em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+.form-subtitle {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 30px;
+}
+.form-group {
+    position: relative;
+    margin-bottom: 40px;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1em;
+    color: #333;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    background: transparent;
+    transition: border-color 0.3s ease;
+}
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+.form-group label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 1em;
+    color: #777;
+    pointer-events: none;
+    transition: 0.3s ease all;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+    border-bottom: 2px solid #1abc9c;
+}
+.form-group input:focus ~ label,
+.form-group input:valid ~ label,
+.form-group textarea:focus ~ label,
+.form-group textarea:valid ~ label {
+    top: -18px;
+    font-size: 0.85em;
+    color: #1abc9c;
+}
+.form-submit-button { /* Class already specific enough */
+    background-color: #2c3e50;
+    color: white !important;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-transform: none;
+    font-weight: bold;
+    font-size: 1em;
+    letter-spacing: 0;
+}
+.form-submit-button:hover {
+    background-color: #34495e;
+}
+.contact-info-container {
+    position: relative; /* For decorative graphic positioning */
+    padding-left: 60px; /* Original style */
+}
+.contact-info-container h3 {
+    font-size: 1.8em;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+.decorative-line-graphic {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    opacity: 0.7;
+}
+.decorative-line-graphic svg path {
+    stroke: #2c3e50;
+}
+ul.contact-details-list {
+    list-style: none;
+    padding: 0;
+}
+ul.contact-details-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+.contact-icon-bg {
+    width: 55px;
+    height: 55px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+.contact-icon { /* SVG icon itself */
+    width: 28px;
+    height: 28px;
+}
+.contact-text strong {
+    display: block;
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 3px;
+    font-weight: 600;
+}
+.contact-text span {
+    font-size: 1em;
+    color: #555;
+}
+.contact-text span a {
+    color: #555;
+    text-decoration: none;
+}
+.contact-text span a:hover {
+    color: #1abc9c;
+    text-decoration: underline;
+}
+
+/* Footer Styles (site-footer-new) */
+.site-footer-new {
+    background-color: #2c3e50;
+    color: #e0e0e0;
+    padding: 50px 0 0 0;
+    font-size: 0.95em;
+    line-height: 1.7;
+}
+.footer-container-new {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    padding-bottom: 40px;
+}
+.footer-column-new {
+    flex: 1;
+    min-width: 280px;
+    padding: 0 15px;
+}
+.footer-column-new h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    font-size: 1.5em;
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #4a6a80;
+    font-weight: 600;
+}
+.footer-about-me p {
+    color: #bdc3c7;
+    font-size: 0.9em;
+    line-height: 1.6;
+}
+.footer-social-icons-new {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.footer-social-icons-new .social-icon-new {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.footer-social-icons-new .social-icon-new img {
+    width: 20px;
+    height: 20px;
+}
+.footer-social-icons-new .social-icon-new:hover {
+    background-color: #1abc9c;
+    transform: translateY(-3px) scale(1.05);
+}
+.footer-quick-links-me ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-quick-links-me ul li {
+    margin-bottom: 12px;
+}
+.footer-quick-links-me ul li a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+.footer-quick-links-me ul li a::before {
+    content: ">";
+    color: #1abc9c;
+    margin-right: 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+.footer-quick-links-me ul li a:hover {
+    color: #ffffff;
+    padding-left: 5px;
+}
+.footer-quick-links-me ul li a:hover::before {
+    color: #ffffff;
+}
+.footer-contact-me p {
+    color: #bdc3c7;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+}
+.footer-contact-me p a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-contact-me p a:hover {
+    color: #1abc9c;
+}
+.contact-icon-inline {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    fill: #1abc9c;
+    flex-shrink: 0;
+}
+.footer-bottom-new {
+    background-color: #1f384a;
+    padding: 25px 0;
+    text-align: center;
+    font-size: 0.9em;
+    color: #95a5a6;
+}
+.footer-bottom-new .container p {
+    margin: 8px 0;
+}
+.footer-bottom-new .footer-quote {
+    font-style: italic;
+    font-size: 1.1em;
+    color: #bdc3c7;
+    margin-bottom: 15px;
+}
+.footer-bottom-new .copyright {
+    font-size: 0.9em;
+    color: #95a5a6;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    /* About page specific adjustment if any */
+    #who-am-i-page .content-text-block {
+        /* max-width adjustments if needed */
+    }
+    /* Contact page specific adjustment */
+    .contact-info-container {
+        padding-left: 40px; /* Keep consistent padding */
+    }
+}
+
+@media (max-width: 860px) {
+    /* Navbar mobile */
+    .navbar ul.nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 70px; /* Height of navbar from .navbar padding: 1rem (16px) + text, approx 70px */
+        left: 0;
+        background-color: #34495e; /* Darker blue for dropdown */
+        padding-bottom: 10px;
+    }
+    .navbar ul.nav-links.active {
+        display: flex;
+    }
+    .navbar ul.nav-links li {
+        margin: 15px 0;
+        text-align: center;
+    }
+    .navbar ul.nav-links a::after { /* Hide underline effect for mobile dropdown */
+         display: none;
+    }
+    .menu-toggle { /* Show hamburger */
+        display: flex;
+    }
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    /* Footer mobile */
+    .footer-container-new {
+        flex-direction: column;
+    }
+    .footer-column-new {
+        min-width: 100%;
+        margin-bottom: 35px;
+    }
+    .footer-column-new:last-child {
+        margin-bottom: 0;
+    }
+    .footer-social-icons-new {
+        justify-content: flex-start; /* Or center if parent is text-align: center */
+    }
+}
+        
+@media (max-width: 768px) {
+    h2.section-title { font-size: 2em; }
+    .container { width: 95%; }
+
+    /* Home Page mobile */
+    #home h1#raman-name { font-size: 2.5em; }
+    #home p.tagline { font-size: 1.2em; }
+    .mute-button {
+        bottom: 20px;
+        right: 20px;
+        padding: 8px 15px;
+        font-size: 0.8em;
+    }
+    
+    /* About Page mobile */
+    #who-am-i-page .who-am-i-background {
+        padding: 60px 20px;
+        background-attachment: scroll; /* Crucial for mobile performance */
+    }
+    #who-am-i-page .content-text-block {
+        padding: 0 10px; /* Prevent text touching edges */
+    }
+    #who-am-i-page #experience {
+        margin-left: 10px; margin-right: 10px;
+    }
+    #who-am-i-page #experience ul li::before {
+        top: 17px; height: 12px; width: 12px; left: -7px;
+    }
+
+    /* Grids to single column */
+    .projects-grid, 
+    #services-page .services-list-container, /* Updated selector */
+    .video-gallery, 
+    .certificates-grid { 
+        grid-template-columns: 1fr; 
+    }
+    #certifications-page ul.certificates-list { /* Certifications list */
+        columns: 1; 
+    }
+    
+    /* Contact Page mobile */
+    .contact-wrapper { flex-direction: column; }
+    .contact-form-container, .contact-info-container {
+        border-radius: 8px; /* Apply to both for consistency when stacked */
+        padding-left: 20px; 
+        padding-right: 20px;
+    }
+    .contact-form-container { padding: 40px 20px; } /* Consistent padding */
+    .decorative-line-graphic { top: 15px; right: 15px; }
+    .decorative-line-graphic svg { width: 60px; height: 60px; }
+
+    /* Footer mobile deeper adjustments */
+    .footer-column-new h3 {
+        font-size: 1.3em;
+    }
+    .footer-about-me, .footer-quick-links-me, .footer-contact-me {
+        text-align: center;
+    }
+    .footer-social-icons-new {
+        justify-content: center;
+    }
+    .footer-quick-links-me ul, .footer-contact-me p {
+        text-align: left; /* Keep list/paragraph text left-aligned */
+        display: inline-block; /* Allows the block itself to be centered */
+    }
+    .footer-contact-me p {
+        /* If you want icons centered with text for mobile contact info */
+        /* justify-content: center; */ 
+    }
+}
+
+/* Path fix for background images if assets folder is at root and CSS is in css/ */
+/* Example: url('../assets/main.jpg') instead of url('assets/main.jpg') */
+/* This was already done for #who-am-i-page .who-am-i-background */
 
