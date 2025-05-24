@@ -1,6 +1,9 @@
 /* css/style.css */
 
 /* CSS Reset & Base Styles */
+ {
+    scroll-behavior: smooth;
+}
 * {
     margin: 0;
     padding: 0;
