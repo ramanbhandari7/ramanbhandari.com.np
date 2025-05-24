@@ -538,34 +538,65 @@ main {
 }
 
 /* Services Page (services.html) */
-#services-page {
-    /* background-color: #ffffff; */ /* Example: white background for this page */
+#services-page-content { /* Targets the main section in services.html */
+    background-image: url('../assets/doc.png'); /* Path relative to style.css */
+    background-size: cover;        
+    background-position: center center; 
+    background-repeat: no-repeat;  
+    position: relative; /* For the overlay */
+    /* The .section class on the <section> tag will provide default padding (60px 0) */
+    /* If you want to override it for this specific page: */
+    /* padding: 100px 0; */ 
 }
-/* Updated selector for services list */
-#services-page .services-list-container {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+
+#services-page-content::before { /* Overlay for readability */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Light overlay, adjust opacity (0.0 to 1.0) */
+    /* For a dark overlay if doc.png is light and text needs to be white:
+       background-color: rgba(44, 62, 80, 0.7); // Example dark blue-gray overlay
+    */
+    z-index: 1; 
 }
-#services-page .services-list-container li {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
+
+#services-page-content .container { /* Ensures content is above overlay */
+    position: relative;
+    z-index: 2;
+}
+
+/* Adjust text colors within #services-page-content if needed for contrast */
+/* These are examples, you'll need to see how it looks with your doc.png and overlay */
+#services-page-content h2.section-title,
+#services-page-content p {
+    color: #2c3e50; /* Example: Dark text if overlay is light */
+    /* If overlay is dark, you might need: color: #ffffff; */
+}
+
+#services-page-content ul.services-list-container li {
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white cards */
+    /* Or make them fully opaque if preferred: background: #ffffff; */
     box-shadow: 0 3px 10px rgba(0,0,0,0.07);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 8px;
+    padding: 20px;
+    /* transition remains the same */
 }
-#services-page .services-list-container li:hover {
+#services-page-content ul.services-list-container li:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
-#services-page .services-list-container li a {
+
+#services-page-content ul.services-list-container li a {
     font-weight: bold;
-    color: #2c3e50;
-    display: flex; /* If you had icons or complex content in <a> */
+    color: #2c3e50; /* Link color on cards */
+    display: flex;
     align-items: center;
 }
+/* --- End Styles for Services Page --- */
+
 
 /* Vlogs Page (vlogs.html) */
 #vlogs-page {
