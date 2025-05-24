@@ -3,84 +3,313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<!-- META DESCRIPTION FOR THIS PAGE -->">
-    <title>Raman Bhandari</title>
+    <meta name="description" content="Raman Bhandari - Inventory Strategist, Web Developer, and Data Entry Specialist with a passion for digital solutions.">
+    <title>Raman Bhandari - Professional Portfolio</title>
     <link rel="icon" href="assets/rmn.ico.jpg" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <!-- Add page-specific scripts in head if necessary (e.g., Credly for certifications) -->
+    <!-- Script for Credly (can be here or at end of body) -->
+    <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 </head>
 <body>
-    <!-- FB SDK Root (Needed for pages with FB elements like Vlogs) -->
-    <!-- <div id="fb-root"></div> --> 
-    <!-- <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v22.0"></script> -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v22.0"></script>
 
     <nav class="navbar">
         <div class="container">
-            <div class="logo"><a href="index.html">Raman <span class="highlight">Bhandari</span></a></div>
+            <div class="logo"><a href="#home">Raman <span class="highlight">Bhandari</span></a></div> {/* Points to #home section */}
             <div class="menu-toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
             <ul class="nav-links" id="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">Who Am I?</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="certifications.html">Certifications</a></li>
-                <li><a href="volunteer.html">Volunteer</a></li>
-                <li><a href="vlogs.html">Vlogs</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#home" class="active">Home</a></li> {/* Add 'active' class by default for JS to handle */}
+                <li><a href="#who-am-i">Who Am I?</a></li>
+                <li><a href="#service">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#volunteer">Volunteer</a></li>
+                <li><a href="#vlogs">Vlogs</a></li> {/* Added Vlogs to nav */}
+                <li><a href="#contact-us">Contact</a></li>
+                {* <li><a href="#site-footer-new">Social</a></li> <!-- Changed this to point to footer ID --> *}
             </ul>
         </div>
     </nav>
 
     <main>
-        <!-- Main Page Content Start -->
-<section id="home"> <!-- id="home" can be kept for specific styling if needed, or removed -->
-    <video autoplay loop muted playsinline id="homeVideo" class="home-background-video">
-        <source src="assets/video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <button id="muteButton" class="mute-button">Unmute</button>
-    <div class="home-text-content">
-        <h1 id="raman-name">Raman Bhandari</h1>
-        <p class="tagline">"Bridging efficiency with digital precision"</p>
-        <div id="typewriter"></div>
-        <div class="button-group">
-            <a href="projects.html" class="button">My Projects</a>
-        <a href="https://wa.me/9779810430546?text=Hello%20Raman%2C%20I'm%20interested%20in%20your%20services%20and%20would%20like%20to%20discuss%20hiring%20you." class="button secondary" target="_blank" rel="noopener">Hire Me (WhatsApp)</a>
-        </div>
-    </div>
-</section>
-<!-- Main Page Content End -->
+        <!-- HOME SECTION -->
+        <section id="home">
+            <video autoplay loop muted playsinline id="homeVideo" class="home-background-video">
+                <source src="assets/video.mp4" type="video/mp4"> {/* Ensure video.mp4 is correct name in assets */}
+                Your browser does not support the video tag.
+            </video>
+            <button id="muteButton" class="mute-button">Unmute</button>
+            <div class="home-text-content">
+                <h1 id="raman-name">Raman Bhandari</h1>
+                <p class="tagline">"Bridging efficiency with digital precision"</p>
+                <div id="typewriter"></div>
+                <div class="button-group">
+                    <a href="#projects" class="button">My Projects</a>
+                    <a href="https://wa.me/9779810430546?text=Hello%20Raman%2C%20I'm%20interested%20in%20your%20services%20and%20would%20like%20to%20discuss%20hiring%20you." class="button secondary" target="_blank" rel="noopener">Hire Me (WhatsApp)</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHO AM I SECTION -->
+        <section class="section" id="who-am-i"> {/* Ensure this ID matches the href in nav */}
+            <div class="who-am-i-background">
+                <div class="container">
+                    <h2 class="section-title">Who Am I?</h2>
+                    <div class="who-am-i-image-wrapper">
+                        <img src="assets/profile.jpg" alt="Portrait of Raman Bhandari" class="profile-img">
+                    </div>
+                    <div class="content-text-block">
+                         <div class="text-content">
+                            <div class="about-subsection">
+                                <h3>My Journey & Philosophy</h3>
+                                <p>My journey into the world of procurement, logistics, and web technology has been driven by a relentless curiosity and a desire to create efficient, impactful solutions. I believe in the power of digital precision to transform complex challenges into streamlined processes. Every project is an opportunity to learn, innovate, and deliver value.</p>
+                            </div>
+                            <div class="about-subsection">
+                                <h3>Professional Approach</h3>
+                                <p>With a foundation in inventory management and data analysis, I approach problems methodically, focusing on detail and accuracy. As a web enthusiast and developer, I'm passionate about crafting user-friendly digital experiences. On platforms like Upwork, I strive to understand client needs deeply and provide solutions that exceed expectations. Teamwork, clear communication, and a commitment to continuous improvement are core to my work ethic.</p>
+                            </div>
+                             <div class="about-subsection">
+                                <h3>Beyond Work</h3>
+                                <p>When I'm not managing data or building websites, I enjoy creating vlogs to share insights and connect with a broader community. I'm also dedicated to staying updated with the latest industry trends, constantly expanding my skill set to tackle new and exciting challenges. Volunteering for events like the FIFA World Cup has further enriched my perspective on collaboration and community engagement.</p>
+                            </div>
+                         </div>
+                    </div>
+                    <div id="experience">
+                         <h3>My Experience</h3>
+                         <ul>
+                            <li><strong>Data Entry & Inventory Clerk</strong><br><a href="https://al-baironi.com/" target="_blank" rel="noopener">Al Baironi Trading & Distribution, Doha Qatar</a><br>January 2024 – Present</li>
+                            <li><strong>Storekeeper</strong><br><a href="https://www.albakerq.com/" target="_blank" rel="noopener">Al Baker Group, Doha Qatar</a><br>September 2015 – September 2023</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section class="section" id="service"> {/* Ensure this ID matches the href in nav */}
+            <div class="container">
+                <h2 class="section-title">My Digital Services</h2>
+                <p style="text-align:center; max-width: 700px; margin-left:auto; margin-right:auto; margin-bottom: 40px;">I offer assistance and guidance with various online applications and digital tasks, providing streamlined solutions for your needs:</p>
+                <ul class="services-list-container"> {/* Using class from previous CSS, or just target #service ul */}
+                    <li>Assistance with: <a href="https://www.ssf.gov.np/" target="_blank" rel="noopener">Social Security Fund (Nepal)</a></li>
+                    <li>Assistance with: <a href="https://applydl.dotm.gov.np/" target="_blank" rel="noopener">Driving License Form (Nepal)</a></li>
+                    <li><a href="https://wa.me/9779810430546" target="_blank" rel="noopener">Professional CV Writing</a></li>
+                    <li>Guidance for: <a href="https://www.nrb.org.np/" target="_blank" rel="noopener">Online Bank Account Opening (Nepal)</a></li>
+                    <li>Guidance for: <a href="https://meroshare.cdsc.com.np/" target="_blank" rel="noopener">Mero Share & Demat Account</a></li>
+                    <li>Assistance with: <a href="https://emrtds.nepalpassport.gov.np/" target="_blank" rel="noopener">Online Passport Form (Nepal)</a></li>
+                    <li>Assistance with: <a href="https://ird.gov.np/" target="_blank" rel="noopener">PAN Card Registration (Nepal)</a></li>
+                    <li>Guidance for: <a href="https://www.nlk.org.np/" target="_blank" rel="noopener">CIT Account Opening (Nepal)</a></li>
+                    <li>Assistance with: <a href="https://nidmc.gov.np/" target="_blank" rel="noopener">National ID Card Registration (Nepal)</a></li>
+                    <li>Assistance with: <a href="https://www.jlpt.jp/" target="_blank" rel="noopener">Japan Language Test Form</a></li>
+                    <li><a href="https://wa.me/9779810430546" target="_blank" rel="noopener">Comprehensive Online Digital Solutions</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section class="section" id="projects"> {/* Ensure this ID matches the href in nav */}
+            <div class="container">
+                <h2 class="section-title">My Website Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <img src="assets/miniland.jpg" alt="Miniland Academy Website Thumbnail" class="project-thumbnail">
+                        <div class="project-content">
+                            <h3>Miniland Academy Website</h3>
+                            <p>A responsive and informative website designed for Miniland Academy, showcasing its programs, facilities, admission details, and contact information for prospective students and parents. Features include an image gallery and clear navigation.</p>
+                            <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+                            <div class="project-links">
+                                <a href="https://github.com/ramanbhandari7/minilandacademy" class="button secondary" target="_blank" rel="noopener">View Code</a>
+                                <a href="https://minilandacademy.edu.np/" class="button" target="_blank" rel="noopener">Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="assets/shr.jpg" alt="Sarwajanik Mavi Website Thumbnail" class="project-thumbnail">
+                         <div class="project-content">
+                            <h3>Sarwajanik Mavi Website</h3>
+                            <p>A website currently under development for Sarwajanik Mavi, aimed at providing a comprehensive online presence for the institution. The initial structure and design elements are available via the GitHub Pages deployment.</p>
+                            <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+                            <div class="project-links">
+                                <a href="https://ramanbhandari7.github.io/sarwajanikschool.edu.np/" class="button secondary" target="_blank" rel="noopener">View Code (GitHub Pages)</a>
+                                <a href="https://ramanbhandari7.github.io/sarwajanikschool.edu.np/" class="button" target="_blank" rel="noopener">View Progress</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CERTIFICATIONS SECTION -->
+        <section class="section" id="certifications"> {/* Ensure this ID matches the href in nav */}
+            <div class="container">
+                <h2 class="section-title">Skills & Certifications</h2>
+                <p class="core-skills"><strong>Core Skills:</strong> Web Development (HTML, CSS, JavaScript), Data Analysis (Python, Excel, Power BI), Procurement, Logistics, Digital Media, CRM, Marketing Strategy.</p>
+                <ul class="certificates-list">
+                    <li><a href="https://skills.yourlearning.ibm.com/certificate/PLAN-C4FCC67D3E76" target="_blank" rel="noopener">Working in a Digital World: Professional Skills - IBM SkillsBuild</a>
+                        <div class="credly-badge-container" data-iframe-width="150" data-iframe-height="270" data-share-badge-id="824fbf0b-efb5-436a-85fb-44828a47993e" data-share-badge-host="https://www.credly.com"></div>
+                    </li>
+                    <li><a href="https://courses.skillsbuild.skillsnetwork.site/certificates/3c18711470814c899e53fecc716b5c47?fbclid=..." target="_blank" rel="noopener">Data Analysis with Python By IBM</a></li>
+                    <li><a href="https://www.credly.com/badges/0048adac-2913-4e9c-a311-ab484a1c0583/linked_in?t=skiqy3" target="_blank" rel="noopener">Google AI Essentials</a>
+                        <div class="credly-badge-container" data-iframe-width="150" data-iframe-height="270" data-share-badge-id="0048adac-2913-4e9c-a311-ab484a1c0583" data-share-badge-host="https://www.credly.com"></div>
+                    </li>
+                    <li><a href="https://www.linkedin.com/learning/certificates/eba7afe8e313dcf06b189b6545b4f7c8c3e3ed3c19ea8b44bf32a29d365d299d" target="_blank"  rel="noopener">Excel Essential Training (Microsoft 365)</a></li>
+                    <li><a href="https://coursera.org/share/f7e0bd8f2420ab50608d5b5ec966db00" target="_blank" rel="noopener">Search Engine Optimization (SEO) with Squarespace By Coursera</a></li>
+                    <li><a href="https://courses.cognitiveclass.ai/certificates/d0b0da8019c240e0860c4ca241dfef8a" target="_blank" rel="noopener">Python 101 for Data Science (By IBM)</a></li>
+                    <li><a href="https://www.coursera.org/account/accomplishments/verify/TQL5RXYRDZRA" target="_blank" rel="noopener">Supply Chain Logistics</a></li>
+                    <li><a href="https://www.coursera.org/learn/from-excel-to-power-bi" target="_blank" rel="noopener">From Excel to Power BI</a></li>
+                    <li><a href="https://learndigital.withgoogle.com/digitalgarage" target="_blank" rel="noopener">Google Digital Garage</a></li>
+                    <li><a href="https://www.coursera.org/account/accomplishments/verify/R8FBUSIQFUZ" target="_blank" rel="noopener">Google Data Analytics</a></li>
+                    <li><a href="https://www.coursera.org/account/accomplishments/verify/PGUSLGBAMDRK" target="_blank" rel="noopener">Business Analysis & Process Management</a></li>
+                    <li><a href="https://www.mygreatlearning.com/certificate/TCRMKVLC" target="_blank" rel="noopener">Supply Chain Management</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- VOLUNTEER SECTION -->
+        <section class="section" id="volunteer"> {/* Ensure this ID matches the href in nav */}
+            <div class="container">
+                <h2 class="section-title">Volunteer Work</h2>
+                <p style="text-align:center; max-width: 700px; margin-left:auto; margin-right:auto; margin-bottom: 40px;">I was honored to contribute to the FIFA World Cup 2022™ volunteer program and received appreciation for my efforts. The certificates below acknowledge my participation.</p>
+                <div class="certificates-grid">
+                    <div class="certificate-viewer">
+                        <h3>FIFA World Cup 2022™ Certificate</h3>
+                        <iframe src="assets/FIFA%20World%20Cup%202022™%20Certificate%20of%20Appreciation.pdf"></iframe>
+                    </div>
+                    <div class="certificate-viewer">
+                        <h3>Host Country FIFA World Cup 2022™ Certificate</h3>
+                        <iframe src="assets/Host%20Country%20FIFA%20World%20Cup%202022™%20Certificate%20of%20Appreciation.pdf"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VLOGS SECTION -->
+        <section class="section" id="vlogs"> {/* Ensure this ID matches the href in nav */}
+            <div class="container">
+                <h2 class="section-title">Vadaz Vlogs (Raman Vlogs)</h2>
+                 <div class="video-gallery">
+                    <div class="video-item">
+                        <iframe
+                            src="https://www.youtube.com/embed/Bza1q-FDaY8?si=ZsiBfNaP1gGDbHPq"
+                            title="YouTube video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-item">
+                        <div class="fb-video"
+                            data-href="https://www.facebook.com/61576059702352/videos/484487918024452/"
+                            data-width="500" 
+                            data-show-text="false">
+                            <blockquote cite="https://www.facebook.com/61576059702352/videos/484487918024452/" class="fb-xfbml-parse-ignore">
+                                <a href="https://www.facebook.com/61576059702352/videos/484487918024452/">📹 अब डिजिटल सेवा घरमै बसी!</a>
+                                <p>Posted by <a href="https://www.facebook.com/people/Digital-Hub-Online-Nepal/61576059702352/">Digital Hub Online Nepal</a> on Friday, May 16, 2025</p>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT US SECTION -->
+        <section class="section" id="contact-us"> {/* Ensure this ID matches the href in nav */}
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-form-container">
+                        <h3>Let's Chat!</h3>
+                        <p class="form-subtitle">Fill out this quick form and we'll get back to you lickety split.</p>
+                        <form id="portfolio-contact-form" action="#" method="POST">
+                            <div class="form-group">
+                                <input type="text" id="contact-name" name="name" required>
+                                <label for="contact-name">Name*</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="contact-email" name="email" required>
+                                <label for="contact-email">Email*</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="contact-phone" name="phone">
+                                <label for="contact-phone">Phone (optional)</label>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="contact-message" name="message" rows="4" required></textarea>
+                                <label for="contact-message">How can we help? *</label>
+                            </div>
+                            <button type="submit" class="button form-submit-button">Submit</button>
+                        </form>
+                    </div>
+                    <div class="contact-info-container">
+                        <div class="decorative-line-graphic">
+                            <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 90L90 10" stroke="#2c3e50" stroke-width="4" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>Or just give us a shout</h3>
+                        <ul class="contact-details-list">
+                            <li>
+                                <div class="contact-icon-bg" style="background-color: #fde7f0;">
+                                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.3102 14.4432C16.1796 14.4432 15.0489 14.3526 13.9617 14.189C13.7055 14.1455 13.4402 14.2361 13.2501 14.4262L11.1558 16.5204C8.73394 15.3185 6.69943 13.2622 5.47571 10.8403L7.57898 8.7579C7.76007 8.55503 7.85062 8.29881 7.81618 8.04263C7.64364 6.95542 7.5621 5.82481 7.5621 4.69416C7.5621 4.24103 7.20106 3.88898 6.74794 3.88898H4.12824C3.68413 3.88898 3.33208 4.24103 3.33208 4.69416C3.33208 12.616 9.37489 18.6799 17.3102 18.6799C17.7543 18.6799 18.1063 18.3278 18.1063 17.8747V15.255C18.1063 14.8019 17.7543 14.4432 17.3102 14.4432Z" stroke="#E91E63" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="contact-text">
+                                    <strong>Call us</strong>
+                                    <span><a href="tel:+9779810430546">+977 9810430546</a></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact-icon-bg" style="background-color: #f0f4c3;">
+                                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#8BC34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 6L12 13L2 6" stroke="#8BC34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="contact-text">
+                                    <strong>Email</strong>
+                                    <span><a href="mailto:ramanbhandari7@outlook.com">ramanbhandari7@outlook.com</a></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact-icon-bg" style="background-color: #d4eef0;">
+                                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="#009688" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="#009688" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="contact-text">
+                                    <strong>Address</strong>
+                                    <span>Kerabari 6 Dangi<br>Morang, Nepal</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="site-footer-new" id="site-footer-new">
+    <footer class="site-footer-new" id="site-footer-new"> {/* ID for potential direct link */}
         <div class="container footer-container-new">
             <div class="footer-column-new footer-about-me">
                 <h3>Raman Bhandari</h3>
                 <div class="footer-social-icons-new">
-                    <a href="https://www.linkedin.com/in/raman-bhandari-942554247/" target="_blank" rel="noopener" title="LinkedIn" class="social-icon-new"><img src="assets/linkedin.png" alt="LinkedIn"></a>
-                    <a href="https://www.youtube.com/c/VADAZVLOGS" target="_blank" rel="noopener" title="YouTube" class="social-icon-new"><img src="assets/youtube.png" alt="YouTube"></a>
-                    <a href="https://www.tiktok.com/@ramanbhandari007" target="_blank" rel="noopener" title="TikTok" class="social-icon-new"><img src="assets/tiktok.png" alt="TikTok"></a>
-                    <a href="https://www.facebook.com/ramanbhandari07" target="_blank" rel="noopener" title="Facebook" class="social-icon-new"><img src="assets/facebook.png" alt="Facebook"></a>
-                    <a href="https://www.instagram.com/ramanbhandari1991?igsh=OTJwOXNiMTQxaW1k" target="_blank" rel="noopener" title="Instagram" class="social-icon-new"><img src="assets/instagram.png" alt="Instagram"></a>
+                    <a href="https://www.linkedin.com/in/raman-bhandari-942554247/" target="_blank" rel="noopener" title="LinkedIn" class="social-icon-new"><img src="assets/linkedin-white.svg" alt="LinkedIn"></a>
+                    <a href="https://www.youtube.com/c/VADAZVLOGS" target="_blank" rel="noopener" title="YouTube" class="social-icon-new"><img src="assets/youtube-white.svg" alt="YouTube"></a>
+                    <a href="https://www.tiktok.com/@ramanbhandari007" target="_blank" rel="noopener" title="TikTok" class="social-icon-new"><img src="assets/tiktok-white.svg" alt="TikTok"></a>
+                    <a href="https://www.facebook.com/ramanbhandari07" target="_blank" rel="noopener" title="Facebook" class="social-icon-new"><img src="assets/facebook-white.svg" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/ramanbhandari1991?igsh=OTJwOXNiMTQxaW1k" target="_blank" rel="noopener" title="Instagram" class="social-icon-new"><img src="assets/instagram-white.svg" alt="Instagram"></a>
                 </div>
                 <p>Inventory Strategist, Web Enthusiast, and Data Specialist passionate about bridging efficiency with digital precision. Continuously learning and applying new skills to deliver impactful solutions.</p>
             </div>
             <div class="footer-column-new footer-quick-links-me">
                 <h3>Quick Navigation</h3>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">Who Am I?</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="certifications.html">Certifications</a></li>
-                    <li><a href="volunteer.html">Volunteer</a></li>
-                    <li><a href="vlogs.html">Vlogs</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#who-am-i">Who Am I?</a></li>
+                    <li><a href="#service">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#volunteer">Volunteer</a></li>
+                    <li><a href="#vlogs">Vlogs</a></li>
+                    <li><a href="#contact-us">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-column-new footer-contact-me">
@@ -108,6 +337,5 @@
     </footer>
 
     <script src="js/script.js"></script>
-    <!-- Add page-specific scripts at the end of body if necessary -->
 </body>
-</html>    
+</html>
