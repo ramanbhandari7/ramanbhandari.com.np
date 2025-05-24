@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle
     const menuToggle = document.getElementById('mobile-menu');
-    const navMenuEl = document.getElementById('nav-menu'); // Renamed to avoid conflict
+    const navMenuEl = document.getElementById('nav-menu');
     if (menuToggle && navMenuEl) {
         menuToggle.addEventListener('click', () => {
             navMenuEl.classList.toggle('active');
             menuToggle.classList.toggle('active');
         });
-        // Close mobile menu when a link is clicked
+        // Close mobile menu when a link is clicked (good for single-page)
         navMenuEl.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 if (navMenuEl.classList.contains('active')) {
@@ -18,23 +18,45 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Active navigation link highlighting
+    // --- Single-Page Scroll Active Link Highlighting ---
     const navLinks = document.querySelectorAll('.navbar ul.nav-links a');
-    let currentFullPagename = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
-    if (currentFullPagename === "") {
-        currentFullPagename = "index.html"; // Default to index.html if path is empty
-    }
-
+    const sections = [];
     navLinks.forEach(link => {
-        const linkPageName = link.getAttribute('href');
-        if (linkPageName === currentFullPagename) {
-            link.classList.add('active');
+        const sectionId = link.getAttribute('href');
+        if (sectionId.startsWith('#')) {
+            const section = document.querySelector(sectionId);
+            if (section) {
+                sections.push(section);
+            }
         }
     });
 
+    function changeActiveLink() {
+        let index = sections.length;
+
+        while(--index && window.scrollY + 100 < sections[index].offsetTop) {} // 100 is an offset
+        
+        navLinks.forEach((link) => link.classList.remove('active'));
+        // Ensure the link corresponding to the current section exists before adding 'active'
+        if (navLinks[index]) {
+            navLinks[index].classList.add('active');
+        } else if (window.scrollY < sections[0].offsetTop - 100 && navLinks[0]) {
+            // If scrolled above the first section (e.g. very top of page), make 'Home' active
+            navLinks[0].classList.add('active');
+        }
+    }
+
+    // Initial call if page loads scrolled or for hash links
+    if (sections.length > 0) {
+        changeActiveLink(); 
+        window.addEventListener('scroll', changeActiveLink);
+    }
+    // --- End Single-Page Scroll Active Link Highlighting ---
+
+
     // Typewriter effect (Only for Home Page - index.html)
     const typewriterElement = document.getElementById('typewriter');
-    if (typewriterElement) {
+    if (typewriterElement) { // This will only run if #typewriter is on the current page (which it is in index.html)
         const texts = ["Inventory Strategist", "Web Enthusiast", "Data Specialist", "Freelancer"];
         let textIndex = 0;
         let charIndex = 0;
@@ -61,11 +83,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (texts.length > 0) type();
     }
     
-    // Home section video mute/unmute functionality (Only for Home Page - index.html)
+    // Home section video mute/unmute functionality
     const video = document.getElementById('homeVideo');
     const muteButton = document.getElementById('muteButton');
-    if (video && muteButton) {
-        // Video is muted by default via HTML attribute
+    if (video && muteButton) { // This will only run if these elements are on the page
         muteButton.addEventListener('click', function() {
             if (video.muted) {
                 video.muted = false;
@@ -77,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Footer copyright year (For all pages)
+    // Footer copyright year
     const yearSpanPersonalFooter = document.getElementById('currentYearPersonalFooter');
     if (yearSpanPersonalFooter) {
         yearSpanPersonalFooter.textContent = new Date().getFullYear();
@@ -85,16 +106,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Contact form submission (placeholder)
     const contactForm = document.getElementById('portfolio-contact-form');
-    if (contactForm) {
+    if (contactForm) { // This will only run if the form is on the page
         contactForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent actual submission for now
-            // You would typically gather form data here:
-            // const name = document.getElementById('contact-name').value;
-            // const email = document.getElementById('contact-email').value;
-            // const message = document.getElementById('contact-message').value;
-            // console.log('Form submitted:', { name, email, message });
+            event.preventDefault(); 
             alert('Thank you for your message! (This is a demo, form data not sent)');
-            contactForm.reset(); // Optionally reset the form
+            contactForm.reset();
         });
     }
 });
