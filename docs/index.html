@@ -170,24 +170,48 @@
              background-color: #ffffff;
         }
 
-        /* Hero Section (Home) - Text Only Now */
-       #home {
-    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('assets/main.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* THIS IS LIKELY THE CULPRIT ON MOBILE */
-    color: #fff;
-    min-height: calc(100vh - 80px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
-    text-align: center;
-}
+        /* Hero Section (Home) - NOW WITH VIDEO BACKGROUND */
+        #home {
+            /* REMOVED OLD BACKGROUND PROPERTIES */
+            color: #fff;
+            min-height: calc(100vh - 80px); /* Ensure full viewport height considering navbar */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative; /* For positioning video and button */
+            overflow: hidden; /* To contain the video */
+        }
+
+        .home-background-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the area, cropping if necessary */
+            transform: translate(-50%, -50%); /* Center the video */
+            z-index: 0; /* Behind text and button */
+        }
+
+        /* Overlay for better text readability over video */
+        #home::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(44, 62, 80, 0.6); /* Dark overlay, adjust opacity (0.0 to 1.0) */
+            z-index: 1; /* Above video, below text and button */
+        }
 
         .home-text-content { /* This now directly inside #home */
             max-width: 750px; /* Max width for the text block */
+            position: relative; /* Ensure it's on top of the overlay and video */
+            z-index: 2;
         }
 
         #home h1#raman-name {
@@ -211,6 +235,27 @@
             min-height: 1.5em;
             font-weight: bold;
         }
+
+        .mute-button {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            padding: 10px 18px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            cursor: pointer;
+            z-index: 2; /* On top of video and overlay */
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+        }
+
+        .mute-button:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
 
         /* General Button styles (shared across sections) */
         .button-group {
@@ -917,7 +962,7 @@
                 flex-direction: column;
                 width: 100%;
                 position: absolute;
-                top: 70px;
+                top: 70px; /* Height of navbar */
                 left: 0;
                 background-color: #34495e;
                 padding-bottom: 10px;
@@ -948,22 +993,22 @@
         
         @media (max-width: 768px) {
             h2.section-title { font-size: 2em; }
-            #home h1#raman-name { font-size: 2.5em; } /* Adjusted for text-only home */
-            #home p.tagline { font-size: 1.2em; }    /* Adjusted for text-only home */
+            #home h1#raman-name { font-size: 2.5em; } 
+            #home p.tagline { font-size: 1.2em; }    
             .container { width: 95%; }
             .projects-grid, #service ul, .video-gallery, .certificates-grid { grid-template-columns: 1fr; }
             #certifications ul.certificates-list { columns: 1; }
             
             #who-am-i .who-am-i-background {
                 padding: 60px 20px;
-                background-attachment: scroll;
+                background-attachment: scroll; /* Important for mobile performance */
             }
             /* .profile-img is already block and margin auto, so should center */
-            #who-am-i .content-text-block { /* This will be centered by margin auto */
-                padding: 0 10px; /* Add a little side padding if text gets too close to edge */
+            #who-am-i .content-text-block { 
+                padding: 0 10px; 
             }
              #who-am-i #experience {
-                margin-left: 10px; margin-right: 10px; /* Or ensure padding within its container is enough */
+                margin-left: 10px; margin-right: 10px; 
              }
             #who-am-i #experience ul li::before {
                 top: 17px; height: 12px; width: 12px; left: -7px;
@@ -975,23 +1020,22 @@
             .contact-form-container { padding: 40px 20px; }
             .decorative-line-graphic { top: 15px; right: 15px; }
             .decorative-line-graphic svg { width: 60px; height: 60px; }
+
+            /* Mobile adjustments for mute button if needed */
+            .mute-button {
+                bottom: 20px;
+                right: 20px;
+                padding: 8px 15px;
+                font-size: 0.8em;
+            }
         }
-        /* === RESPONSIVE ADJUSTMENTS === */
 
-/* ... your existing @media (max-width: 992px) etc. ... */
-
-@media (max-width: 768px) { /* Or your preferred mobile breakpoint */
-    /* ... your existing mobile styles for #home fonts, etc. ... */
-
-    #home {
-        background-attachment: scroll; /* Change from 'fixed' to 'scroll' for mobile */
-        /* You might also want to ensure the min-height is still appropriate,
-           sometimes calc(100vh - navbar_height) can be very tall on mobile
-           if content is short, but for a hero it's often fine. */
-    }
-
-    /* ... other existing mobile styles for Who Am I, etc. ... */
-}
+        /* Old responsive adjustment for #home background-attachment - no longer needed for video background */
+        /* @media (max-width: 768px) { 
+            #home {
+                background-attachment: scroll; 
+            }
+        } */
     </style>
 </head>
 <body>
@@ -1020,8 +1064,13 @@
     </nav>
 
     <main>
-        <!-- HOME SECTION - Text Only, Centered -->
+        <!-- HOME SECTION - NOW WITH VIDEO BACKGROUND -->
         <section id="home">
+            <video autoplay loop muted playsinline id="homeVideo" class="home-background-video">
+                <source src="assets/vid.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <button id="muteButton" class="mute-button">Unmute</button>
             <div class="home-text-content">
                 <h1 id="raman-name">Raman Bhandari</h1>
                 <p class="tagline">"Bridging efficiency with digital precision"</p>
@@ -1031,7 +1080,6 @@
                     <a href="https://bit.ly/4gq7GWO" class="button secondary" target="_blank" rel="noopener">Hire me on Upwork</a>
                 </div>
             </div>
-            <!-- Profile image removed from here -->
         </section>
 
         <!-- WHO AM I SECTION - With Centered Profile Image -->
@@ -1262,20 +1310,16 @@
         </section>
     </main>
 
-        <!-- Existing main content ends -->
-    </main>
-
-    <footer class="site-footer-new"> <!-- Using a new class name to avoid conflicts if you keep old footer styles -->
+    <footer class="site-footer-new">
         <div class="container footer-container-new">
             <div class="footer-column-new footer-about-me">
                 <h3>Raman Bhandari</h3>
                 <div class="footer-social-icons-new">
-                    <!-- Your Personal Social Media Links -->
-                    <a href="https://www.linkedin.com/in/raman-bhandari-942554247/" target="_blank" rel="noopener" title="LinkedIn" class="social-icon-new"><img src="assets/linkedin-white.svg" alt="LinkedIn"></a> <!-- Placeholder icon path -->
-                    <a href="https://www.youtube.com/c/VADAZVLOGS" target="_blank" rel="noopener" title="YouTube" class="social-icon-new"><img src="assets/youtube-white.svg" alt="YouTube"></a> <!-- Placeholder icon path -->
-                    <a href="https://www.tiktok.com/@ramanbhandari007" target="_blank" rel="noopener" title="TikTok" class="social-icon-new"><img src="assets/tiktok-white.svg" alt="TikTok"></a> <!-- Placeholder icon path -->
-                    <a href="https://www.facebook.com/ramanbhandari07" target="_blank" rel="noopener" title="Facebook" class="social-icon-new"><img src="assets/facebook-white.svg" alt="Facebook"></a> <!-- Placeholder icon path -->
-                    <a href="https://www.instagram.com/ramanbhandari1991?igsh=OTJwOXNiMTQxaW1k" target="_blank" rel="noopener" title="Instagram" class="social-icon-new"><img src="assets/instagram-white.svg" alt="Instagram"></a> <!-- Placeholder icon path -->
+                    <a href="https://www.linkedin.com/in/raman-bhandari-942554247/" target="_blank" rel="noopener" title="LinkedIn" class="social-icon-new"><img src="assets/linkedin-white.svg" alt="LinkedIn"></a>
+                    <a href="https://www.youtube.com/c/VADAZVLOGS" target="_blank" rel="noopener" title="YouTube" class="social-icon-new"><img src="assets/youtube-white.svg" alt="YouTube"></a>
+                    <a href="https://www.tiktok.com/@ramanbhandari007" target="_blank" rel="noopener" title="TikTok" class="social-icon-new"><img src="assets/tiktok-white.svg" alt="TikTok"></a>
+                    <a href="https://www.facebook.com/ramanbhandari07" target="_blank" rel="noopener" title="Facebook" class="social-icon-new"><img src="assets/facebook-white.svg" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/ramanbhandari1991?igsh=OTJwOXNiMTQxaW1k" target="_blank" rel="noopener" title="Instagram" class="social-icon-new"><img src="assets/instagram-white.svg" alt="Instagram"></a>
                 </div>
                 <p>Inventory Strategist, Web Enthusiast, and Data Specialist passionate about bridging efficiency with digital precision. Continuously learning and applying new skills to deliver impactful solutions.</p>
             </div>
@@ -1290,7 +1334,7 @@
                     <li><a href="#certifications">Certifications</a></li>
                     <li><a href="#volunteer">Volunteer</a></li>
                     <li><a href="#contact-us">Contact</a></li>
-                    <li><a href="#vlogs">Vlogs</a></li> <!-- Link to your Vlogs section if it exists -->
+                    <li><a href="#vlogs">Vlogs</a></li>
                 </ul>
             </div>
 
@@ -1319,20 +1363,8 @@
     </footer>
 
     <script>
-        // Existing script code...
-        // Add this for the new footer's copyright year
         document.addEventListener('DOMContentLoaded', function() {
-            // ... your existing DOMContentLoaded functions ...
-
-            const yearSpanPersonalFooter = document.getElementById('currentYearPersonalFooter');
-            if (yearSpanPersonalFooter) {
-                yearSpanPersonalFooter.textContent = new Date().getFullYear();
-            }
-        });
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
             const menuToggle = document.getElementById('mobile-menu');
             const navLinks = document.getElementById('nav-menu');
             if (menuToggle && navLinks) {
@@ -1350,6 +1382,7 @@
                 });
             }
 
+            // Typewriter effect
             const typewriterElement = document.getElementById('typewriter');
             if (typewriterElement) {
                 const texts = ["Inventory Strategist", "Web Enthusiast", "Data Specialist", "Freelancer"];
@@ -1377,11 +1410,40 @@
                 }
                 if (texts.length > 0) type();
             }
+            
+            // Home section video mute/unmute functionality
+            const video = document.getElementById('homeVideo');
+            const muteButton = document.getElementById('muteButton');
 
-            const yearSpan = document.getElementById('currentYear');
-            if (yearSpan) {
-                yearSpan.textContent = new Date().getFullYear();
+            if (video && muteButton) {
+                // Video is muted by default via HTML attribute, so initial button text is "Unmute"
+                // If you prefer to set it via JS:
+                // if (video.muted) {
+                //     muteButton.textContent = 'Unmute';
+                // } else {
+                //     muteButton.textContent = 'Mute';
+                // }
+
+                muteButton.addEventListener('click', function() {
+                    if (video.muted) {
+                        video.muted = false;
+                        muteButton.textContent = 'Mute';
+                    } else {
+                        video.muted = true;
+                        muteButton.textContent = 'Unmute';
+                    }
+                });
             }
+
+            // Footer copyright year
+            const yearSpanPersonalFooter = document.getElementById('currentYearPersonalFooter');
+            if (yearSpanPersonalFooter) {
+                yearSpanPersonalFooter.textContent = new Date().getFullYear();
+            }
+
+            // Note: The 'currentYear' ID was from an older footer example, 
+            // the new footer uses 'currentYearPersonalFooter'.
+            // If you had an element with ID 'currentYear', its script is removed unless re-added.
         });
     </script>
 </body>
