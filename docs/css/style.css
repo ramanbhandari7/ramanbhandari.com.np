@@ -304,59 +304,94 @@ main {
 
 
 /* Services Page (services.html - main content section ID "services-page-content") */
-/* Assuming HTML: <section id="services-page-content" class="section"> <div class="container"> ... </div> </section> */
+/* In css/style.css */
+
+/* ... (other styles remain the same) ... */
+
+/* --- Styles for Services Page (services.html - main content section ID "services-page-content") --- */
 #services-page-content {
     background-image: url('../assets/doc.png'); /* Path relative to this CSS file */
     background-size: cover;        
     background-position: center center; 
     background-repeat: no-repeat;  
     position: relative; /* For the overlay */
-    /* .section class provides padding: 60px 0; */
+    /* .section class on the <section> tag in HTML provides default padding (e.g., 60px 0) */
 }
-#services-page-content::before { /* Overlay for readability */
+
+#services-page-content::before { /* Overlay for readability of the section itself */
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.8); /* Light overlay. Adjust as needed. */
-    z-index: 1; 
+    /* Current overlay from previous CSS. Adjust if needed for overall section look.
+       If doc.png is very busy, a slightly stronger or darker overlay can help.
+       Example: rgba(255, 255, 255, 0.85) or a subtle dark tint like rgba(40, 40, 70, 0.1) 
+    */
+    background-color: rgba(255, 255, 255, 0.8); /* Light overlay - adjust opacity as needed */
+    z-index: 1; /* Places overlay above background image but below actual content container */
 }
-#services-page-content .container { /* Ensures content (title, p, ul) is above overlay */
+
+#services-page-content .container { /* Ensures content (title, p, ul) is above the section's overlay */
     position: relative;
     z-index: 2;
 }
+
+/* Text on the section, but outside the list items */
 #services-page-content h2.section-title,
-#services-page-content p { /* Paragraph above the list */
-    color: #2c3e50; /* Adjust if overlay makes background dark */
+#services-page-content > .container > p { /* Targeting the paragraph directly under container */
+    color: #2c3e50; /* Default dark text. Adjust if your overlay is dark. */
+    /* If using a dark overlay for the section: color: #ffffff; */
 }
-#services-page-content ul.services-list-container { /* The list itself */
+
+/* The list container */
+#services-page-content ul.services-list-container {
     list-style: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive cards */
+    gap: 25px; /* Increased gap slightly for better separation */
 }
+
+/* Individual list items (the "tiles" or "cards") */
 #services-page-content ul.services-list-container li {
-    background: rgba(255, 255, 255, 0.9); /* Semi-transparent cards */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.07);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    /* --- ADJUSTED BACKGROUND FOR MORE TRANSPARENCY --- */
+    background: rgba(255, 255, 255, 0.7); /* Was 0.9. Try 0.7 or 0.6. Lower = more transparent. */
+    /* For a "frosted glass" effect (check browser support if using): */
+    /* backdrop-filter: blur(5px); */
+    
+    padding: 25px; /* Slightly increased padding for a more spacious card feel */
+    border-radius: 10px; /* Slightly more rounded corners */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Adjusted shadow for subtlety */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Ensure text within is readable */
 }
+
 #services-page-content ul.services-list-container li:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transform: translateY(-7px); /* Slightly more lift on hover */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12); /* Enhanced shadow on hover */
 }
+
 #services-page-content ul.services-list-container li a {
     font-weight: bold;
-    color: #2c3e50; /* Link color on cards */
+    color: #2c3e50; /* Text color for links inside cards - ensure this contrasts with the card's effective background */
     display: flex;
     align-items: center;
+    text-decoration: none; /* Ensure links are not underlined by default if not desired */
+}
+#services-page-content ul.services-list-container li a:hover {
+    color: #16a085; /* Link hover color */
+}
+
+/* If the list items have sub-text or descriptions that aren't links */
+#services-page-content ul.services-list-container li p, 
+#services-page-content ul.services-list-container li span { /* Adjust if you have other text elements */
+    color: #333; /* Ensure good contrast */
 }
 
 
+/* --- End Styles for Services Page --- */
 /* Projects Page (projects.html - main content section ID "projects-page-content") */
 /* Assuming HTML: <section id="projects-page-content" class="section"> ... </section> */
 #projects-page-content {
