@@ -1,4 +1,4 @@
-/* css/style.css - FULL UPDATED CODE with Certifications Card Layout */
+/* css/style.css - FULL UPDATED CODE */
 
 /* CSS Reset & Base Styles */
 * {
@@ -140,7 +140,7 @@ p {
 
 /* Main Content Area */
 main {
-    padding-top: 80px; /* Adjust if navbar height changes, current navbar is ~60-70px */
+    padding-top: 80px; 
 }
 
 /* General .section class */
@@ -151,6 +151,15 @@ main {
 /* --- PAGE-SPECIFIC SECTION STYLES --- */
 
 /* Home Page (ID: #home) */
+#home { /* styles as before */ }
+.home-background-video { /* styles as before */ }
+#home::before { /* styles as before */ }
+#home .home-text-content { /* styles as before */ }
+#home h1#raman-name { /* styles as before */ }
+#home p.tagline { /* styles as before */ }
+#home #typewriter { /* styles as before */ }
+.mute-button { /* styles as before */ }
+/* ... (Full styles for #home page elements) ... */
 #home {
     color: #fff;
     min-height: calc(100vh - 80px);
@@ -204,7 +213,7 @@ main {
     font-size: 1.3em;
     color: #1abc9c;
     margin-bottom: 30px;
-    min-height: 1.5em; /* Ensure space for text */
+    min-height: 1.5em; 
     font-weight: bold;
 }
 .mute-button {
@@ -226,7 +235,14 @@ main {
     background-color: rgba(255, 255, 255, 0.4);
 }
 
+
 /* About Page (ID: #who-am-i-page) */
+#who-am-i-page { /* styles as before */ }
+#who-am-i-page .who-am-i-background { /* styles as before */ }
+#who-am-i-page .section-title { /* styles as before */ }
+#who-am-i-page .section-title::after { /* styles as before */ }
+.profile-img { /* styles as before */ }
+/* ... (Full styles for #who-am-i-page elements) ... */
 #who-am-i-page {
     padding: 0;
     color: #fff;
@@ -300,7 +316,16 @@ main {
 #who-am-i-page #experience ul li a { color: #50cce1; font-style: italic; }
 #who-am-i-page #experience ul li a:hover { color: #7adfea; }
 
+
 /* Services Page (ID: #services-page-content) */
+#services-page-content { /* styles as before */ }
+#services-page-content::before { /* styles as before */ }
+#services-page-content .container { /* styles as before */ }
+#services-page-content h2.section-title,
+#services-page-content > .container > p { /* styles as before */ }
+#services-page-content ul.services-list-container { /* styles as before */ }
+#services-page-content ul.services-list-container li { /* styles as before */ }
+/* ... (Full styles for #services-page-content elements) ... */
 #services-page-content {
     background-image: url('../assets/doc.png');
     background-size: cover;
@@ -335,7 +360,6 @@ main {
 }
 #services-page-content ul.services-list-container li {
     background: rgba(255, 255, 255, 0.7);
-    /* backdrop-filter: blur(5px); */
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
@@ -360,7 +384,12 @@ main {
     color: #333;
 }
 
+
 /* Projects Page (ID: #projects-page-content) */
+#projects-page-content { /* styles as before */ }
+.projects-grid { /* styles as before */ }
+.project-card { /* styles as before */ }
+/* ... (Full styles for #projects-page-content elements) ... */
 #projects-page-content {
     background-color: #f4f7f6;
 }
@@ -385,91 +414,98 @@ main {
 .project-card p { font-size: 0.95em; color: #555; margin-bottom: 15px; flex-grow: 1; }
 .project-card p strong { color: #333; }
 .project-links { margin-top: auto; text-align: right; }
-/* .project-links .button uses general .button style */
 
 
-/* === UPDATED: Certifications Page (ID: #certifications-page) === */
-/* Assumes your HTML section for certifications has id="certifications-page" */
-/* and uses <div class="cards-container"> and <div class="card"> */
+/* === NEW/UPDATED: Certifications Page (ID: #certifications-page) - Grid List Style === */
 #certifications-page {
-    background-color: #ffffff; /* White background for this page */
-    /* .section class provides general padding */
+    background-color: #ffffff; 
 }
-#certifications-page .core-skills { /* Styles for the Core Skills paragraph */
+#certifications-page .section-intro { /* Container for core-skills if needed */
+    /* margin-bottom: 40px; /* Already handled by .core-skills margin */
+}
+#certifications-page .core-skills { 
     text-align: center;
     font-size: 1.1em;
-    margin-bottom: 40px; /* Space before cards */
+    margin-bottom: 40px; 
     color: #555;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 15px; 
 }
-#certifications-page .cards-container { /* Container for all certification cards */
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px; /* Spacing between cards, consistent with projects-grid */
-    justify-content: center; /* Center cards if they don't fill a row */
+#certifications-page ul.certifications-card-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 25px; 
 }
-#certifications-page .card { /* Individual Certification Card */
-    background: #ffffff;
-    border-radius: 8px; /* Consistent with project-card */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* Consistent with project-card */
-    flex-basis: calc(33.333% - 21px); /* For 3 cards with 30px gap: (30px * 2 / 3 = 20px). Let's use min-width and flex-grow for better flexibility. */
-    min-width: 300px; /* Minimum width for a card */
-    max-width: 380px; /* Optional: Max width for a card */
-    flex-grow: 1; /* Allow cards to grow and fill space */
+#certifications-page ul.certifications-card-list li {
+    background: #fdfdfd; /* Slightly off-white, or match services (rgba(255,255,255,0.9)) if desired */
+    border: 1px solid #e7e7e7; 
     padding: 25px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    text-align: left; /* Override any centered text from parent */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; 
+    flex-direction: column; 
 }
-#certifications-page .card:hover {
-    transform: translateY(-8px); /* Consistent hover effect */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+#certifications-page ul.certifications-card-list li:hover {
+    transform: translateY(-7px); 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
-#certifications-page .card .card-title {
-    font-size: 1.3em; /* Slightly smaller than project-card h3 */
-    color: #2c3e50;
+#certifications-page ul.certifications-card-list li .list-item-title {
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 1.25em;
+    font-weight: 700;
+    color: #2c3e50; 
+    margin-top: 0;
     margin-bottom: 8px;
-    font-weight: 700; /* From your Montserrat font */
 }
-#certifications-page .card .card-issuer {
+#certifications-page ul.certifications-card-list li .list-item-issuer {
     font-size: 0.9em;
-    color: #555;
+    color: #666;
     margin-bottom: 15px;
 }
-#certifications-page .card .card-link { /* For "View Certificate/Credential" button */
+#certifications-page ul.certifications-card-list li .list-item-link {
     display: inline-block;
-    margin-top: auto; /* Pushes this button to the bottom of the card */
+    margin-top: auto; 
     padding: 10px 20px;
-    background-color: #1abc9c; /* Your accent color */
-    color: white !important; /* Ensure text is white */
+    background-color: #1abc9c; 
+    color: white !important;
     text-decoration: none;
-    border-radius: 25px; /* Consistent with other .button styles */
+    border-radius: 25px;
     text-align: center;
     font-weight: bold;
     font-size: 0.9em;
+    align-self: flex-start; 
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
-#certifications-page .card .card-link:hover {
-    background-color: #16a085; /* Darker accent */
-    transform: translateY(-2px); /* Slight lift on hover */
+#certifications-page ul.certifications-card-list li .list-item-link:hover {
+    background-color: #16a085;
+    transform: translateY(-2px);
 }
-#certifications-page .card .credly-badge-container { /* Styling for Credly badge div inside a card */
+#certifications-page ul.certifications-card-list li .credly-badge-container {
     margin-top: 15px;
-    align-self: center; /* If card is display:flex; flex-direction:column; */
-    text-align: center; /* Fallback if not flex or for inline content */
-    /* The Credly iframe itself will have its own dimensions. */
+    margin-bottom: 15px;
+    align-self: center; 
+    text-align: center;
 }
-/* === END UPDATED: Certifications Page === */
+#certifications-page ul.certifications-card-list li .credly-badge-container iframe {
+    max-width: 100%; 
+}
+/* === END NEW/UPDATED: Certifications Page === */
+
 
 /* Volunteer Page (ID: #volunteer-page-content) */
+#volunteer-page-content { /* styles as before */ }
+.certificates-grid { /* styles as before */ }
+.certificate-viewer { /* styles as before */ }
+/* ... (Full styles for #volunteer-page-content elements) ... */
 #volunteer-page-content {
     /* background-color: #f4f7f6; */
 }
-.certificates-grid {
+.certificates-grid { 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
@@ -484,7 +520,12 @@ main {
 .certificate-viewer h3 { font-size: 1.2em; text-align: center; margin-bottom: 15px; color: #2c3e50; }
 .certificate-viewer iframe { border: 1px solid #ccc; width: 100%; height: 300px; border-radius: 4px; }
 
+
 /* Vlogs Page (ID: #vlogs-page-content) */
+#vlogs-page-content { /* styles as before */ }
+.video-gallery { /* styles as before */ }
+.video-item { /* styles as before */ }
+/* ... (Full styles for #vlogs-page-content elements) ... */
 #vlogs-page-content {
     /* background-color: #f4f7f6; */
 }
@@ -496,11 +537,11 @@ main {
 .video-item {
     border-radius: 8px;
     overflow:hidden;
-    box-shadoW: 0 5px 15px rgba(0,0,0,0.1);
-    background-color: #000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background-color: #000; 
 }
 .video-item iframe,
-.video-item .fb-video,
+.video-item .fb-video, 
 .video-item .fb-video iframe {
     width: 100%;
     min-height: 315px;
@@ -508,17 +549,21 @@ main {
     display: block;
 }
 
+
 /* Contact Page (ID: #contact-us-page-content) */
+#contact-us-page-content { /* styles as before */ }
+.contact-wrapper { /* styles as before */ }
+/* ... (Full styles for #contact-us-page-content elements) ... */
 #contact-us-page-content {
-    background-color: #ffffff;
+    background-color: #ffffff; 
 }
 .contact-wrapper {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
-    background-color: #ffffff;
+    background-color: #ffffff; /* If wrapper has its own bg */
     border-radius: 10px;
-    overflow: hidden; /* If using box-shadow on wrapper */
+    overflow: hidden; 
 }
 .contact-form-container,
 .contact-info-container {
@@ -526,7 +571,7 @@ main {
     padding: 40px;
     min-width: 300px;
 }
-.contact-form-container { background-color: #f8f9fa; } /* Slightly different bg for form side */
+.contact-form-container { background-color: #f8f9fa; } 
 .contact-form-container h3 { font-size: 2em; color: #2c3e50; margin-bottom: 10px; }
 .form-subtitle { font-size: 1em; color: #555; margin-bottom: 30px; }
 .form-group { position: relative; margin-bottom: 40px; }
@@ -540,8 +585,8 @@ main {
 .form-group textarea:focus { border-bottom: 2px solid #1abc9c; }
 .form-group input:focus ~ label, .form-group input:valid ~ label,
 .form-group textarea:focus ~ label, .form-group textarea:valid ~ label { top: -18px; font-size: 0.85em; color: #1abc9c; }
-.form-submit-button { /* Using general .button styles */ }
-.contact-info-container { position: relative; padding-left: 40px; /* Reduced from 60px */ }
+/* .form-submit-button uses general .button styles */
+.contact-info-container { position: relative; padding-left: 40px;  }
 .contact-info-container h3 { font-size: 1.8em; color: #2c3e50; margin-bottom: 30px; }
 .decorative-line-graphic { position: absolute; top: 20px; right: 20px; opacity: 0.7; }
 .decorative-line-graphic svg path { stroke: #2c3e50; }
@@ -554,9 +599,10 @@ ul.contact-details-list li { display: flex; align-items: center; margin-bottom: 
 .contact-text span a { color: #555; text-decoration: none; }
 .contact-text span a:hover { color: #1abc9c; text-decoration: underline; }
 
+
 /* General Button styles */
 .button-group { margin-top: 20px; }
-.button, .form-submit-button { /* Combined .form-submit-button here */
+.button, button.form-submit-button { /* Merged .form-submit-button here for general styling */
     display: inline-block;
     padding: 12px 30px;
     background-color: #1abc9c;
@@ -573,7 +619,7 @@ ul.contact-details-list li { display: flex; align-items: center; margin-bottom: 
     letter-spacing: 0.5px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
-.button:hover, .form-submit-button:hover {
+.button:hover, button.form-submit-button:hover {
     background-color: #16a085;
     transform: translateY(-3px);
 }
@@ -586,16 +632,19 @@ ul.contact-details-list li { display: flex; align-items: center; margin-bottom: 
     background-color: #1abc9c;
     color: white !important;
 }
-/* Overriding default form button styles if .form-submit-button is used on <button type="submit"> */
-button.form-submit-button { /* Specifically for the submit button if it's a <button> element */
-    background-color: #2c3e50; /* Your specific contact form button color */
+/* Specific override for contact form submit button if it needs unique color */
+button.form-submit-button {
+    background-color: #2c3e50; /* Contact form specific button color */
 }
 button.form-submit-button:hover {
-    background-color: #34495e; /* Darker shade for contact form button */
+    background-color: #34495e; /* Darker for contact form */
 }
 
 
 /* Footer Styles */
+.site-footer-new { /* styles as before */ }
+.footer-container-new { /* styles as before */ }
+/* ... (Full styles for footer elements) ... */
 .site-footer-new { background-color: #2c3e50; color: #e0e0e0; padding: 50px 0 0 0; font-size: 0.95em; line-height: 1.7; }
 .footer-container-new { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; padding-bottom: 40px; }
 .footer-column-new { flex: 1; min-width: 280px; padding: 0 15px; }
@@ -621,23 +670,14 @@ button.form-submit-button:hover {
 
 /* --- RESPONSIVE ADJUSTMENTS --- */
 @media (max-width: 992px) { /* Tablet and smaller */
-    #who-am-i-page .content-text-block {
-        /* Max width might be fine, padding adjustments handled in 768px breakpoint */
-    }
-    .contact-info-container {
-        padding-left: 40px; /* Maintain some padding */
-    }
-
-    /* Adjust card layouts for 2 columns where applicable */
-    #certifications-page .card {
-        flex-basis: calc(50% - 15px); /* 2 cards per row, 30px gap */
-        max-width: none; /* Allow to fill 50% */
-    }
+    #who-am-i-page .content-text-block { }
+    .contact-info-container { padding-left: 40px; }
+    /* No specific changes needed for certification cards here, grid auto-fit handles it */
 }
 
 @media (max-width: 860px) {
     /* Navbar mobile */
-    .navbar ul.nav-links { display: none; flex-direction: column; width: 100%; position: absolute; top: 70px; /* Approx navbar height */ left: 0; background-color: #34495e; padding-bottom: 10px; }
+    .navbar ul.nav-links { display: none; flex-direction: column; width: 100%; position: absolute; top: 70px; left: 0; background-color: #34495e; padding-bottom: 10px; }
     .navbar ul.nav-links.active { display: flex; }
     .navbar ul.nav-links li { margin: 15px 0; text-align: center; }
     .navbar ul.nav-links a::after { display: none; }
@@ -655,7 +695,7 @@ button.form-submit-button:hover {
 
 @media (max-width: 768px) { /* Mobile */
     h2.section-title { font-size: 2em; }
-    .container { width: 95%; padding: 0 15px; /* Reduce padding slightly */ }
+    .container { width: 95%; padding: 0 15px; }
 
     /* Home Page mobile */
     #home h1#raman-name { font-size: 2.5em; }
@@ -671,34 +711,22 @@ button.form-submit-button:hover {
     /* Grids to single column for various pages */
     .projects-grid,
     #services-page-content ul.services-list-container,
+    #certifications-page ul.certifications-card-list, /* ADDED THIS */
     .video-gallery,
     .certificates-grid {
         grid-template-columns: 1fr;
-        gap: 20px; /* Reduce gap for single column */
-    }
-
-    /* Certifications Page mobile - cards stack */
-    #certifications-page .cards-container {
-        gap: 20px; /* Reduce gap */
-    }
-    #certifications-page .card {
-        flex-basis: 100%; /* Full width for single column */
-        min-width: unset; /* Remove min-width */
-        max-width: none; /* Remove max-width */
+        gap: 20px;
     }
 
     /* Contact Page mobile */
-    .contact-wrapper { flex-direction: column; gap: 0; } /* Remove gap if stacking directly */
-    .contact-form-container, .contact-info-container {
-        border-radius: 0; /* Optional: remove radius if they stack seamlessly */
-        padding: 30px 15px;
-    }
-    .contact-info-container { padding-left: 15px; } /* Consistent padding */
-    .decorative-line-graphic { display: none; /* Often too much for mobile */ }
+    .contact-wrapper { flex-direction: column; gap: 0; }
+    .contact-form-container, .contact-info-container { border-radius: 0; padding: 30px 15px; }
+    .contact-info-container { padding-left: 15px; }
+    .decorative-line-graphic { display: none; }
 
     /* Footer mobile deeper adjustments */
     .footer-column-new h3 { font-size: 1.3em; }
     .footer-about-me, .footer-quick-links-me, .footer-contact-me { text-align: center; }
     .footer-social-icons-new { justify-content: center; }
-    .footer-quick-links-me ul, .footer-contact-me p { text-align: left; display: inline-block; /* For centering the block of links/text */ }
+    .footer-quick-links-me ul, .footer-contact-me p { text-align: left; display: inline-block; }
 }
