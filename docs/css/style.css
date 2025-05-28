@@ -151,15 +151,6 @@ main {
 /* --- PAGE-SPECIFIC SECTION STYLES --- */
 
 /* Home Page (ID: #home) */
-#home { /* styles as before */ }
-.home-background-video { /* styles as before */ }
-#home::before { /* styles as before */ }
-#home .home-text-content { /* styles as before */ }
-#home h1#raman-name { /* styles as before */ }
-#home p.tagline { /* styles as before */ }
-#home #typewriter { /* styles as before */ }
-.mute-button { /* styles as before */ }
-/* ... (Full styles for #home page elements) ... */
 #home {
     color: #fff;
     min-height: calc(100vh - 80px);
@@ -237,12 +228,6 @@ main {
 
 
 /* About Page (ID: #who-am-i-page) */
-#who-am-i-page { /* styles as before */ }
-#who-am-i-page .who-am-i-background { /* styles as before */ }
-#who-am-i-page .section-title { /* styles as before */ }
-#who-am-i-page .section-title::after { /* styles as before */ }
-.profile-img { /* styles as before */ }
-/* ... (Full styles for #who-am-i-page elements) ... */
 #who-am-i-page {
     padding: 0;
     color: #fff;
@@ -318,14 +303,6 @@ main {
 
 
 /* Services Page (ID: #services-page-content) */
-#services-page-content { /* styles as before */ }
-#services-page-content::before { /* styles as before */ }
-#services-page-content .container { /* styles as before */ }
-#services-page-content h2.section-title,
-#services-page-content > .container > p { /* styles as before */ }
-#services-page-content ul.services-list-container { /* styles as before */ }
-#services-page-content ul.services-list-container li { /* styles as before */ }
-/* ... (Full styles for #services-page-content elements) ... */
 #services-page-content {
     background-image: url('../assets/doc.png');
     background-size: cover;
@@ -348,7 +325,7 @@ main {
     z-index: 2;
 }
 #services-page-content h2.section-title,
-#services-page-content > .container > p {
+#services-page-content > .container > p { /* Targets a p directly under .container for intro text */
     color: #2c3e50;
 }
 #services-page-content ul.services-list-container {
@@ -380,16 +357,12 @@ main {
     color: #16a085;
 }
 #services-page-content ul.services-list-container li p,
-#services-page-content ul.services-list-container li span {
+#services-page-content ul.services-list-container li span { /* For any non-link text inside service items */
     color: #333;
 }
 
 
 /* Projects Page (ID: #projects-page-content) */
-#projects-page-content { /* styles as before */ }
-.projects-grid { /* styles as before */ }
-.project-card { /* styles as before */ }
-/* ... (Full styles for #projects-page-content elements) ... */
 #projects-page-content {
     background-color: #f4f7f6;
 }
@@ -414,97 +387,96 @@ main {
 .project-card p { font-size: 0.95em; color: #555; margin-bottom: 15px; flex-grow: 1; }
 .project-card p strong { color: #333; }
 .project-links { margin-top: auto; text-align: right; }
+/* .project-links .button uses general .button style */
 
 
-/* === NEW/UPDATED: Certifications Page (ID: #certifications-page) - Grid List Style === */
+/* === Certifications Page (ID: #certifications-page) - STYLED LIKE SERVICES === */
 #certifications-page {
-    background-color: #ffffff; 
+    background-color: #ffffff; /* Or #f4f7f6 to match default body if no specific bg image */
 }
-#certifications-page .section-intro { /* Container for core-skills if needed */
-    /* margin-bottom: 40px; /* Already handled by .core-skills margin */
+#certifications-page .section-intro {
+    /* No specific styles needed if .core-skills handles its own */
 }
-#certifications-page .core-skills { 
+#certifications-page .core-skills {
     text-align: center;
     font-size: 1.1em;
-    margin-bottom: 40px; 
+    margin-bottom: 40px;
     color: #555;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    padding: 0 15px; 
+    padding: 0 15px;
 }
+/* This UL is styled like the services page UL */
 #certifications-page ul.certifications-card-list {
     list-style: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 25px; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px; /* Same gap as services */
 }
+/* Each LI is styled like a card, similar to services LI */
 #certifications-page ul.certifications-card-list li {
-    background: #fdfdfd; /* Slightly off-white, or match services (rgba(255,255,255,0.9)) if desired */
-    border: 1px solid #e7e7e7; 
+    background: rgba(255, 255, 255, 0.9); /* Match services background, or use solid like #fdfdfd */
+    /* border: 1px solid #e7e7e7; /* Optional: if you want a subtle border */
     padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex; 
-    flex-direction: column; 
+    border-radius: 10px; /* Same as services */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Same as services */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Same as services */
+    display: flex;
+    flex-direction: column; /* To stack content and push link to bottom */
 }
 #certifications-page ul.certifications-card-list li:hover {
-    transform: translateY(-7px); 
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    transform: translateY(-7px); /* Same as services */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12); /* Same as services */
 }
 #certifications-page ul.certifications-card-list li .list-item-title {
-    font-family: 'Montserrat', sans-serif; 
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.25em;
     font-weight: 700;
-    color: #2c3e50; 
+    color: #2c3e50;
     margin-top: 0;
     margin-bottom: 8px;
 }
 #certifications-page ul.certifications-card-list li .list-item-issuer {
     font-size: 0.9em;
-    color: #666;
+    color: #666; /* Slightly darker for better readability */
     margin-bottom: 15px;
 }
 #certifications-page ul.certifications-card-list li .list-item-link {
     display: inline-block;
-    margin-top: auto; 
+    margin-top: auto; /* Pushes this link to the bottom of the card */
     padding: 10px 20px;
-    background-color: #1abc9c; 
+    background-color: #1abc9c; /* Your accent color */
     color: white !important;
     text-decoration: none;
-    border-radius: 25px;
+    border-radius: 25px; /* Match your general .button style */
     text-align: center;
     font-weight: bold;
     font-size: 0.9em;
-    align-self: flex-start; 
+    align-self: flex-start; /* Aligns button to left if card is short */
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 #certifications-page ul.certifications-card-list li .list-item-link:hover {
-    background-color: #16a085;
+    background-color: #16a085; /* Darker accent */
     transform: translateY(-2px);
 }
 #certifications-page ul.certifications-card-list li .credly-badge-container {
-    margin-top: 15px;
-    margin-bottom: 15px;
-    align-self: center; 
-    text-align: center;
+    margin-top: 15px; /* Space above badge */
+    margin-bottom: 15px; /* Space below badge before link */
+    align-self: center; /* Center badge in the flex column */
+    text-align: center; /* Fallback for content inside */
 }
 #certifications-page ul.certifications-card-list li .credly-badge-container iframe {
-    max-width: 100%; 
+    max-width: 100%; /* Ensure Credly iframe is responsive within its container */
+    display: block; /* Prevents extra space below iframe if it's inline */
+    margin: 0 auto; /* Further help centering if iframe has fixed width */
 }
-/* === END NEW/UPDATED: Certifications Page === */
+/* === END Certifications Page STYLES === */
 
 
 /* Volunteer Page (ID: #volunteer-page-content) */
-#volunteer-page-content { /* styles as before */ }
-.certificates-grid { /* styles as before */ }
-.certificate-viewer { /* styles as before */ }
-/* ... (Full styles for #volunteer-page-content elements) ... */
-#volunteer-page-content {
-    /* background-color: #f4f7f6; */
-}
+#volunteer-page-content { }
 .certificates-grid { 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -522,13 +494,7 @@ main {
 
 
 /* Vlogs Page (ID: #vlogs-page-content) */
-#vlogs-page-content { /* styles as before */ }
-.video-gallery { /* styles as before */ }
-.video-item { /* styles as before */ }
-/* ... (Full styles for #vlogs-page-content elements) ... */
-#vlogs-page-content {
-    /* background-color: #f4f7f6; */
-}
+#vlogs-page-content { }
 .video-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -551,17 +517,12 @@ main {
 
 
 /* Contact Page (ID: #contact-us-page-content) */
-#contact-us-page-content { /* styles as before */ }
-.contact-wrapper { /* styles as before */ }
-/* ... (Full styles for #contact-us-page-content elements) ... */
-#contact-us-page-content {
-    background-color: #ffffff; 
-}
+#contact-us-page-content { background-color: #ffffff; }
 .contact-wrapper {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
-    background-color: #ffffff; /* If wrapper has its own bg */
+    background-color: #ffffff; 
     border-radius: 10px;
     overflow: hidden; 
 }
@@ -602,7 +563,7 @@ ul.contact-details-list li { display: flex; align-items: center; margin-bottom: 
 
 /* General Button styles */
 .button-group { margin-top: 20px; }
-.button, button.form-submit-button { /* Merged .form-submit-button here for general styling */
+.button, button.form-submit-button { 
     display: inline-block;
     padding: 12px 30px;
     background-color: #1abc9c;
@@ -632,19 +593,15 @@ ul.contact-details-list li { display: flex; align-items: center; margin-bottom: 
     background-color: #1abc9c;
     color: white !important;
 }
-/* Specific override for contact form submit button if it needs unique color */
-button.form-submit-button {
-    background-color: #2c3e50; /* Contact form specific button color */
+button.form-submit-button { /* Specific override for contact form button */
+    background-color: #2c3e50; 
 }
 button.form-submit-button:hover {
-    background-color: #34495e; /* Darker for contact form */
+    background-color: #34495e; 
 }
 
 
 /* Footer Styles */
-.site-footer-new { /* styles as before */ }
-.footer-container-new { /* styles as before */ }
-/* ... (Full styles for footer elements) ... */
 .site-footer-new { background-color: #2c3e50; color: #e0e0e0; padding: 50px 0 0 0; font-size: 0.95em; line-height: 1.7; }
 .footer-container-new { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; padding-bottom: 40px; }
 .footer-column-new { flex: 1; min-width: 280px; padding: 0 15px; }
@@ -672,7 +629,7 @@ button.form-submit-button:hover {
 @media (max-width: 992px) { /* Tablet and smaller */
     #who-am-i-page .content-text-block { }
     .contact-info-container { padding-left: 40px; }
-    /* No specific changes needed for certification cards here, grid auto-fit handles it */
+    /* Grid auto-fit handles 2 columns for certifications/services based on minmax */
 }
 
 @media (max-width: 860px) {
@@ -711,7 +668,7 @@ button.form-submit-button:hover {
     /* Grids to single column for various pages */
     .projects-grid,
     #services-page-content ul.services-list-container,
-    #certifications-page ul.certifications-card-list, /* ADDED THIS */
+    #certifications-page ul.certifications-card-list, /* ENSURED THIS IS INCLUDED */
     .video-gallery,
     .certificates-grid {
         grid-template-columns: 1fr;
