@@ -1,4 +1,4 @@
-/* css/style.css - FULL UPDATED CODE */
+/* css/style.css - FULL UPDATED CODE with Certifications Card Layout */
 
 /* CSS Reset & Base Styles */
 * {
@@ -8,13 +8,13 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Good for same-page links if any, less relevant for multi-page nav */
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Open Sans', sans-serif;
     line-height: 1.7;
-    background-color: #f4f7f6; /* Default light grayish background for pages */
+    background-color: #f4f7f6;
     color: #333;
 }
 
@@ -28,7 +28,7 @@ body {
 h1, h2, h3 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    color: #2c3e50; /* Dark blue-gray */
+    color: #2c3e50;
 }
 
 h2.section-title {
@@ -45,16 +45,16 @@ h2.section-title::after {
     display: block;
     width: 60px;
     height: 3px;
-    background-color: #1abc9c; /* Accent color teal/green */
+    background-color: #1abc9c;
     margin: 10px auto 0;
 }
 
 a {
     text-decoration: none;
-    color: #1abc9c; /* Accent color for links */
+    color: #1abc9c;
 }
 a:hover {
-    color: #16a085; /* Darker accent */
+    color: #16a085;
 }
 
 p {
@@ -70,7 +70,7 @@ p {
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 1000; /* Ensure navbar is on top */
+    z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 .navbar .container {
@@ -118,11 +118,11 @@ p {
     transition: width 0.3s ease;
 }
 .navbar ul.nav-links a:hover,
-.navbar ul.nav-links a.active { /* Style for active link (JS will handle adding/removing 'active') */
+.navbar ul.nav-links a.active {
     color: #1abc9c;
 }
 .navbar ul.nav-links a:hover::after,
-.navbar ul.nav-links a.active::after { /* Underline for active link */
+.navbar ul.nav-links a.active::after {
     width: 100%;
 }
 .menu-toggle {
@@ -140,20 +140,20 @@ p {
 
 /* Main Content Area */
 main {
-    padding-top: 80px; /* Should match or exceed fixed navbar height */
+    padding-top: 80px; /* Adjust if navbar height changes, current navbar is ~60-70px */
 }
 
-/* General .section class for consistent padding on most pages/sections */
+/* General .section class */
 .section {
     padding: 60px 0;
 }
 
 /* --- PAGE-SPECIFIC SECTION STYLES --- */
 
-/* Home Page (index.html - main content section ID "home") */
+/* Home Page (ID: #home) */
 #home {
     color: #fff;
-    min-height: calc(100vh - 80px); /* Adjust 80px if navbar height changes */
+    min-height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -171,22 +171,22 @@ main {
     height: 100%;
     object-fit: cover;
     transform: translate(-50%, -50%);
-    z-index: 0; /* Behind overlay and text */
+    z-index: 0;
 }
-#home::before { /* Overlay for home page video text readability */
+#home::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(44, 62, 80, 0.6); 
-    z-index: 1; /* Above video, below text */
+    background-color: rgba(44, 62, 80, 0.6);
+    z-index: 1;
 }
 #home .home-text-content {
     max-width: 750px;
     position: relative;
-    z-index: 2; /* Above overlay */
+    z-index: 2;
 }
 #home h1#raman-name {
     font-size: 3.5em;
@@ -204,10 +204,10 @@ main {
     font-size: 1.3em;
     color: #1abc9c;
     margin-bottom: 30px;
-    min-height: 1.5em;
+    min-height: 1.5em; /* Ensure space for text */
     font-weight: bold;
 }
-.mute-button { /* Specific to home page */
+.mute-button {
     position: absolute;
     bottom: 30px;
     right: 30px;
@@ -217,7 +217,7 @@ main {
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 20px;
     cursor: pointer;
-    z-index: 2; /* Above overlay */
+    z-index: 2;
     font-family: 'Montserrat', sans-serif;
     font-size: 0.9em;
     transition: background-color 0.3s ease;
@@ -226,28 +226,26 @@ main {
     background-color: rgba(255, 255, 255, 0.4);
 }
 
-
-/* About Page (about.html - main content section ID "who-am-i-page") */
-/* Assuming HTML structure: <section id="who-am-i-page" class="section"> <div class="who-am-i-background"> ... </div> </section> */
+/* About Page (ID: #who-am-i-page) */
 #who-am-i-page {
-    padding: 0; /* Let the inner .who-am-i-background handle padding */
-    color: #fff; /* Text color for this section */
+    padding: 0;
+    color: #fff;
 }
 #who-am-i-page .who-am-i-background {
     background-image: linear-gradient(rgba(30, 40, 50, 0.88), rgba(30, 40, 50, 0.88)), url('../assets/hero.jpg');
     background-size: cover;
     background-position: center center;
-    background-attachment: fixed; /* Change to 'scroll' in mobile media query */
-    padding: 80px 0; /* Padding for content within this background */
+    background-attachment: fixed;
+    padding: 80px 0;
 }
-#who-am-i-page .section-title { /* Override general section title for this page */
+#who-am-i-page .section-title {
     color: #fff;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
 }
 #who-am-i-page .section-title::after {
-    background-color: #1abc9c; /* Accent color */
+    background-color: #1abc9c;
 }
-.profile-img { /* General profile image style, used on about.html */
+.profile-img {
     width: 180px;
     height: 180px;
     border-radius: 50%;
@@ -267,7 +265,7 @@ main {
     margin: 0 auto;
     text-align: left;
 }
-#who-am-i-page .text-content { 
+#who-am-i-page .text-content {
     background-color: rgba(0, 0, 0, 0.3);
     padding: 30px;
     border-radius: 8px;
@@ -302,103 +300,71 @@ main {
 #who-am-i-page #experience ul li a { color: #50cce1; font-style: italic; }
 #who-am-i-page #experience ul li a:hover { color: #7adfea; }
 
-
-/* Services Page (services.html - main content section ID "services-page-content") */
-/* In css/style.css */
-
-/* ... (other styles remain the same) ... */
-
-/* --- Styles for Services Page (services.html - main content section ID "services-page-content") --- */
+/* Services Page (ID: #services-page-content) */
 #services-page-content {
-    background-image: url('../assets/doc.png'); /* Path relative to this CSS file */
-    background-size: cover;        
-    background-position: center center; 
-    background-repeat: no-repeat;  
-    position: relative; /* For the overlay */
-    /* .section class on the <section> tag in HTML provides default padding (e.g., 60px 0) */
+    background-image: url('../assets/doc.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
 }
-
-#services-page-content::before { /* Overlay for readability of the section itself */
+#services-page-content::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* Current overlay from previous CSS. Adjust if needed for overall section look.
-       If doc.png is very busy, a slightly stronger or darker overlay can help.
-       Example: rgba(255, 255, 255, 0.85) or a subtle dark tint like rgba(40, 40, 70, 0.1) 
-    */
-    background-color: rgba(255, 255, 255, 0.8); /* Light overlay - adjust opacity as needed */
-    z-index: 1; /* Places overlay above background image but below actual content container */
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 1;
 }
-
-#services-page-content .container { /* Ensures content (title, p, ul) is above the section's overlay */
+#services-page-content .container {
     position: relative;
     z-index: 2;
 }
-
-/* Text on the section, but outside the list items */
 #services-page-content h2.section-title,
-#services-page-content > .container > p { /* Targeting the paragraph directly under container */
-    color: #2c3e50; /* Default dark text. Adjust if your overlay is dark. */
-    /* If using a dark overlay for the section: color: #ffffff; */
+#services-page-content > .container > p {
+    color: #2c3e50;
 }
-
-/* The list container */
 #services-page-content ul.services-list-container {
     list-style: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive cards */
-    gap: 25px; /* Increased gap slightly for better separation */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
 }
-
-/* Individual list items (the "tiles" or "cards") */
 #services-page-content ul.services-list-container li {
-    /* --- ADJUSTED BACKGROUND FOR MORE TRANSPARENCY --- */
-    background: rgba(255, 255, 255, 0.7); /* Was 0.9. Try 0.7 or 0.6. Lower = more transparent. */
-    /* For a "frosted glass" effect (check browser support if using): */
+    background: rgba(255, 255, 255, 0.7);
     /* backdrop-filter: blur(5px); */
-    
-    padding: 25px; /* Slightly increased padding for a more spacious card feel */
-    border-radius: 10px; /* Slightly more rounded corners */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Adjusted shadow for subtlety */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* Ensure text within is readable */
 }
-
 #services-page-content ul.services-list-container li:hover {
-    transform: translateY(-7px); /* Slightly more lift on hover */
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12); /* Enhanced shadow on hover */
+    transform: translateY(-7px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
-
 #services-page-content ul.services-list-container li a {
     font-weight: bold;
-    color: #2c3e50; /* Text color for links inside cards - ensure this contrasts with the card's effective background */
+    color: #2c3e50;
     display: flex;
     align-items: center;
-    text-decoration: none; /* Ensure links are not underlined by default if not desired */
+    text-decoration: none;
 }
 #services-page-content ul.services-list-container li a:hover {
-    color: #16a085; /* Link hover color */
+    color: #16a085;
+}
+#services-page-content ul.services-list-container li p,
+#services-page-content ul.services-list-container li span {
+    color: #333;
 }
 
-/* If the list items have sub-text or descriptions that aren't links */
-#services-page-content ul.services-list-container li p, 
-#services-page-content ul.services-list-container li span { /* Adjust if you have other text elements */
-    color: #333; /* Ensure good contrast */
-}
-
-
-/* --- End Styles for Services Page --- */
-/* Projects Page (projects.html - main content section ID "projects-page-content") */
-/* Assuming HTML: <section id="projects-page-content" class="section"> ... </section> */
+/* Projects Page (ID: #projects-page-content) */
 #projects-page-content {
-    background-color: #f4f7f6; /* Default page background */
-    /* .section class provides padding */
+    background-color: #f4f7f6;
 }
-.projects-grid { /* General class, use with #projects-page-content .projects-grid if needed for specificity */
+.projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
@@ -419,42 +385,91 @@ main {
 .project-card p { font-size: 0.95em; color: #555; margin-bottom: 15px; flex-grow: 1; }
 .project-card p strong { color: #333; }
 .project-links { margin-top: auto; text-align: right; }
-.project-links .button { padding: 8px 18px; font-size: 0.9em; margin-left: 10px; border-radius: 20px; }
+/* .project-links .button uses general .button style */
 
 
-/* Certifications Page (certifications.html - main content section ID "certifications-page-content") */
-/* Assuming HTML: <section id="certifications-page-content" class="section"> ... </section> */
-#certifications-page-content {
-     background-color: #ffffff; /* White background for this page */
-     /* .section class provides padding */
+/* === UPDATED: Certifications Page (ID: #certifications-page) === */
+/* Assumes your HTML section for certifications has id="certifications-page" */
+/* and uses <div class="cards-container"> and <div class="card"> */
+#certifications-page {
+    background-color: #ffffff; /* White background for this page */
+    /* .section class provides general padding */
 }
-#certifications-page-content ul.certificates-list {
-    list-style: none;
-    padding: 0;
-    columns: 2; /* For desktop */
-    column-gap: 30px;
+#certifications-page .core-skills { /* Styles for the Core Skills paragraph */
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 40px; /* Space before cards */
+    color: #555;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
-#certifications-page-content ul.certificates-list li {
-    background: #ffffff; /* Redundant if page bg is white, but keeps card look */
+#certifications-page .cards-container { /* Container for all certification cards */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* Spacing between cards, consistent with projects-grid */
+    justify-content: center; /* Center cards if they don't fill a row */
+}
+#certifications-page .card { /* Individual Certification Card */
+    background: #ffffff;
+    border-radius: 8px; /* Consistent with project-card */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* Consistent with project-card */
+    flex-basis: calc(33.333% - 21px); /* For 3 cards with 30px gap: (30px * 2 / 3 = 20px). Let's use min-width and flex-grow for better flexibility. */
+    min-width: 300px; /* Minimum width for a card */
+    max-width: 380px; /* Optional: Max width for a card */
+    flex-grow: 1; /* Allow cards to grow and fill space */
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    text-align: left; /* Override any centered text from parent */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#certifications-page .card:hover {
+    transform: translateY(-8px); /* Consistent hover effect */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+#certifications-page .card .card-title {
+    font-size: 1.3em; /* Slightly smaller than project-card h3 */
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-weight: 700; /* From your Montserrat font */
+}
+#certifications-page .card .card-issuer {
+    font-size: 0.9em;
+    color: #555;
     margin-bottom: 15px;
-    padding: 20px;
-    border-radius: 5px;
-    border-left: 4px solid #1abc9c;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    break-inside: avoid-column; /* For multi-column layout */
 }
-#certifications-page-content ul.certificates-list li a { font-weight: bold; display: block; }
-#certifications-page-content .core-skills { text-align: center; font-size: 1.1em; margin-bottom: 30px; color: #555; }
-.credly-badge-container { margin-top: 10px; text-align: center; }
+#certifications-page .card .card-link { /* For "View Certificate/Credential" button */
+    display: inline-block;
+    margin-top: auto; /* Pushes this button to the bottom of the card */
+    padding: 10px 20px;
+    background-color: #1abc9c; /* Your accent color */
+    color: white !important; /* Ensure text is white */
+    text-decoration: none;
+    border-radius: 25px; /* Consistent with other .button styles */
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+#certifications-page .card .card-link:hover {
+    background-color: #16a085; /* Darker accent */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+#certifications-page .card .credly-badge-container { /* Styling for Credly badge div inside a card */
+    margin-top: 15px;
+    align-self: center; /* If card is display:flex; flex-direction:column; */
+    text-align: center; /* Fallback if not flex or for inline content */
+    /* The Credly iframe itself will have its own dimensions. */
+}
+/* === END UPDATED: Certifications Page === */
 
-
-/* Volunteer Page (volunteer.html - main content section ID "volunteer-page-content") */
-/* Assuming HTML: <section id="volunteer-page-content" class="section"> ... </section> */
+/* Volunteer Page (ID: #volunteer-page-content) */
 #volunteer-page-content {
-    /* background-color: #f4f7f6; /* Default page background */
-    /* .section class provides padding */
+    /* background-color: #f4f7f6; */
 }
-.certificates-grid { /* General class for PDF viewers grid */
+.certificates-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
@@ -469,12 +484,9 @@ main {
 .certificate-viewer h3 { font-size: 1.2em; text-align: center; margin-bottom: 15px; color: #2c3e50; }
 .certificate-viewer iframe { border: 1px solid #ccc; width: 100%; height: 300px; border-radius: 4px; }
 
-
-/* Vlogs Page (vlogs.html - main content section ID "vlogs-page-content") */
-/* Assuming HTML: <section id="vlogs-page-content" class="section"> ... </section> */
+/* Vlogs Page (ID: #vlogs-page-content) */
 #vlogs-page-content {
-    /* background-color: #f4f7f6; /* Default page background */
-    /* .section class provides padding */
+    /* background-color: #f4f7f6; */
 }
 .video-gallery {
     display: grid;
@@ -484,11 +496,11 @@ main {
 .video-item {
     border-radius: 8px;
     overflow:hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    background-color: #000; /* Fallback for iframe loading */
+    box-shadoW: 0 5px 15px rgba(0,0,0,0.1);
+    background-color: #000;
 }
 .video-item iframe,
-.video-item .fb-video, 
+.video-item .fb-video,
 .video-item .fb-video iframe {
     width: 100%;
     min-height: 315px;
@@ -496,13 +508,9 @@ main {
     display: block;
 }
 
-
-/* Contact Page (contact.html - main content section ID "contact-us-page-content") */
-/* Assuming HTML: <section id="contact-us-page-content" class="section"> ... </section> */
+/* Contact Page (ID: #contact-us-page-content) */
 #contact-us-page-content {
-    background-color: #ffffff; /* White background */
-    /* .section class provides padding, or override: */
-    /* padding: 80px 0; */
+    background-color: #ffffff;
 }
 .contact-wrapper {
     display: flex;
@@ -510,7 +518,7 @@ main {
     gap: 40px;
     background-color: #ffffff;
     border-radius: 10px;
-    overflow: hidden;
+    overflow: hidden; /* If using box-shadow on wrapper */
 }
 .contact-form-container,
 .contact-info-container {
@@ -518,7 +526,7 @@ main {
     padding: 40px;
     min-width: 300px;
 }
-.contact-form-container { background-color: #f8f9fa; }
+.contact-form-container { background-color: #f8f9fa; } /* Slightly different bg for form side */
 .contact-form-container h3 { font-size: 2em; color: #2c3e50; margin-bottom: 10px; }
 .form-subtitle { font-size: 1em; color: #555; margin-bottom: 30px; }
 .form-group { position: relative; margin-bottom: 40px; }
@@ -532,9 +540,8 @@ main {
 .form-group textarea:focus { border-bottom: 2px solid #1abc9c; }
 .form-group input:focus ~ label, .form-group input:valid ~ label,
 .form-group textarea:focus ~ label, .form-group textarea:valid ~ label { top: -18px; font-size: 0.85em; color: #1abc9c; }
-.form-submit-button { background-color: #2c3e50; color: white !important; padding: 12px 30px; border-radius: 25px; text-transform: none; font-weight: bold; font-size: 1em; letter-spacing: 0; }
-.form-submit-button:hover { background-color: #34495e; }
-.contact-info-container { position: relative; padding-left: 60px; }
+.form-submit-button { /* Using general .button styles */ }
+.contact-info-container { position: relative; padding-left: 40px; /* Reduced from 60px */ }
 .contact-info-container h3 { font-size: 1.8em; color: #2c3e50; margin-bottom: 30px; }
 .decorative-line-graphic { position: absolute; top: 20px; right: 20px; opacity: 0.7; }
 .decorative-line-graphic svg path { stroke: #2c3e50; }
@@ -547,12 +554,45 @@ ul.contact-details-list li { display: flex; align-items: center; margin-bottom: 
 .contact-text span a { color: #555; text-decoration: none; }
 .contact-text span a:hover { color: #1abc9c; text-decoration: underline; }
 
-/* General Button styles (if not already covered, good to have them once) */
+/* General Button styles */
 .button-group { margin-top: 20px; }
-.button { display: inline-block; padding: 12px 30px; background-color: #1abc9c; color: white !important; text-decoration: none; border-radius: 25px; transition: background-color 0.3s ease, transform 0.2s ease; border: none; cursor: pointer; margin: 5px 10px; font-size: 1em; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-.button:hover { background-color: #16a085; transform: translateY(-3px); }
-.button.secondary { background-color: transparent; border: 2px solid #1abc9c; color: #1abc9c !important; }
-.button.secondary:hover { background-color: #1abc9c; color: white !important; }
+.button, .form-submit-button { /* Combined .form-submit-button here */
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #1abc9c;
+    color: white !important;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+    margin: 5px 10px;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.button:hover, .form-submit-button:hover {
+    background-color: #16a085;
+    transform: translateY(-3px);
+}
+.button.secondary {
+    background-color: transparent;
+    border: 2px solid #1abc9c;
+    color: #1abc9c !important;
+}
+.button.secondary:hover {
+    background-color: #1abc9c;
+    color: white !important;
+}
+/* Overriding default form button styles if .form-submit-button is used on <button type="submit"> */
+button.form-submit-button { /* Specifically for the submit button if it's a <button> element */
+    background-color: #2c3e50; /* Your specific contact form button color */
+}
+button.form-submit-button:hover {
+    background-color: #34495e; /* Darker shade for contact form button */
+}
 
 
 /* Footer Styles */
@@ -563,16 +603,12 @@ ul.contact-details-list li { display: flex; align-items: center; margin-bottom: 
 .footer-about-me p { color: #bdc3c7; font-size: 0.9em; line-height: 1.6; }
 .footer-social-icons-new { margin-bottom: 20px; display: flex; gap: 12px; flex-wrap: wrap; }
 .footer-social-icons-new .social-icon-new { display: inline-flex; justify-content: center; align-items: center; width: 40px; height: 40px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.1); transition: background-color 0.3s ease, transform 0.3s ease; }
-.footer-social-icons-new .social-icon-new img { width: 20px; height: 20px; /* Ensure your PNGs look good at this size */ }
+.footer-social-icons-new .social-icon-new img { width: 20px; height: 20px; }
 .footer-social-icons-new .social-icon-new:hover { background-color: #1abc9c; transform: translateY(-3px) scale(1.05); }
 .footer-quick-links-me ul { list-style: none; padding: 0; margin: 0; }
 .footer-quick-links-me ul li { margin-bottom: 12px; }
 .footer-quick-links-me ul li a { color: #bdc3c7; text-decoration: none; transition: color 0.3s ease, padding-left 0.3s ease; }
-/* If you removed the ">" pointer for quick links, comment out or delete the ::before rule: */
-/* .footer-quick-links-me ul li a::before { content: ">"; color: #1abc9c; margin-right: 10px; font-weight: bold; transition: color 0.3s ease; } */
-/* .footer-quick-links-me ul li a:hover::before { color: #ffffff; } */
-.footer-quick-links-me ul li a:hover { color: #ffffff; padding-left: 5px; } /* Adjust padding if ::before is removed */
-
+.footer-quick-links-me ul li a:hover { color: #ffffff; padding-left: 5px; }
 .footer-contact-me p { color: #bdc3c7; margin-bottom: 12px; display: flex; align-items: center; font-size: 0.9em; }
 .footer-contact-me p a { color: #bdc3c7; text-decoration: none; transition: color 0.3s ease; }
 .footer-contact-me p a:hover { color: #1abc9c; }
@@ -584,12 +620,18 @@ ul.contact-details-list li { display: flex; align-items: center; margin-bottom: 
 
 
 /* --- RESPONSIVE ADJUSTMENTS --- */
-@media (max-width: 992px) {
-    #who-am-i-page .content-text-block { /* Example for about page */
-        /* Adjust max-width if needed on tablets */
+@media (max-width: 992px) { /* Tablet and smaller */
+    #who-am-i-page .content-text-block {
+        /* Max width might be fine, padding adjustments handled in 768px breakpoint */
     }
-    .contact-info-container { /* For contact page */
-        padding-left: 40px;
+    .contact-info-container {
+        padding-left: 40px; /* Maintain some padding */
+    }
+
+    /* Adjust card layouts for 2 columns where applicable */
+    #certifications-page .card {
+        flex-basis: calc(50% - 15px); /* 2 cards per row, 30px gap */
+        max-width: none; /* Allow to fill 50% */
     }
 }
 
@@ -598,7 +640,7 @@ ul.contact-details-list li { display: flex; align-items: center; margin-bottom: 
     .navbar ul.nav-links { display: none; flex-direction: column; width: 100%; position: absolute; top: 70px; /* Approx navbar height */ left: 0; background-color: #34495e; padding-bottom: 10px; }
     .navbar ul.nav-links.active { display: flex; }
     .navbar ul.nav-links li { margin: 15px 0; text-align: center; }
-    .navbar ul.nav-links a::after { display: none; } /* Hide underline for mobile nav items */
+    .navbar ul.nav-links a::after { display: none; }
     .menu-toggle { display: flex; }
     .menu-toggle.active .bar:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
     .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
@@ -608,46 +650,55 @@ ul.contact-details-list li { display: flex; align-items: center; margin-bottom: 
     .footer-container-new { flex-direction: column; }
     .footer-column-new { min-width: 100%; margin-bottom: 35px; }
     .footer-column-new:last-child { margin-bottom: 0; }
-    .footer-social-icons-new { justify-content: flex-start; /* Or center if column is text-align:center */ }
+    .footer-social-icons-new { justify-content: flex-start; }
 }
-        
-@media (max-width: 768px) {
+
+@media (max-width: 768px) { /* Mobile */
     h2.section-title { font-size: 2em; }
-    .container { width: 95%; }
+    .container { width: 95%; padding: 0 15px; /* Reduce padding slightly */ }
 
     /* Home Page mobile */
     #home h1#raman-name { font-size: 2.5em; }
     #home p.tagline { font-size: 1.2em; }
     .mute-button { bottom: 20px; right: 20px; padding: 8px 15px; font-size: 0.8em; }
-    
+
     /* About Page mobile */
-    #who-am-i-page .who-am-i-background { padding: 60px 20px; background-attachment: scroll; /* IMPORTANT for mobile */ }
-    #who-am-i-page .content-text-block { padding: 0 10px; }
-    #who-am-i-page #experience { margin-left: 10px; margin-right: 10px; }
+    #who-am-i-page .who-am-i-background { padding: 60px 15px; background-attachment: scroll; }
+    #who-am-i-page .content-text-block { padding: 0; }
+    #who-am-i-page #experience { margin-left: 0; margin-right: 0; padding: 20px 15px; }
     #who-am-i-page #experience ul li::before { top: 17px; height: 12px; width: 12px; left: -7px; }
 
     /* Grids to single column for various pages */
-    .projects-grid, 
-    #services-page-content ul.services-list-container, /* Specific to services page list */
-    .video-gallery, 
-    .certificates-grid { 
-        grid-template-columns: 1fr; 
+    .projects-grid,
+    #services-page-content ul.services-list-container,
+    .video-gallery,
+    .certificates-grid {
+        grid-template-columns: 1fr;
+        gap: 20px; /* Reduce gap for single column */
     }
-    #certifications-page-content ul.certificates-list { /* Specific to certs page list */
-        columns: 1; 
+
+    /* Certifications Page mobile - cards stack */
+    #certifications-page .cards-container {
+        gap: 20px; /* Reduce gap */
     }
-    
+    #certifications-page .card {
+        flex-basis: 100%; /* Full width for single column */
+        min-width: unset; /* Remove min-width */
+        max-width: none; /* Remove max-width */
+    }
+
     /* Contact Page mobile */
-    .contact-wrapper { flex-direction: column; }
-    .contact-form-container, .contact-info-container { border-radius: 8px; padding-left: 20px; padding-right: 20px; }
-    .contact-form-container { padding: 40px 20px; }
-    .decorative-line-graphic { top: 15px; right: 15px; }
-    .decorative-line-graphic svg { width: 60px; height: 60px; }
+    .contact-wrapper { flex-direction: column; gap: 0; } /* Remove gap if stacking directly */
+    .contact-form-container, .contact-info-container {
+        border-radius: 0; /* Optional: remove radius if they stack seamlessly */
+        padding: 30px 15px;
+    }
+    .contact-info-container { padding-left: 15px; } /* Consistent padding */
+    .decorative-line-graphic { display: none; /* Often too much for mobile */ }
 
     /* Footer mobile deeper adjustments */
     .footer-column-new h3 { font-size: 1.3em; }
     .footer-about-me, .footer-quick-links-me, .footer-contact-me { text-align: center; }
     .footer-social-icons-new { justify-content: center; }
-    .footer-quick-links-me ul, .footer-contact-me p { text-align: left; display: inline-block; }
-    .footer-contact-me p { /* justify-content: center; /* If still display:flex and want icon centered too */ }
+    .footer-quick-links-me ul, .footer-contact-me p { text-align: left; display: inline-block; /* For centering the block of links/text */ }
 }
