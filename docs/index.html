@@ -3,21 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Corrected meta description -->
+    <!-- Corrected Meta Description -->
     <meta name="description" content="Bridging efficiency with digital precision. Explore my projects, services, and certifications.">
     <title>Raman Bhandari</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="css/style.css">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Raman Bhandari - Inventory Strategist & Web Enthusiast">
     <meta property="og:description" content="Bridging efficiency with digital precision. Explore my projects, services, and certifications.">
-    <meta property="og:image" content="https://ramanbhandari.com.np/assets/prev.jpg">
+    <meta property="og:image" content="https://ramanbhandari.com.np/assets/prev.jpg"> <!-- Ensure this path is correct or use a local path like "assets/prev.jpg" -->
     <meta property="og:url" content="https://ramanbhandari.com.np/">
     <meta property="og:type" content="website">
     
     <!-- Add page-specific scripts in head if necessary (e.g., Credly for certifications) -->
 </head>
 <body>
-    <!-- FB SDK Root (Needed for pages with FB elements like Vlogs) -->
+    <!-- FB SDK Root (Optional) -->
     <!-- <div id="fb-root"></div> --> 
     <!-- <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v22.0"></script> -->
 
@@ -30,7 +38,7 @@
                 <span class="bar"></span>
             </div>
             <ul class="nav-links" id="nav-menu">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" class="active">Home</a></li> <!-- Add .active class for current page if desired -->
                 <li><a href="about.html">Who Am I?</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="projects.html">Projects</a></li>
@@ -44,23 +52,35 @@
 
     <main>
         <!-- Main Page Content Start -->
-<section id="home"> <!-- id="home" can be kept for specific styling if needed, or removed -->
-    <video autoplay loop muted playsinline id="homeVideo" class="home-background-video">
-        <source src="assets/video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <button id="muteButton" class="mute-button">Unmute</button>
-    <div class="home-text-content">
-        <h1 id="raman-name">Raman Bhandari</h1>
-        <p class="tagline">"Bridging efficiency with digital precision"</p>
-        <div id="typewriter"></div>
-        <div class="button-group">
-            <a href="projects.html" class="button">My Projects</a>
-        <a href="https://wa.me/9779810430546?text=Hello%20Raman%2C%20I'm%20interested%20in%20your%20services%20and%20would%20like%20to%20discuss%20hiring%20you." class="button secondary" target="_blank" rel="noopener">Hire Me (WhatsApp)</a>
-        </div>
-    </div>
-</section>
-<!-- Main Page Content End -->
+        <section id="home">
+            <video autoplay loop muted playsinline poster="assets/video_poster.jpg" id="homeVideo" class="home-background-video">
+                <source src="assets/video.mp4" type="video/mp4">
+                <!-- Optional: <source src="assets/video.webm" type="video/webm"> -->
+                Your browser does not support the video tag.
+            </video>
+            <button id="muteButton" class="mute-button">Unmute</button>
+            <div class="home-text-content">
+                <h1 id="raman-name">Raman Bhandari</h1>
+                <p class="tagline">"Bridging efficiency with digital precision"</p>
+                <div id="typewriter"></div> <!-- Content for typewriter usually added by JavaScript -->
+                <div class="button-group">
+                    <a href="projects.html" class="button">My Projects</a>
+                    <a href="https://wa.me/9779810430546?text=Hello%20Raman%2C%20I'm%20interested%20in%20your%20services%20and%20would%20like%20to%20discuss%20hiring%20you." class="button secondary" target="_blank" rel="noopener">Hire Me (WhatsApp)</a>
+                </div>
+            </div>
+        </section>
+        <!-- Main Page Content End -->
+
+        <!-- Example: You would include other sections for other pages or below the home section if it's a single-page design -->
+        <!-- 
+        <section id="who-am-i-page" class="section">
+            <div class="container">
+                <h2 class="section-title">Who Am I?</h2>
+                Content for About section...
+            </div>
+        </section>
+        -->
+
     </main>
 
    <footer class="site-footer-new" id="site-footer-new">
@@ -115,13 +135,13 @@
 
     <script src="js/script.js"></script>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0DBZVNH9KS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0DBZVNH9KS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-0DBZVNH9KS');
-</script>
+      gtag('config', 'G-0DBZVNH9KS');
+    </script>
 </body>
 </html>
