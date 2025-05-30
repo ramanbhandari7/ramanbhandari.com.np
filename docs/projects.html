@@ -8,13 +8,8 @@
     <link rel="icon" href="assets/rmn.ico.jpg" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <!-- Add page-specific scripts in head if necessary (e.g., Credly for certifications) -->
 </head>
 <body>
-    <!-- FB SDK Root (Needed for pages with FB elements like Vlogs) -->
-    <!-- <div id="fb-root"></div> --> 
-    <!-- <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v22.0"></script> -->
-
     <nav class="navbar">
         <div class="container">
             <div class="logo"><a href="index.html">Raman <span class="highlight">Bhandari</span></a></div>
@@ -37,63 +32,69 @@
     </nav>
 
     <main>
-        <!-- Main Page Content Start -->
-<section class="section" id="projects-page">
-    <div class="container">
-        <h2 class="section-title">My Website Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <img src="assets/miniland.jpg" alt="Miniland Academy Website Thumbnail" class="project-thumbnail">
-                <div class="project-content">
-                    <h3>Miniland Academy Website</h3>
-                    <p>A responsive and informative website designed for Miniland Academy, showcasing its programs, facilities, admission details, and contact information for prospective students and parents. Features include an image gallery and clear navigation.</p>
-                    <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
-                    <div class="project-links">
-                        <a href="https://github.com/ramanbhandari7/minilandacademy" class="button secondary" target="_blank" rel="noopener">View Code</a>
-                        <a href="https://minilandacademy.edu.np/" class="button" target="_blank" rel="noopener">Live Website</a>
+        <!-- Projects Page with Background Image -->
+        <section class="section projects-section" id="projects-page" style="background-image: url('assets/projbg.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+            <div class="container">
+                <h2 class="section-title">My Website Projects</h2>
+                <div class="projects-grid">
+                    <!-- Miniland Academy -->
+                    <div class="project-card">
+                        <img src="assets/miniland.jpg" alt="Miniland Academy Website Thumbnail" class="project-thumbnail">
+                        <div class="project-content">
+                            <h3>Miniland Academy Website</h3>
+                            <p>A responsive and informative website designed for Miniland Academy, showcasing its programs, facilities, admission details, and contact information for prospective students and parents.</p>
+                            <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+                            <div class="project-links">
+                                <a href="https://github.com/ramanbhandari7/minilandacademy" class="button secondary" target="_blank" rel="noopener">View Code</a>
+                                <a href="https://minilandacademy.edu.np/" class="button" target="_blank" rel="noopener">Live Website</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sarwajanik Mavi -->
+                    <div class="project-card">
+                        <img src="assets/shr.jpg" alt="Sarwajanik Mavi Website Thumbnail" class="project-thumbnail">
+                        <div class="project-content">
+                            <h3>Sarwajanik Mavi Website</h3>
+                            <p>A website currently under development for Sarwajanik Mavi, aimed at providing a comprehensive online presence for the institution.</p>
+                            <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+                            <div class="project-links">
+                                <a href="https://ramanbhandari7.github.io/sarwajanikschool.edu.np/" class="button secondary" target="_blank" rel="noopener">View Code</a>
+                                <a href="https://sarwajanikschool.edu.np/" class="button" target="_blank" rel="noopener">Live Website</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hema Rai Personal Website -->
+                    <div class="project-card">
+                        <img src="assets/proj3.jpg" alt="Hema Rai Personal Website Thumbnail" class="project-thumbnail">
+                        <div class="project-content">
+                            <h3>Hema Rai Personal Website</h3>
+                            <p>A personal portfolio website for Hema Rai, showcasing her professional profile, skills, and accomplishments.</p>
+                            <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+                            <div class="project-links">
+                                <a href="https://github.com/ramanbhandari7/hemarai.com.np" class="button secondary" target="_blank" rel="noopener">View Code</a>
+                                <a href="https://hemarai.com.np/" class="button" target="_blank" rel="noopener">Live Website</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Saraswati Mavi -->
+                    <div class="project-card">
+                        <img src="assets/sara.jpg" alt="श्री सरस्वती माध्यामिक विद्यालय Website Thumbnail" class="project-thumbnail">
+                        <div class="project-content">
+                            <h3>श्री सरस्वती माध्यामिक विद्यालय</h3>
+                            <p>A website for श्री सरस्वती माध्यामिक विद्यालय पानबारी, धरान (Saraswati Secondary School, Panbari, Dharan).</p>
+                            <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+                            <div class="project-links">
+                                <a href="https://github.com/ramanbhandari7/saraswatimavi" class="button secondary" target="_blank" rel="noopener">View Code</a>
+                                <span class="button disabled">Live Demo (Coming Soon)</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="project-card">
-                <img src="assets/shr.jpg" alt="Sarwajanik Mavi Website Thumbnail" class="project-thumbnail">
-                 <div class="project-content">
-                    <h3>Sarwajanik Mavi Website</h3>
-                    <p>A website currently under development for Sarwajanik Mavi, aimed at providing a comprehensive online presence for the institution. The initial structure and design elements are available via the GitHub Pages deployment.</p>
-                    <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
-                    <div class="project-links">
-                        <a href="https://ramanbhandari7.github.io/sarwajanikschool.edu.np/" class="button secondary" target="_blank" rel="noopener">View Code</a>
-                        <a href="https://sarwajanikschool.edu.np/" class="button" target="_blank" rel="noopener">Live Website</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="project-card">
-    <img src="assets/proj3.jpg" alt="Hema Rai Personal Website Thumbnail" class="project-thumbnail">
-    <div class="project-content">
-        <h3>Hema Rai Personal Website</h3>
-        <p>A personal portfolio website for Hema Rai, showcasing her professional profile, skills, and accomplishments. The website provides an online presence and digital portfolio.</p>
-        <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
-        <div class="project-links">
-            <a href="https://github.com/ramanbhandari7/hemarai.com.np" class="button secondary" target="_blank" rel="noopener">View Code</a>
-            <a href="https://hemarai.com.np/" class="button" target="_blank" rel="noopener">Live Webiste</a>
-        </div>
-    </div>
-</div>
-    <div class="project-card">
-    <img src="assets/sara.jpg" alt="श्री सरस्वती माध्यामिक विद्यालय Website Thumbnail" class="project-thumbnail">
-    <div class="project-content">
-        <h3>श्री सरस्वती माध्यामिक विद्यालय</h3>
-        <p>A website for श्री सरस्वती माध्यामिक विद्यालय पानबारी, धरान (Saraswati Secondary School, Panbari, Dharan). Currently under development with domain registration in progress.</p>
-        <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
-        <div class="project-links">
-            <a href="https://github.com/ramanbhandari7/saraswatimavi" class="button secondary" target="_blank" rel="noopener">View Code</a>
-            <span class="button disabled">Live Demo (Coming Soon)</span>
-        </div>
-    </div>
-</div>
-</section>
-<!-- Main Page Content End -->
+        </section>
     </main>
 
     <footer class="site-footer-new" id="site-footer-new">
@@ -107,7 +108,7 @@
                     <a href="https://www.facebook.com/ramanbhandari07" target="_blank" rel="noopener" title="Facebook" class="social-icon-new"><img src="assets/facebook.png" alt="Facebook"></a>
                     <a href="https://www.instagram.com/ramanbhandari1991?igsh=OTJwOXNiMTQxaW1k" target="_blank" rel="noopener" title="Instagram" class="social-icon-new"><img src="assets/instagram.png" alt="Instagram"></a>
                 </div>
-                <p>Inventory Strategist, Web Enthusiast, and Data Specialist passionate about bridging efficiency with digital precision. Continuously learning and applying new skills to deliver impactful solutions.</p>
+                <p>Inventory Strategist, Web Enthusiast, and Data Specialist passionate about bridging efficiency with digital precision.</p>
             </div>
             <div class="footer-column-new footer-quick-links-me">
                 <h3>Quick Navigation</h3>
@@ -140,13 +141,12 @@
         </div>
         <div class="footer-bottom-new">
             <div class="container">
-                 <p class="footer-quote">“Strive not to be a success, but rather to be of value.” – Albert Einstein</p>
+                 <p class="footer-quote">"Strive not to be a success, but rather to be of value." – Albert Einstein</p>
                 <p class="copyright">© <span id="currentYearPersonalFooter"></span> Raman Bhandari. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="js/script.js"></script>
-    <!-- Add page-specific scripts at the end of body if necessary -->
 </body>
 </html>
