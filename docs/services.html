@@ -7,13 +7,15 @@
     <title>My Services - Raman Bhandari</title>
     <link rel="icon" href="assets/rmn.ico.jpg" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <!-- You can keep your external stylesheet or use the styles below -->
+    <link rel="stylesheet" href="css/style.css"> 
 
     <style>
         /* General Body and Theme Styling */
         body {
             background-color: #2c3e50; /* Deep slate blue background */
             color: #ecf0f1; /* Soft white text color for readability */
+            font-family: 'Open Sans', sans-serif;
         }
 
         /* Ensure navbar and footer text is visible on dark background */
@@ -34,6 +36,7 @@
             color: #ffffff;
             margin-bottom: 15px;
             text-align: center;
+            font-family: 'Montserrat', sans-serif;
         }
 
         #services-page-content .container > p {
@@ -50,34 +53,35 @@
             margin-top: 50px;
         }
 
-        /* Individual Service Card Styling */
+        /* --- ALIGNMENT FIX: Base Card Styling --- */
         .service-card {
             background-color: #34495e;
             border-radius: 10px;
-            padding: 30px 25px;
-            text-align: center;
             border: 1px solid #4a6278;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-            display: flex; /* Use flexbox for vertical alignment */
+            /* The card itself is a flex container to manage its content's height */
+            display: flex;
             flex-direction: column;
         }
         
-        /* The Hover Effect */
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
             border-color: #1abc9c;
         }
 
+        /* --- ALIGNMENT FIX: Link & Content Layout --- */
         .service-card a {
             text-decoration: none;
             color: inherit;
-            display: flex;
+            padding: 30px 25px; /* Padding is inside the link for a full-card clickable area */
+            display: flex; /* The link controls the layout of the content inside it */
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            flex-grow: 1; /* Allow the link to take up all card space */
+            text-align: center;
+            flex-grow: 1; /* Makes the link fill the entire card */
+            justify-content: flex-start; /* CRITICAL: Aligns content to the top */
         }
 
         .service-icon {
@@ -85,6 +89,7 @@
             height: 50px;
             margin-bottom: 20px;
             fill: #1abc9c;
+            flex-shrink: 0; /* Prevents icon from resizing */
         }
 
         .service-card h3 {
@@ -99,11 +104,10 @@
             color: #bdc3c7;
             margin: 0;
             line-height: 1.5;
-            flex-grow: 1; /* Helps align content when cards have different text lengths */
+            flex-grow: 1; /* CRITICAL: Allows the paragraph to expand, pushing content into place */
         }
 
         /* --- STYLES FOR THE FEATURED CARD --- */
-
         .service-card-premium {
             border: 2px solid #1abc9c; 
             background-color: #3f586e;
@@ -112,19 +116,22 @@
         /* On large screens, make the premium card span the full width */
         @media (min-width: 992px) {
             .service-card-premium {
-                grid-column: 1 / -1; /* This makes it span the full grid */
+                grid-column: 1 / -1; /* Makes the card span the entire grid width */
             }
             .service-card-premium > a {
-                flex-direction: row;
-                justify-content: space-between;
+                flex-direction: row; /* Content flows horizontally */
+                justify-content: flex-start;
                 align-items: center;
                 text-align: left;
                 gap: 30px;
             }
             .service-card-premium .service-icon {
-                flex-shrink: 0;
                 width: 60px;
                 height: 60px;
+            }
+            /* Disable paragraph growth on the wide premium card to keep text compact */
+            .service-card-premium p {
+                flex-grow: 0; 
             }
         }
 
@@ -132,6 +139,7 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            width: 100%;
         }
 
         .lifetime-banner {
@@ -180,7 +188,6 @@
 </head>
 <body>
     <nav class="navbar">
-        <!-- Your Navbar remains the same -->
         <div class="container">
             <div class="logo"><a href="index.html">Raman <span class="highlight">Bhandari</span></a></div>
             <div class="menu-toggle" id="mobile-menu">
@@ -257,7 +264,7 @@
                         <a href="https://wa.me/9779810430546" target="_blank" rel="noopener">
                              <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/></svg>
                             <h3>Professional CV Writing</h3>
-                            <p>Crafting compelling and professional resumes to help you stand out.</p>
+                            <p>Crafting compelling resumes to help you stand out.</p>
                         </a>
                     </div>
                     
@@ -273,7 +280,7 @@
                         <a href="https://meroshare.cdsc.com.np/" target="_blank" rel="noopener">
                             <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 10h3v7H4zM10.5 10h3v7h-3zM2 19h20v3H2zM17 10h3v7h-3zM12 1L2 6v2h20V6z"/></svg>
                             <h3>Mero Share & Demat</h3>
-                            <p>Guidance for opening and managing your share and Demat accounts.</p>
+                            <p>Guidance for your share and Demat accounts.</p>
                         </a>
                     </div>
 
@@ -281,16 +288,15 @@
                         <a href="https://ird.gov.np/" target="_blank" rel="noopener">
                              <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 10v10H2V4h10v6h10zM10 12H4v6h6v-6zm10 6h-6v-6h6v6zM14 4.5V9h5.5L14 4.5z"/></svg>
                             <h3>PAN Card Registration</h3>
-                            <p>Assistance with the online permanent account number registration.</p>
+                            <p>Assistance with online PAN registration.</p>
                         </a>
                     </div>
-                </div>
+                </div> <!-- End of .services-grid -->
             </div>
         </section>
     </main>
 
     <footer class="site-footer-new" id="site-footer-new">
-        <!-- Your footer code remains the same -->
         <div class="container footer-container-new">
             <div class="footer-column-new footer-about-me">
                 <h3>Raman Bhandari</h3>
@@ -338,6 +344,7 @@
             </div>
         </div>
     </footer>
+    
     <script src="js/script.js"></script>
 </body>
 </html>
