@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,26 +7,23 @@
     <title>My Services - Raman Bhandari</title>
     <link rel="icon" href="assets/rmn.ico.jpg" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <!-- You can keep your external stylesheet or use the styles below -->
     <link rel="stylesheet" href="css/style.css"> 
 
     <style>
-        /* General Body and Theme Styling */
+        /* 1. General background for the entire page */
         body {
-            background-color: #2c3e50; /* Deep slate blue background */
-            color: #ecf0f1; /* Soft white text color for readability */
+            background-color: #2c3e50;
+            color: #ecf0f1;
             font-family: 'Open Sans', sans-serif;
         }
 
-        /* Ensure navbar and footer text is visible on dark background */
         .navbar .logo a, .nav-links li a {
              color: #ecf0f1;
         }
         .navbar .highlight {
-            color: #1abc9c; /* A vibrant teal for highlights */
+            color: #1abc9c;
         }
         
-        /* Main Section Styling */
         #services-page-content {
             padding-top: 60px;
             padding-bottom: 60px;
@@ -40,10 +37,9 @@
         }
 
         #services-page-content .container > p {
-            color: #bdc3c7; /* Lighter gray for paragraph text */
+            color: #bdc3c7;
         }
 
-        /* The Service Grid Layout */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -53,16 +49,17 @@
             margin-top: 50px;
         }
 
-        /* --- ALIGNMENT FIX: Base Card Styling --- */
+        /* 2. Background for the STANDARD service cards */
         .service-card {
             background-color: #34495e;
             border-radius: 10px;
             border: 1px solid #4a6278;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-            /* The card itself is a flex container to manage its content's height */
             display: flex;
             flex-direction: column;
+            position: relative;
+            overflow: hidden; /* Ensures contained elements follow border-radius */
         }
         
         .service-card:hover {
@@ -71,17 +68,17 @@
             border-color: #1abc9c;
         }
 
-        /* --- ALIGNMENT FIX: Link & Content Layout --- */
         .service-card a {
             text-decoration: none;
             color: inherit;
-            padding: 30px 25px; /* Padding is inside the link for a full-card clickable area */
-            display: flex; /* The link controls the layout of the content inside it */
+            padding: 30px 25px;
+            display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            flex-grow: 1; /* Makes the link fill the entire card */
-            justify-content: flex-start; /* CRITICAL: Aligns content to the top */
+            flex-grow: 1;
+            justify-content: flex-start;
+            z-index: 2; /* Ensures content is above the background overlay */
         }
 
         .service-icon {
@@ -89,7 +86,7 @@
             height: 50px;
             margin-bottom: 20px;
             fill: #1abc9c;
-            flex-shrink: 0; /* Prevents icon from resizing */
+            flex-shrink: 0;
         }
 
         .service-card h3 {
@@ -104,22 +101,47 @@
             color: #bdc3c7;
             margin: 0;
             line-height: 1.5;
-            flex-grow: 1; /* CRITICAL: Allows the paragraph to expand, pushing content into place */
+            flex-grow: 1;
         }
 
-        /* --- STYLES FOR THE FEATURED CARD --- */
+        /* --- THIS IS THE KEY PART --- */
+        /* 3. Styles applied ONLY to the premium card */
         .service-card-premium {
-            border: 2px solid #1abc9c; 
-            background-color: #3f586e;
+            border-color: #1abc9c;
+        }
+
+        /* Using ::before pseudo-element for a clean background layer */
+        .service-card-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* This background image is ONLY applied to this element */
+            background-image: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)), url('assets/dev.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: 1; /* Places the background layer below the content */
+            transition: transform 0.3s ease;
+        }
+
+        /* Optional: Add a subtle zoom effect to the background on hover */
+        .service-card-premium:hover::before {
+            transform: scale(1.05);
         }
         
-        /* On large screens, make the premium card span the full width */
+        /* Brighter paragraph text for better contrast on the image */
+        .service-card-premium p {
+            color: #ecf0f1;
+        }
+        
         @media (min-width: 992px) {
             .service-card-premium {
-                grid-column: 1 / -1; /* Makes the card span the entire grid width */
+                grid-column: 1 / -1;
             }
             .service-card-premium > a {
-                flex-direction: row; /* Content flows horizontally */
+                flex-direction: row;
                 justify-content: flex-start;
                 align-items: center;
                 text-align: left;
@@ -129,9 +151,8 @@
                 width: 60px;
                 height: 60px;
             }
-            /* Disable paragraph growth on the wide premium card to keep text compact */
             .service-card-premium p {
-                flex-grow: 0; 
+                flex-grow: 0;
             }
         }
 
@@ -166,12 +187,12 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            justify-content: center; /* Center tags on mobile */
+            justify-content: center;
         }
 
         @media (min-width: 992px) {
             .target-audience-list {
-               justify-content: flex-start; /* Align tags to the left on desktop */
+               justify-content: flex-start;
             }
         }
 
@@ -188,6 +209,7 @@
 </head>
 <body>
     <nav class="navbar">
+        <!-- Navbar remains unchanged -->
         <div class="container">
             <div class="logo"><a href="index.html">Raman <span class="highlight">Bhandari</span></a></div>
             <div class="menu-toggle" id="mobile-menu">
@@ -214,10 +236,9 @@
                 <h2 class="section-title">My Digital Services</h2>
                 <p style="text-align:center; max-width: 700px; margin-left:auto; margin-right:auto; margin-bottom: 40px;">I offer assistance and guidance with various online applications and digital tasks, providing streamlined solutions for your needs:</p>
                 
-                <!-- CORRECTED SERVICE GRID STRUCTURE -->
                 <div class="services-grid">
                     
-                    <!-- FEATURED SERVICE CARD -->
+                    <!-- The Premium Card with the Unique Background -->
                     <div class="service-card service-card-premium">
                         <a href="https://wa.me/9779810430546" target="_blank" rel="noopener">
                             <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-6.63-10.94l4.08 4.08-1.83.55a.5.5 0 0 0-.3.89l1.2 1.2a.5.5 0 0 0 .89-.3l.55-1.83 4.08 4.08c.24.24.59.37.94.37s.7-.13.94-.37l2.12-2.12c.52-.52.52-1.37 0-1.89L13.89 9.89l1.83-.55a.5.5 0 0 0 .3-.89l-1.2-1.2a.5.5 0 0 0-.89.3l-.55 1.83-4.08-4.08a1.33 1.33 0 0 0-1.89 0L5.37 7.17c-.52.52-.52 1.37 0 1.89z"/></svg>
@@ -243,7 +264,7 @@
                         </a>
                     </div>
                     
-                    <!-- REGULAR SERVICE CARDS -->
+                    <!-- The Standard Cards -->
                     <div class="service-card">
                         <a href="https://www.ssf.gov.np/" target="_blank" rel="noopener">
                              <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
@@ -291,7 +312,7 @@
                             <p>Assistance with online PAN registration.</p>
                         </a>
                     </div>
-                </div> <!-- End of .services-grid -->
+                </div> 
             </div>
         </section>
     </main>
