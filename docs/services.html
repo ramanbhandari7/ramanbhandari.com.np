@@ -16,7 +16,7 @@
             color: #ecf0f1; /* Soft white text color for readability */
         }
 
-        /* Ensure navbar and footer text is visible on dark background if they don't have their own */
+        /* Ensure navbar and footer text is visible on dark background */
         .navbar .logo a, .nav-links li a {
              color: #ecf0f1;
         }
@@ -33,17 +33,18 @@
         .section-title {
             color: #ffffff;
             margin-bottom: 15px;
+            text-align: center;
         }
 
-        #services-page-content .container p {
+        #services-page-content .container > p {
             color: #bdc3c7; /* Lighter gray for paragraph text */
         }
 
-        /* The New Service Grid Layout */
+        /* The Service Grid Layout */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
-            gap: 25px; /* Space between cards */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             list-style: none;
             padding: 0;
             margin-top: 50px;
@@ -51,23 +52,24 @@
 
         /* Individual Service Card Styling */
         .service-card {
-            background-color: #34495e; /* Lighter slate blue for cards */
+            background-color: #34495e;
             border-radius: 10px;
             padding: 30px 25px;
             text-align: center;
             border: 1px solid #4a6278;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Smooth transition for hover effect */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex; /* Use flexbox for vertical alignment */
+            flex-direction: column;
         }
-
+        
         /* The Hover Effect */
         .service-card:hover {
-            transform: translateY(-10px); /* Lifts the card up */
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Enhances the shadow */
-            border-color: #1abc9c; /* Highlight border on hover */
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+            border-color: #1abc9c;
         }
 
-        /* Card Content Styling */
         .service-card a {
             text-decoration: none;
             color: inherit;
@@ -75,14 +77,14 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100%;
+            flex-grow: 1; /* Allow the link to take up all card space */
         }
 
         .service-icon {
             width: 50px;
             height: 50px;
             margin-bottom: 20px;
-            fill: #1abc9c; /* Use highlight color for icons */
+            fill: #1abc9c;
         }
 
         .service-card h3 {
@@ -97,17 +99,83 @@
             color: #bdc3c7;
             margin: 0;
             line-height: 1.5;
+            flex-grow: 1; /* Helps align content when cards have different text lengths */
         }
 
-        .service-tag {
-            display: block;
-            font-size: 0.8rem;
+        /* --- STYLES FOR THE FEATURED CARD --- */
+
+        .service-card-premium {
+            border: 2px solid #1abc9c; 
+            background-color: #3f586e;
+        }
+        
+        /* On large screens, make the premium card span the full width */
+        @media (min-width: 992px) {
+            .service-card-premium {
+                grid-column: 1 / -1; /* This makes it span the full grid */
+            }
+            .service-card-premium > a {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                text-align: left;
+                gap: 30px;
+            }
+            .service-card-premium .service-icon {
+                flex-shrink: 0;
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        .service-content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .lifetime-banner {
+            background-color: #1abc9c;
+            color: #2c3e50;
             font-weight: bold;
-            color: #1abc9c;
-            margin-bottom: 15px;
-            text-transform: uppercase;
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+        .lifetime-banner-sub {
+            font-size: 0.8rem;
+            font-weight: normal;
+            color: #ecf0f1;
+            display: block;
         }
 
+        .target-audience-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center; /* Center tags on mobile */
+        }
+
+        @media (min-width: 992px) {
+            .target-audience-list {
+               justify-content: flex-start; /* Align tags to the left on desktop */
+            }
+        }
+
+        .target-audience-list li {
+            background-color: rgba(44, 62, 80, 0.7);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #bdc3c7;
+            border: 1px solid #4a6278;
+        }
     </style>
 </head>
 <body>
@@ -139,37 +207,36 @@
                 <h2 class="section-title">My Digital Services</h2>
                 <p style="text-align:center; max-width: 700px; margin-left:auto; margin-right:auto; margin-bottom: 40px;">I offer assistance and guidance with various online applications and digital tasks, providing streamlined solutions for your needs:</p>
                 
-                <!-- IMPROVISED SERVICE CARDS START HERE -->
-                <div class="services-grid">
-                <!-- NEW FEATURED SERVICE CARD -->
-                <div class="service-card service-card-premium">
-                    <a href="https://wa.me/9779810430546" target="_blank" rel="noopener">
-                        <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-6.63-10.94l4.08 4.08-1.83.55a.5.5 0 0 0-.3.89l1.2 1.2a.5.5 0 0 0 .89-.3l.55-1.83 4.08 4.08c.24.24.59.37.94.37s.7-.13.94-.37l2.12-2.12c.52-.52.52-1.37 0-1.89L13.89 9.89l1.83-.55a.5.5 0 0 0 .3-.89l-1.2-1.2a.5.5 0 0 0-.89.3l-.55 1.83-4.08-4.08a1.33 1.33 0 0 0-1.89 0L5.37 7.17c-.52.52-.52 1.37 0 1.89z"/></svg>
-                        
-                        <div class="service-content">
-                            <div>
-                                <div class="lifetime-banner">
-                                    LIFETIME FREE HOSTING & SUPPORT
-                                    <span class="lifetime-banner-sub">On One-Time Purchase</span>
-                                </div>
-                                <h3>Website: Design, Security & Deployment</h3>
-                            </div>
-                            <p>A complete, secure, and professional website solution for your brand or business.</p>
-                            
-                            <ul class="target-audience-list">
-                                <li>Schools</li>
-                                <li>Businesses</li>
-                                <li>Personal Brands</li>
-                                <li>Restaurants</li>
-                                <li>Cafes</li>
-                                <li>Supermarkets</li>
-                                <li>Mini-Markets</li>
-                            </ul>
-                        </div>
-                    </a>
-                </div>
+                <!-- CORRECTED SERVICE GRID STRUCTURE -->
                 <div class="services-grid">
                     
+                    <!-- FEATURED SERVICE CARD -->
+                    <div class="service-card service-card-premium">
+                        <a href="https://wa.me/9779810430546" target="_blank" rel="noopener">
+                            <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-6.63-10.94l4.08 4.08-1.83.55a.5.5 0 0 0-.3.89l1.2 1.2a.5.5 0 0 0 .89-.3l.55-1.83 4.08 4.08c.24.24.59.37.94.37s.7-.13.94-.37l2.12-2.12c.52-.52.52-1.37 0-1.89L13.89 9.89l1.83-.55a.5.5 0 0 0 .3-.89l-1.2-1.2a.5.5 0 0 0-.89.3l-.55 1.83-4.08-4.08a1.33 1.33 0 0 0-1.89 0L5.37 7.17c-.52.52-.52 1.37 0 1.89z"/></svg>
+                            <div class="service-content">
+                                <div>
+                                    <div class="lifetime-banner">
+                                        LIFETIME FREE HOSTING & SUPPORT
+                                        <span class="lifetime-banner-sub">On One-Time Purchase</span>
+                                    </div>
+                                    <h3>Website: Design, Security & Deployment</h3>
+                                </div>
+                                <p>A complete, secure, and professional website solution for your brand or business.</p>
+                                <ul class="target-audience-list">
+                                    <li>Schools</li>
+                                    <li>Businesses</li>
+                                    <li>Personal Brands</li>
+                                    <li>Restaurants</li>
+                                    <li>Cafes</li>
+                                    <li>Supermarkets</li>
+                                    <li>Mini-Marts</li>
+                                </ul>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- REGULAR SERVICE CARDS -->
                     <div class="service-card">
                         <a href="https://www.ssf.gov.np/" target="_blank" rel="noopener">
                              <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
@@ -217,62 +284,60 @@
                             <p>Assistance with the online permanent account number registration.</p>
                         </a>
                     </div>
-                    
                 </div>
-                <!-- IMPROVISED SERVICE CARDS END HERE -->
             </div>
         </section>
     </main>
 
     <footer class="site-footer-new" id="site-footer-new">
-    <div class="container footer-container-new">
-        <div class="footer-column-new footer-about-me">
-            <h3>Raman Bhandari</h3>
-            <div class="footer-social-icons-new">
-                <a href="https://www.linkedin.com/in/raman-bhandari-942554247/" target="_blank" rel="noopener" title="LinkedIn" class="social-icon-new"><img src="assets/linkedin.png" alt="LinkedIn"></a>
-                <a href="https://www.youtube.com/c/VADAZVLOGS" target="_blank" rel="noopener" title="YouTube" class="social-icon-new"><img src="assets/youtube.png" alt="YouTube"></a>
-                <a href="https://www.tiktok.com/@ramanbhandari007" target="_blank" rel="noopener" title="TikTok" class="social-icon-new"><img src="assets/tiktok.png" alt="TikTok"></a>
-                <a href="https://www.facebook.com/ramanbhandari07" target="_blank" rel="noopener" title="Facebook" class="social-icon-new"><img src="assets/facebook.png" alt="Facebook"></a>
-                <a href="https://www.instagram.com/ramanbhandari1991?igsh=OTJwOXNiMTQxaW1k" target="_blank" rel="noopener" title="Instagram" class="social-icon-new"><img src="assets/instagram.png" alt="Instagram"></a>
+        <!-- Your footer code remains the same -->
+        <div class="container footer-container-new">
+            <div class="footer-column-new footer-about-me">
+                <h3>Raman Bhandari</h3>
+                <div class="footer-social-icons-new">
+                    <a href="https://www.linkedin.com/in/raman-bhandari-942554247/" target="_blank" rel="noopener" title="LinkedIn" class="social-icon-new"><img src="assets/linkedin.png" alt="LinkedIn"></a>
+                    <a href="https://www.youtube.com/c/VADAZVLOGS" target="_blank" rel="noopener" title="YouTube" class="social-icon-new"><img src="assets/youtube.png" alt="YouTube"></a>
+                    <a href="https://www.tiktok.com/@ramanbhandari007" target="_blank" rel="noopener" title="TikTok" class="social-icon-new"><img src="assets/tiktok.png" alt="TikTok"></a>
+                    <a href="https://www.facebook.com/ramanbhandari07" target="_blank" rel="noopener" title="Facebook" class="social-icon-new"><img src="assets/facebook.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/ramanbhandari1991?igsh=OTJwOXNiMTQxaW1k" target="_blank" rel="noopener" title="Instagram" class="social-icon-new"><img src="assets/instagram.png" alt="Instagram"></a>
+                </div>
+                <p>Inventory Strategist, Web Enthusiast, and Data Specialist passionate about bridging efficiency with digital precision. Continuously learning and applying new skills to deliver impactful solutions.</p>
             </div>
-            <p>Inventory Strategist, Web Enthusiast, and Data Specialist passionate about bridging efficiency with digital precision. Continuously learning and applying new skills to deliver impactful solutions.</p>
+            <div class="footer-column-new footer-quick-links-me">
+                <h3>Quick Navigation</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Who Am I?</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="certifications.html">Certifications</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="vlogs.html">Vlogs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column-new footer-contact-me">
+                 <p>
+                    <svg class="contact-icon-inline" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"/><path d="M22 6L12 13L2 6"/></svg>
+                    <a href="mailto:ramanbhandari7@outlook.com">ramanbhandari7@outlook.com</a>
+                </p>
+                <p>
+                    <svg class="contact-icon-inline" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.3102 14.4432C16.1796 14.4432 15.0489 14.3526 13.9617 14.189C13.7055 14.1455 13.4402 14.2361 13.2501 14.4262L11.1558 16.5204C8.73394 15.3185 6.69943 13.2622 5.47571 10.8403L7.57898 8.7579C7.76007 8.55503 7.85062 8.29881 7.81618 8.04263C7.64364 6.95542 7.5621 5.82481 7.5621 4.69416C7.5621 4.24103 7.20106 3.88898 6.74794 3.88898H4.12824C3.68413 3.88898 3.33208 4.24103 3.33208 4.69416C3.33208 12.616 9.37489 18.6799 17.3102 18.6799C17.7543 18.6799 18.1063 18.3278 18.1063 17.8747V15.255C18.1063 14.8019 17.7543 14.4432 17.3102 14.4432Z"/></svg>
+                    <a href="tel:+9779810430546">+977 9810430546</a>
+                </p>
+                 <p>
+                    <svg class="contact-icon-inline" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z"/><path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"/></svg>
+                     Kerabari 6 Dangi, Morang, Nepal
+                 </p>
+            </div>
         </div>
-        <div class="footer-column-new footer-quick-links-me">
-            <h3>Quick Navigation</h3>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">Who Am I?</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="certifications.html">Certifications</a></li>
-                <li><a href="volunteer.html">Volunteer</a></li>
-                <li><a href="vlogs.html">Vlogs</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+        <div class="footer-bottom-new">
+            <div class="container">
+                 <p class="footer-quote">“Strive not to be a success, but rather to be of value.” – Albert Einstein</p>
+                <p class="copyright">© <span id="currentYearPersonalFooter"></span> Raman Bhandari. All Rights Reserved.</p>
+            </div>
         </div>
-        <div class="footer-column-new footer-contact-me">
-            <!-- ... contact details (same as before) ... -->
-             <p>
-                <svg class="contact-icon-inline" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"/><path d="M22 6L12 13L2 6"/></svg>
-                <a href="mailto:ramanbhandari7@outlook.com">ramanbhandari7@outlook.com</a>
-            </p>
-            <p>
-                <svg class="contact-icon-inline" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.3102 14.4432C16.1796 14.4432 15.0489 14.3526 13.9617 14.189C13.7055 14.1455 13.4402 14.2361 13.2501 14.4262L11.1558 16.5204C8.73394 15.3185 6.69943 13.2622 5.47571 10.8403L7.57898 8.7579C7.76007 8.55503 7.85062 8.29881 7.81618 8.04263C7.64364 6.95542 7.5621 5.82481 7.5621 4.69416C7.5621 4.24103 7.20106 3.88898 6.74794 3.88898H4.12824C3.68413 3.88898 3.33208 4.24103 3.33208 4.69416C3.33208 12.616 9.37489 18.6799 17.3102 18.6799C17.7543 18.6799 18.1063 18.3278 18.1063 17.8747V15.255C18.1063 14.8019 17.7543 14.4432 17.3102 14.4432Z"/></svg>
-                <a href="tel:+9779810430546">+977 9810430546</a>
-            </p>
-             <p>
-                <svg class="contact-icon-inline" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z"/><path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"/></svg>
-                 Kerabari 6 Dangi, Morang, Nepal
-             </p>
-        </div>
-    </div>
-    <div class="footer-bottom-new">
-        <div class="container">
-             <p class="footer-quote">“Strive not to be a success, but rather to be of value.” – Albert Einstein</p>
-            <p class="copyright">© <span id="currentYearPersonalFooter"></span> Raman Bhandari. All Rights Reserved.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
     <script src="js/script.js"></script>
 </body>
 </html>
